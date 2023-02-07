@@ -6,13 +6,15 @@ using UnityEngine.Assertions.Must;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed;
     public Transform orientation;
-    public LayerMask whatIsGround;
     public Rigidbody2D rb;
     Vector2 moveDirection;
 
+    [Header ("Ground")]
     public float groundDrag;
+    public LayerMask whatIsGround;
 
     public float playerHeight;
     public bool grounded;
