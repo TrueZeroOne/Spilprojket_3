@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Ground Check
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        Debug.Log("Eagle has Landed");
+        //Debug.Log("Eagle has Landed");
 
         PlayerInput();
         SpeedControl();
