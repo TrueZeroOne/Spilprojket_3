@@ -5,45 +5,74 @@ using UnityEngine;
 public class TinyBig : MonoBehaviour
 {
     // Start is called before the first frame update
+    //Size
     [SerializeField]
-    private float pBigHight = 3.5f;
+    private float pBigY = 3.5f;
     [SerializeField]
-    private float pBigFat = 1.5f;
+    private float pBigX = 1.5f;
     [SerializeField]
-    private float pSmallHight = 0.5f;
+    private float pSmallY = 0.5f;
     [SerializeField]
-    private float pSmallFat = 1.0f;
-    //public Transform pTF = 
-    public KeyCode keySize = KeyCode.O;
+    private float pSmallX = 1.0f;
+
+    //Game Object
+    private Transform pTF;
+    private SpriteRenderer pSR;
+    [SerializeField] Color cBig;
+    [SerializeField] Color cSmall;
+
+    //KeyCode
+    public KeyCode keySize = KeyCode.C;
+
+    //Bool
     public bool sizeBig = false;
 
     void Start()
     {
-        //pTF = GetComponent<Transform>();
-        sizeBig = false;
+        pTF = gameObject.transform;
+        pSR = GetComponent<SpriteRenderer>();
+        //sizeBig = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(keySize))
+        if (Input.GetKeyDown(keySize))//Key C
         {
             if(sizeBig == false)
             {
-                sizeBig = true;
-                
+                sizeBig = true;// Spilleren er STOR
+                SizeChange();
+                /*if (sizeBig == true)
+                {
+                    pTF.localScale = new Vector3(pBigX, pBigY, 1);
+
+                }*/
+                pSR.color = cBig;
+
             }
-            if(sizeBig == true)
+            else if(sizeBig == true)
             {
-                sizeBig = false;
+                sizeBig = false;// Spilleren er LILLE
+                SizeChange();
+                /*if (sizeBig == false)
+                {
+                    pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
+                }*/
+                pSR.color = cSmall;
             }
         }
     }
-    /*void SizeChange()
+    void SizeChange()
     {
         if (sizeBig==true)
         {
-            pTF.sc = pBigHight, pBigFat,1;
+            pTF.localScale = new Vector3(pBigX,pBigY,1);
+            
         }
-    }*/
+        else if (sizeBig == false)
+        {
+            pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
+        }
+    }
 }
