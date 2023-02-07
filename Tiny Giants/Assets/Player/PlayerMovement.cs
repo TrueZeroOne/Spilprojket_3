@@ -34,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
-
+        playerHeight = transform.lossyScale.y;
 
     }
     public void Update()
     {
         //Ground Check
-        grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.2f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 
         PlayerInput();

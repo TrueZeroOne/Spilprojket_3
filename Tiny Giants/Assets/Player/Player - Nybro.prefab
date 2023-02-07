@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4841252782811211590}
   - component: {fileID: 4841252782811211585}
   - component: {fileID: 4841252782811211584}
+  - component: {fileID: 4983720829720015972}
   m_Layer: 0
   m_Name: Player - Nybro
   m_TagString: Player
@@ -167,6 +168,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0034594536, y: -0.0012242794}
   m_Size: {x: 1.0069189, y: 2.019916}
   m_Direction: 0
+--- !u!114 &4983720829720015972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841252782811211594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c3a6279bf12ea44be7ccc22e6559dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pBigY: 3.5
+  pBigX: 1.5
+  pSmallY: 0.5
+  pSmallX: 1
+  cBig: {r: 1, g: 0, b: 0, a: 1}
+  cSmall: {r: 1, g: 0.57853, b: 0, a: 1}
+  keySize: 32
 --- !u!1 &4841252783595952823
 GameObject:
   m_ObjectHideFlags: 0
