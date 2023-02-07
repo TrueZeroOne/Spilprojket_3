@@ -5,45 +5,57 @@ using UnityEngine;
 public class TinyBig : MonoBehaviour
 {
     // Start is called before the first frame update
+    //Size
     [SerializeField]
-    private float pBigHight = 3.5f;
+    private float pBigY = 3.5f;
     [SerializeField]
-    private float pBigFat = 1.5f;
+    private float pBigX = 1.5f;
     [SerializeField]
     private float pSmallHight = 0.5f;
     [SerializeField]
     private float pSmallFat = 1.0f;
-    //public Transform pTF = 
-    public KeyCode keySize = KeyCode.O;
+
+    //Game Object
+    private Transform pTF;
+
+    //KeyCode
+    public KeyCode keySize = KeyCode.C;
     public bool sizeBig = false;
 
     void Start()
     {
-        //pTF = GetComponent<Transform>();
+        pTF = gameObject.transform;
         sizeBig = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(keySize))
+        if (Input.GetKeyDown(keySize))//Key C
         {
             if(sizeBig == false)
             {
-                sizeBig = true;
-                
+                sizeBig = true;// Spilleren er STOR
+                SizeChange();
+
             }
             if(sizeBig == true)
             {
-                sizeBig = false;
+                sizeBig = false;// Spilleren er LILLE
+                SizeChange();
             }
         }
     }
-    /*void SizeChange()
+    void SizeChange()
     {
         if (sizeBig==true)
         {
-            pTF.sc = pBigHight, pBigFat,1;
+            pTF.localScale = new Vector3(pBigX,pBigY,1);
+            
         }
-    }*/
+        if (sizeBig == false)
+        {
+            pTF.localScale = new Vector3(pBigX, pBigY, 1);
+        }
+    }
 }
