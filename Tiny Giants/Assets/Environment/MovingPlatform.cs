@@ -36,30 +36,31 @@ public class MovingPlatform : MonoBehaviour
 	{
 		bool gotPlayer = other.TryGetComponent(out TinyBig tinyBig);
 		if (gotPlayer)
-			if (!movePlatform)
-			{
-				rb.constraints = RigidbodyConstraints2D.FreezeAll;
-			}
+			if (!movePlatform) rb.constraints = RigidbodyConstraints2D.FreezeAll;
 			else
 			{
-				if (!transform.position.Equals(maxPosition) || !transform.position.Equals(minPosition))
+				rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+				Vector2 speed;
+				if (tinyBig.sizeBig && !transform.position.Equals(maxPosition))
 				{
-					rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-					Vector2 speed;
-					if (tinyBig.sizeBig)
-					{
-						ChangeDirection();
-						speed = direction * movingSpeed;
-						rb.velocity = speed;
-						rb.AddRelativeForce(speed);
-					}
-					else
-					{
-						ChangeDirection();
-						speed = oppositeDirection * movingSpeed;
-						rb.velocity = speed;
-						rb.AddRelativeForce(speed);
-					}
+					ChangeDirection();
+					speed = direction * movingSpeed;
+					rb.velocity = speed;
+					rb.AddRelativeForce(speed);
+				}
+				else if (!tinyBig.sizeBig && !transform.position.Equals(minPosition))
+				{
+					ChangeDirection();
+					speed = oppositeDirection * movingSpeed;
+					rb.velocity = speed;
+					rb.AddRelativeForce(speed);
+				}
+				else
+				{
+					speed = new Vector2(0, 0);
+					rb.velocity = speed;
+					rb.constraints = RigidbodyConstraints2D.FreezeAll;
+					rb.AddRelativeForce(speed);
 				}
 			}
 	}
