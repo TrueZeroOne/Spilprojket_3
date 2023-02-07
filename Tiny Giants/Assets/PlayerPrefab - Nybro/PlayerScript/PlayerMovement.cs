@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
 
+
     }
     public void Update()
     {
@@ -87,17 +88,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-        if (rb.velocity.magnitude > moveSpeed)
-            rb.velocity = rb.velocity.normalized * moveSpeed;
-        else
-        {
-            Vector2 flatVel = new Vector2(rb.velocity.x, rb.velocity.y);
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f);
 
-            if(flatVel.magnitude > moveSpeed)
-            {
-                Vector2 limitedVel = flatVel.normalized * moveSpeed;
-                rb.velocity = new Vector2(limitedVel.x, rb.velocity.y);
-            }
+        if(flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
 
@@ -105,9 +101,9 @@ public class PlayerMovement : MonoBehaviour
     {
 
         // reset y velocity
-        rb.velocity = new Vector3(rb.velocity.x, 0f);
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode2D.Force);
+        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
     private void ResetJump()
     {
