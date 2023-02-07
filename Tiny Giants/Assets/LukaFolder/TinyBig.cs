@@ -25,7 +25,7 @@ public class TinyBig : MonoBehaviour
     public KeyCode keySize = KeyCode.C;
 
     //Bool
-    public bool sizeBig = false;
+    static public bool sizeBig = false;
 
     void Start()
     {

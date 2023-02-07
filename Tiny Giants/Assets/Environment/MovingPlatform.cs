@@ -41,14 +41,14 @@ public class MovingPlatform : MonoBehaviour
 			{
 				rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 				Vector2 speed;
-				if (tinyBig.sizeBig && !transform.position.Equals(maxPosition))
+				if (TinyBig.sizeBig && transform.position.y <= maxPosition.y)
 				{
 					ChangeDirection();
 					speed = direction * movingSpeed;
 					rb.velocity = speed;
 					rb.AddRelativeForce(speed);
 				}
-				else if (!tinyBig.sizeBig && !transform.position.Equals(minPosition))
+				else if (!TinyBig.sizeBig && transform.position.y >= minPosition.y)
 				{
 					ChangeDirection();
 					speed = oppositeDirection * movingSpeed;
