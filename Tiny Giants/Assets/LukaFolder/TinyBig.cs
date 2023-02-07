@@ -11,21 +11,27 @@ public class TinyBig : MonoBehaviour
     [SerializeField]
     private float pBigX = 1.5f;
     [SerializeField]
-    private float pSmallHight = 0.5f;
+    private float pSmallY = 0.5f;
     [SerializeField]
-    private float pSmallFat = 1.0f;
+    private float pSmallX = 1.0f;
 
     //Game Object
     private Transform pTF;
+    private SpriteRenderer pSR;
+    [SerializeField] Color cBig;
+    [SerializeField] Color cSmall;
 
     //KeyCode
     public KeyCode keySize = KeyCode.C;
+
+    //Bool
     public bool sizeBig = false;
 
     void Start()
     {
         pTF = gameObject.transform;
-        sizeBig = false;
+        pSR = GetComponent<SpriteRenderer>();
+        //sizeBig = false;
     }
 
     // Update is called once per frame
@@ -37,12 +43,23 @@ public class TinyBig : MonoBehaviour
             {
                 sizeBig = true;// Spilleren er STOR
                 SizeChange();
+                /*if (sizeBig == true)
+                {
+                    pTF.localScale = new Vector3(pBigX, pBigY, 1);
+
+                }*/
+                pSR.color = cBig;
 
             }
-            if(sizeBig == true)
+            else if(sizeBig == true)
             {
                 sizeBig = false;// Spilleren er LILLE
                 SizeChange();
+                /*if (sizeBig == false)
+                {
+                    pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
+                }*/
+                pSR.color = cSmall;
             }
         }
     }
@@ -53,9 +70,9 @@ public class TinyBig : MonoBehaviour
             pTF.localScale = new Vector3(pBigX,pBigY,1);
             
         }
-        if (sizeBig == false)
+        else if (sizeBig == false)
         {
-            pTF.localScale = new Vector3(pBigX, pBigY, 1);
+            pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
         }
     }
 }

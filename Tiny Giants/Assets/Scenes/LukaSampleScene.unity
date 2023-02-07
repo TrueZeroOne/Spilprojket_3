@@ -427,7 +427,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 81855580194a71e4386fa6a59c2c3cd4, type: 3}
-  m_Color: {r: 0.22764327, g: 0.51750386, b: 0.8207547, a: 1}
+  m_Color: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -446,7 +446,7 @@ Transform:
   m_GameObject: {fileID: 2088843548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.38, y: -0.55, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -464,10 +464,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c3a6279bf12ea44be7ccc22e6559dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pBigHight: 3.5
-  pBigFat: 1.5
-  pSmallHight: 0.5
-  pSmallFat: 1
-  pTF: {fileID: 2088843552}
-  keySize: 111
+  pBigY: 3.5
+  pBigX: 1.5
+  pSmallY: 1
+  pSmallX: 0.5
+  cBig: {r: 0.8207547, g: 0.2121573, b: 0.24783936, a: 1}
+  cSmall: {r: 0.22764327, g: 0.51750386, b: 0.8207547, a: 1}
+  keySize: 99
   sizeBig: 0
