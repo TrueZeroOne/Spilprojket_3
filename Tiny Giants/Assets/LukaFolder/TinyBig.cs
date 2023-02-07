@@ -20,6 +20,8 @@ public class TinyBig : MonoBehaviour
     private SpriteRenderer pSR;
     [SerializeField] Color cBig;
     [SerializeField] Color cSmall;
+    [SerializeField] Sprite spSmall;
+    [SerializeField] Sprite spBig;
 
     //KeyCode
     public KeyCode keySize = KeyCode.C;
@@ -47,8 +49,9 @@ public class TinyBig : MonoBehaviour
                 {
                     pTF.localScale = new Vector3(pBigX, pBigY, 1);
 
-                }*/
+                }
                 pSR.color = cBig;
+                pSR.sprite = spBig;*/
 
             }
             else if(sizeBig == true)
@@ -58,8 +61,9 @@ public class TinyBig : MonoBehaviour
                 /*if (sizeBig == false)
                 {
                     pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
-                }*/
+                }
                 pSR.color = cSmall;
+                pSR.sprite = spSmall;*/
             }
         }
     }
@@ -67,12 +71,15 @@ public class TinyBig : MonoBehaviour
     {
         if (sizeBig==true)
         {
+            pSR.sprite = spBig;
             pTF.localScale = new Vector3(pBigX,pBigY,1);
-            
+            pSR.color = cBig;
         }
         else if (sizeBig == false)
         {
+            pSR.sprite = spSmall;
             pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
+            pSR.color = cSmall;
         }
     }
 }
