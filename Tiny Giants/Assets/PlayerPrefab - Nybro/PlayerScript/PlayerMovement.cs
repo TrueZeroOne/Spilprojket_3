@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
-        playerHeight = transform.localScale.x;
+
     }
     public void Update()
     {
