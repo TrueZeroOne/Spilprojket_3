@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4841252782811211584}
   m_Layer: 0
   m_Name: Player - Nybro
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,15 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   orientation: {fileID: 4841252783595952816}
+  rb: {fileID: 4841252782811211591}
+  groundDrag: 5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 4841252782811211591}
-  groundDrag: 5
   playerHeight: 2
   grounded: 0
   jumpKey: 32
-  jumpForce: 20
+  jumpForce: 400
   jumpCooldown: 0.25
   airMultiplier: 0.4
 --- !u!70 &4841252782811211585

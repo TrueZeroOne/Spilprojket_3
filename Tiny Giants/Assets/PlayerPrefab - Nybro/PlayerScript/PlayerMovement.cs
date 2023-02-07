@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
+        playerHeight = transform.localScale.x;
     }
     public void Update()
     {
@@ -106,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode2D.Force);
     }
     private void ResetJump()
     {
