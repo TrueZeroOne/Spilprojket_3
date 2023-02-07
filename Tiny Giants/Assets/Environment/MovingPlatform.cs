@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-	[SerializeField] private MovingDirection moveDirection;
-	[SerializeField] private float movingSpeed;
+	[SerializeField] private MovingDirection moveDirection = MovingDirection.up;
+	[SerializeField] private float movingSpeed = 1.11f;
 	[SerializeField] private Vector2 maxPosition, minPosition;
 
 	private Rigidbody2D rb;
