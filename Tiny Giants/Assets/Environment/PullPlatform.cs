@@ -19,9 +19,9 @@ public class PullPlatform : MonoBehaviour
                 if (!isGrabbed)
                 {
                     Debug.Log("HOLD THE FUCK ON!!!");
-                    player.gameObject.transform.parent = gameObject.transform;
+                    player.gameObject.transform.parent = gameObject.transform.parent;
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                    player.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
                     player.gameObject.GetComponent<PlayerMovement>().enabled = false;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     isGrabbed = !isGrabbed;
@@ -31,7 +31,7 @@ public class PullPlatform : MonoBehaviour
                     Debug.Log("LET IT GO!!!");
                     player.gameObject.transform.parent = null;
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                    player.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
                     player.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     isGrabbed = !isGrabbed;
