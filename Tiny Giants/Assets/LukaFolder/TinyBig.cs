@@ -72,12 +72,14 @@ public class TinyBig : MonoBehaviour
         if (sizeBig==true)
         {
             pSR.sprite = spBig;
+            pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pBigY - pTF.localScale.y), pTF.position.z);
             pTF.localScale = new Vector3(pBigX,pBigY,1);
             pSR.color = cBig;
         }
         else if (sizeBig == false)
         {
             pSR.sprite = spSmall;
+            pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
             pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             pSR.color = cSmall;
         }

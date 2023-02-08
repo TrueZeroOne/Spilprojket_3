@@ -12,14 +12,15 @@ public class PullPlatform : MonoBehaviour
     }
     void Update()
     {
-        if (Vector2.Distance(player.transform.position, transform.position) <= 1)
+        var dotProduct = Vector3.Dot(Vector3.down, (player.transform.position - transform.position).normalized);
+        Debug.Log(dotProduct);
+        if (Vector2.Distance(player.transform.position, transform.position) <= player.transform.lossyScale.y+transform.position.y&&dotProduct >=0.9)
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
                 if (!isGrabbed)
                 {
                     Debug.Log("HOLD THE FUCK ON!!!");
-                    player.gameObject.transform.parent = gameObject.transform.parent;
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
                     player.gameObject.GetComponent<PlayerMovement>().enabled = false;
@@ -29,7 +30,6 @@ public class PullPlatform : MonoBehaviour
                 else if (isGrabbed)
                 {
                     Debug.Log("LET IT GO!!!");
-                    player.gameObject.transform.parent = null;
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
                     player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
                     player.gameObject.GetComponent<PlayerMovement>().enabled = true;

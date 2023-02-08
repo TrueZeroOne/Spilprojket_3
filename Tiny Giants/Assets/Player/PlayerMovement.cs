@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public void Update()
     {
         //Ground Check
+        playerHeight = transform.lossyScale.y;
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.2f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 

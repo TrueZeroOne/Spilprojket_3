@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 237732808}
   - component: {fileID: 237732809}
   - component: {fileID: 237732811}
-  - component: {fileID: 237732810}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -150,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237732807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.026, y: -0.76, z: 0}
+  m_LocalPosition: {x: 0, y: -0.76, z: 0}
   m_LocalScale: {x: 0.2443, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -209,34 +208,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &237732810
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237732807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
 --- !u!114 &237732811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,8 +496,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299291417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.58, y: 2.2, z: 0}
-  m_LocalScale: {x: 3.6554, y: 0.4218, z: 1}
+  m_LocalPosition: {x: 2.34, y: 3.58, z: 0}
+  m_LocalScale: {x: 8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 237732808}
@@ -635,11 +606,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4841252782811211589, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4841252782811211589, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4841252782811211589, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
       propertyPath: m_LocalPosition.x
@@ -701,5 +672,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4983720829720015972, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
+      propertyPath: spBig
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+    - target: {fileID: 4983720829720015972, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
+      propertyPath: pSmallX
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983720829720015972, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
+      propertyPath: spSmall
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78736f52d3ab9e94b833a4c16c3df467, type: 3}
