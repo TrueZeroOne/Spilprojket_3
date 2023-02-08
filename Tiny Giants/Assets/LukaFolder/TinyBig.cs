@@ -22,6 +22,7 @@ public class TinyBig : MonoBehaviour
     [SerializeField] Color cSmall;
     [SerializeField] Sprite spSmall;
     [SerializeField] Sprite spBig;
+    public bool isGrabbing = false;
 
     //KeyCode
     public KeyCode keySize = KeyCode.C;
@@ -72,16 +73,41 @@ public class TinyBig : MonoBehaviour
         if (sizeBig==true)
         {
             pSR.sprite = spBig;
-            pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pBigY - pTF.localScale.y), pTF.position.z);
+            PlaceAfterSizeChange();
             pTF.localScale = new Vector3(pBigX,pBigY,1);
             pSR.color = cBig;
         }
         else if (sizeBig == false)
         {
             pSR.sprite = spSmall;
-            pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+            PlaceAfterSizeChange();
             pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             pSR.color = cSmall;
+        }
+    }
+    private void PlaceAfterSizeChange()
+    {
+        if (isGrabbing)
+        {
+            if (sizeBig)
+            {
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pBigY - pTF.localScale.y), pTF.position.z);
+            }
+            else if (!sizeBig)
+            {
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pTF.localScale.y - pSmallY), pTF.position.z);
+            }
+        }
+        else if (!isGrabbing)
+        {
+            if (sizeBig)
+            {
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pBigY - pTF.localScale.y), pTF.position.z);
+            }
+            else if (!sizeBig)
+            {
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+            }
         }
     }
 }
