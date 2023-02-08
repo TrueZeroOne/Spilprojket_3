@@ -7,7 +7,6 @@ public class Collectible : MonoBehaviour
 		if (col.CompareTag("Player"))
 		{
 			Destroy(gameObject);
-
 			CollectibleManager.collected++;
 			print($"You collected: {CollectibleManager.collected}/{CollectibleManager.collectiblesTotal} ({CollectibleManager.GetCollectiblesLeft()} Left)");
 		}
