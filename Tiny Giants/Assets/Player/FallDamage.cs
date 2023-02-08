@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallDamage : MonoBehaviour
 {
-	[SerializeField] private float fallDamageDistance = 4;
+	[SerializeField] private float fallDamageDistance = 1;
 	[SerializeField] private float raycastRange = 2;
 	[SerializeField] private float fallDamage = 50;
 	private PlayerMovement playerMovement;
