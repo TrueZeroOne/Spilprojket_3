@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Nybro - Scene.unity
+    guid: 7db936c12ba8e214c87115fb26b3184b
+  - enabled: 1
+    path: Assets/Scenes/Nybro - LoadTest.unity
+    guid: 89abf002ba7b114468513d67ad0798f1
   m_configObjects: {}
