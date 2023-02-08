@@ -39,7 +39,7 @@ public class MovingPlatform : MonoBehaviour
 			if (!movePlatform) rb.constraints = RigidbodyConstraints2D.FreezeAll;
 			else
 			{
-				rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+				rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
 
 				ChangeDirection();
 				MoveDirectionStates();
