@@ -40,29 +40,50 @@ public class MovingPlatform : MonoBehaviour
 			else
 			{
 				rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-				Vector2 speed;
-				if (TinyBig.sizeBig && transform.position.y <= maxPosition.y)
+
+				ChangeDirection();
+				MoveDirectionStates();
+			}
+	}
+
+	private void MoveDirectionStates()
+	{
+		Vector2 speed;
+
+		Vector3 position = transform.position;
+		float yPosition = position.y, xPosition = position.x;
+
+		if (TinyBig.sizeBig && (yPosition <= maxPosition.y && direction == Vector2.up))
+		{
+			speed = direction * movingSpeed;
+			rb.velocity = speed;
+			rb.AddRelativeForce(speed);
+		}
+		else if (!TinyBig.sizeBig && (yPosition >= minPosition.y && oppositeDirection == Vector2.down))
+		{
+			speed = oppositeDirection * movingSpeed;
+			rb.velocity = speed;
+			rb.AddRelativeForce(speed);
+		}
+		/*else if (TinyBig.sizeBig && (xPosition <= maxPosition.x && direction == Vector2.left))
 				{
-					ChangeDirection();
 					speed = direction * movingSpeed;
 					rb.velocity = speed;
 					rb.AddRelativeForce(speed);
 				}
-				else if (!TinyBig.sizeBig && transform.position.y >= minPosition.y)
+				else if (!TinyBig.sizeBig && (xPosition >= minPosition.x && oppositeDirection == Vector2.right))
 				{
-					ChangeDirection();
 					speed = oppositeDirection * movingSpeed;
 					rb.velocity = speed;
 					rb.AddRelativeForce(speed);
-				}
-				else
-				{
-					speed = new Vector2(0, 0);
-					rb.velocity = speed;
-					rb.constraints = RigidbodyConstraints2D.FreezeAll;
-					rb.AddRelativeForce(speed);
-				}
-			}
+				}*/
+		else
+		{
+			speed = new Vector2(0, 0);
+			rb.velocity = speed;
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+			rb.AddRelativeForce(speed);
+		}
 	}
 
 	private void ChangeDirection()
