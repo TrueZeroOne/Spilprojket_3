@@ -15,18 +15,17 @@ public class PullPlatform : MonoBehaviour
     }
     void Update()
     {
-        var dotProduct = Vector3.Dot(Vector3.down, (player.transform.position - transform.position).normalized);
-        Debug.Log(dotProduct);
+        Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + player.transform.lossyScale.y, player.transform.position.z);
+        Debug.Log(Vector2.Distance(playerTop, transform.position));
         
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (!isGrabbed)
             {
-                if (Vector2.Distance(player.transform.position, transform.position) <= player.transform.localScale.y + transform.localScale.y && dotProduct >= 0.9)
+                if (Vector2.Distance(playerTop, transform.position) <= transform.localScale.y)
                 {
                     Debug.Log("HOLD THE FUCK ON!!!");
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                    player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
                     player.gameObject.GetComponent<PlayerMovement>().enabled = false;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     isGrabbed = !isGrabbed;
@@ -37,7 +36,6 @@ public class PullPlatform : MonoBehaviour
             {
                 Debug.Log("LET IT GO!!!");
                 player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
                 player.gameObject.GetComponent<PlayerMovement>().enabled = true;
                 gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 isGrabbed = !isGrabbed;
@@ -59,6 +57,8 @@ public class PullPlatform : MonoBehaviour
             }
             gameObject.GetComponentInParent<Rigidbody2D>().velocity = speed;
             gameObject.GetComponentInParent<Rigidbody2D>().AddRelativeForce(speed);
+            player.GetComponent<Rigidbody2D>().velocity = speed;
+            player.GetComponent<Rigidbody2D>().AddRelativeForce(speed);
         }
     }
 }

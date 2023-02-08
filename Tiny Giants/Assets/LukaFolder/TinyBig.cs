@@ -40,12 +40,34 @@ public class TinyBig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit2D fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x,transform.position.y+transform.lossyScale.y*2), new Vector2(transform.lossyScale.x,0.001f), 0f,Vector2.up);
+        RaycastHit2D fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(transform.lossyScale.x, 0.001f), 0f, Vector2.down);
+        Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
+        Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
+        
         if (Input.GetKeyDown(keySize))//Key C
         {
             if(sizeBig == false)
             {
-                sizeBig = true;// Spilleren er STOR
-                SizeChange();
+                if (!isGrabbing)
+                {
+                    if (fitsUp.distance > pBigY * 2 - pTF.lossyScale.y * 3 || fitsUp.distance == 0 && fitsUp.collider == null )
+                    {
+                        sizeBig = true;// Spilleren er STOR
+                        SizeChange();
+                    }
+                }
+                else if (isGrabbing)
+                {
+                    if (fitsDown.distance > pBigY * 2 - pTF.lossyScale.y * 3 || fitsDown.distance == 0 && fitsDown.collider == null)
+                    {
+                        sizeBig = true;// Spilleren er STOR
+                        SizeChange();
+                    }
+                }
+                
+                //sizeBig = true;// Spilleren er STOR
+                //SizeChange();
                 /*if (sizeBig == true)
                 {
                     pTF.localScale = new Vector3(pBigX, pBigY, 1);
@@ -73,19 +95,19 @@ public class TinyBig : MonoBehaviour
         if (sizeBig==true)
         {
             pSR.sprite = spBig;
-            PlaceAfterSizeChange();
+            PositionAfterSizeChange();
             pTF.localScale = new Vector3(pBigX,pBigY,1);
             pSR.color = cBig;
         }
         else if (sizeBig == false)
         {
             pSR.sprite = spSmall;
-            PlaceAfterSizeChange();
+            PositionAfterSizeChange();
             pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             pSR.color = cSmall;
         }
     }
-    private void PlaceAfterSizeChange()
+    private void PositionAfterSizeChange()
     {
         if (isGrabbing)
         {
