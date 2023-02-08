@@ -488,7 +488,7 @@ Transform:
   - {fileID: 791463465}
   - {fileID: 1512313491}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &155773535
 PrefabInstance:
@@ -788,7 +788,7 @@ Transform:
   - {fileID: 1707658107}
   - {fileID: 697204482}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &496431112 stripped
 Transform:
@@ -1271,13 +1271,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866405679}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1713689512}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &886017376 stripped
 Transform:
@@ -1392,7 +1392,7 @@ Transform:
   - {fileID: 267267056}
   - {fileID: 80597395}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1016507448
 PrefabInstance:
@@ -1468,7 +1468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3628336353183149202, guid: 2ed6db5371466094ba08c6a40e4f7fee, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3628336353183149202, guid: 2ed6db5371466094ba08c6a40e4f7fee, type: 3}
       propertyPath: m_LocalScale.x
@@ -1736,7 +1736,7 @@ Transform:
   - {fileID: 629386849}
   - {fileID: 886017376}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1291322482
 PrefabInstance:
@@ -1891,7 +1891,7 @@ Transform:
   - {fileID: 496431112}
   - {fileID: 2144058375}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1460012603
 PrefabInstance:
@@ -2082,6 +2082,11 @@ PolygonCollider2D:
       - {x: 0.40234375, y: 0.79296875}
       - {x: 0.29296875, y: 0.90234375}
       - {x: 0.15234375, y: 0.97265625}
+--- !u!4 &1713689512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3628336353183149202, guid: 2ed6db5371466094ba08c6a40e4f7fee, type: 3}
+  m_PrefabInstance: {fileID: 1019311251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1738315461
 PrefabInstance:
   m_ObjectHideFlags: 0
