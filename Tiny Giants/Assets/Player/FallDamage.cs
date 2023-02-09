@@ -30,21 +30,21 @@ public class FallDamage : MonoBehaviour
 		
 		Vector3 position = playerTransform.position;
 		Vector3 localScale = playerTransform.localScale;
-		Vector2 origin = new Vector2(position.x, position.y - localScale.y - (localScale.y / 4 + localScale.y / 4 + 0.02f) - raycastRange / 2);
-		var size = new Vector2(localScale.x, localScale.y + raycastRange);
+		Vector2 origin = new Vector2(position.x, position.y - localScale.y - 0.11f);
+		var size = new Vector2(localScale.x, 0.1f);
 		gizmosOrigin = origin;
 		gizmosSize = size;
 		RaycastHit2D raycastHit = Physics2D.Raycast(origin, rayDirection * raycastRange);
-		RaycastHit2D raycastHitBox = Physics2D.BoxCast(origin, size, 90, Vector2.down);
+		RaycastHit2D raycastHitBox = Physics2D.BoxCast(origin, size, 0, Vector2.down);
 
 		if (raycastHitBox && !isGrounded)
 		{
-			if (raycastHitBox.distance >= tinyPlayerFallDamageDistance && !shouldTakeFallDamage)
+			if (raycastHitBox.distance >= tinyPlayerFallDamageDistance - size.y && !shouldTakeFallDamage)
 			{
 				shouldTakeFallDamage = true;
 				fallDistance = raycastHitBox.distance;
 			}
-			else if (raycastHitBox.distance <= bigPlayerFallDamageDistance && shouldTakeFallDamage)
+			else if (raycastHitBox.distance <= bigPlayerFallDamageDistance - size.y && shouldTakeFallDamage)
 			{
 				shouldTakeFallDamage = false;
 			}
