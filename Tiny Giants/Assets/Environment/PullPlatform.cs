@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PullPlatform : MonoBehaviour
 {
-    bool isGrabbed = false;
+    public bool isGrabbed = false;
     GameObject player;
     Vector2 speed;
     public int moveSpeed;
@@ -16,17 +16,16 @@ public class PullPlatform : MonoBehaviour
     void Update()
     {
         Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + player.transform.lossyScale.y, player.transform.position.z);
-        Debug.Log(Vector2.Distance(playerTop, transform.position));
         
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (!isGrabbed)
             {
-                if (Vector2.Distance(playerTop, transform.position) <= transform.localScale.y)
+                if (Vector2.Distance(playerTop, transform.position) <= transform.lossyScale.y/2)
                 {
                     Debug.Log("HOLD THE FUCK ON!!!");
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                    player.gameObject.GetComponent<PlayerMovement>().enabled = false;
+                    player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = true;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     isGrabbed = !isGrabbed;
                     player.GetComponent<TinyBig>().isGrabbing = true;
@@ -36,7 +35,7 @@ public class PullPlatform : MonoBehaviour
             {
                 Debug.Log("LET IT GO!!!");
                 player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                player.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = false;
                 gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 isGrabbed = !isGrabbed;
                 player.GetComponent<TinyBig>().isGrabbing = false;
@@ -55,10 +54,18 @@ public class PullPlatform : MonoBehaviour
                 speed = new Vector2(0, 0);
                 speed *= moveSpeed;
             }
-            gameObject.GetComponentInParent<Rigidbody2D>().velocity = speed;
-            gameObject.GetComponentInParent<Rigidbody2D>().AddRelativeForce(speed);
-            player.GetComponent<Rigidbody2D>().velocity = speed;
-            player.GetComponent<Rigidbody2D>().AddRelativeForce(speed);
+            if (!player.GetComponent<PlayerMovement>().grounded)
+            {
+                gameObject.GetComponentInParent<Rigidbody2D>().velocity = speed;
+                gameObject.GetComponentInParent<Rigidbody2D>().AddRelativeForce(speed);
+                player.GetComponent<Rigidbody2D>().velocity = speed;
+                player.GetComponent<Rigidbody2D>().AddRelativeForce(speed);
+            }
+            else
+            {
+                gameObject.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
+                player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
         }
     }
 }

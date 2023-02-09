@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 0
   movingSpeed: 2
-  maxPosition: {x: 0, y: 10}
-  minPosition: {x: 0, y: -10}
+  maxPosition: {x: 0, y: 100}
+  minPosition: {x: 0, y: -100}
 --- !u!61 &7205677917040166393
 BoxCollider2D:
   m_ObjectHideFlags: 0

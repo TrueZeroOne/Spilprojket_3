@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
+    public bool grabbingPlatform = false;
 
     public void Start()
     {
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Ground Check
         playerHeight = transform.lossyScale.y;
-        grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.2f, whatIsGround);
+        grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.05f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 
         PlayerInput();
@@ -76,15 +77,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        if (!grabbingPlatform)
+        {
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // on ground
-        if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode2D.Force);
+            // on ground
+            if (grounded)
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode2D.Force);
 
-        // in air
-        else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode2D.Force);
+            // in air
+            else if (!grounded)
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode2D.Force);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0,rb.velocity.y);
+        }
     }
 
     private void SpeedControl()

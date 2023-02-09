@@ -42,12 +42,13 @@ public class MovingPlatform : MonoBehaviour
 				rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
 
 				ChangeDirection();
-				MoveDirectionStates();
+				MoveDirectionStates(other);
 			}
 	}
 
-	private void MoveDirectionStates()
+	private void MoveDirectionStates(Collider2D other)
 	{
+		Rigidbody2D playerRB = other.GetComponent<Rigidbody2D>();
 		Vector2 speed;
 
 		Vector3 position = transform.position;
@@ -64,6 +65,8 @@ public class MovingPlatform : MonoBehaviour
 			speed = oppositeDirection * movingSpeed;
 			rb.velocity = speed;
 			rb.AddRelativeForce(speed);
+			playerRB.velocity = new Vector2(playerRB.velocity.x, speed.y);
+			playerRB.AddRelativeForce(speed);
 		}
 		/*else if (TinyBig.sizeBig && (xPosition <= maxPosition.x && direction == Vector2.left))
 				{

@@ -165,9 +165,10 @@ MonoBehaviour:
   playerHeight: 1
   grounded: 0
   jumpKey: 32
-  jumpForce: 5
+  jumpForce: 4
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  grabbingPlatform: 0
 --- !u!60 &3583311299801503160
 PolygonCollider2D:
   m_ObjectHideFlags: 0
