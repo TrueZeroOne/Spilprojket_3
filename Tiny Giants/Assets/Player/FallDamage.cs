@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class FallDamage : MonoBehaviour
 {
-	[FormerlySerializedAs("smallPlayerFallDamageDistance"),SerializeField] private float tinyPlayerFallDamageDistance = 1;
-	[SerializeField] private float bigPlayerFallDamageDistance = 2;
+	[SerializeField] private float tinyPlayerFallDamageDistance = 6.8f;
+	[SerializeField] private float bigPlayerFallDamageDistance = 7.8f;
 	[SerializeField] private float raycastRange = 2;
 	[SerializeField] private float fallDamage = 50;
 	private PlayerMovement playerMovement;
@@ -15,6 +14,8 @@ public class FallDamage : MonoBehaviour
 
 	private Vector2 gizmosOrigin;
 	private Vector2 gizmosSize;
+
+	private bool smallFall;
 
 	private void Awake()
 	{
@@ -31,22 +32,38 @@ public class FallDamage : MonoBehaviour
 		Vector3 position = playerTransform.position;
 		Vector3 localScale = playerTransform.localScale;
 		Vector2 origin = new Vector2(position.x, position.y - localScale.y - 0.11f);
-		var size = new Vector2(localScale.x, 0.1f);
+
+		Vector2 size = new Vector2(localScale.x, 0.1f);
+		
 		gizmosOrigin = origin;
 		gizmosSize = size;
 		RaycastHit2D raycastHit = Physics2D.Raycast(origin, rayDirection * raycastRange);
 		RaycastHit2D raycastHitBox = Physics2D.BoxCast(origin, size, 0, Vector2.down);
-
 		if (raycastHitBox && !isGrounded)
 		{
-			if (raycastHitBox.distance >= tinyPlayerFallDamageDistance - size.y && !shouldTakeFallDamage)
+			if (!TinyBig.sizeBig)
 			{
-				shouldTakeFallDamage = true;
-				fallDistance = raycastHitBox.distance;
+				smallFall = true;
+				print(tinyPlayerFallDamageDistance - size.y);
+				if (raycastHitBox.distance >= tinyPlayerFallDamageDistance - size.y && !shouldTakeFallDamage)
+				{
+					shouldTakeFallDamage = true;
+					fallDistance = raycastHitBox.distance;
+				}
 			}
-			else if (raycastHitBox.distance <= bigPlayerFallDamageDistance - size.y && shouldTakeFallDamage)
+			else
 			{
-				shouldTakeFallDamage = false;
+				print(bigPlayerFallDamageDistance - size.y);
+				if (raycastHitBox.distance >= bigPlayerFallDamageDistance - size.y && !shouldTakeFallDamage)
+				{
+					shouldTakeFallDamage = true;
+					fallDistance = raycastHitBox.distance;
+				}
+				else if (raycastHitBox.distance <= bigPlayerFallDamageDistance - size.y && shouldTakeFallDamage && smallFall)
+				{
+					smallFall = false;
+					shouldTakeFallDamage = false;
+				}
 			}
 			print($"BoxRH Distance: {raycastHitBox.distance} ({raycastHitBox.collider.name}) | Big FDmg Distance: {bigPlayerFallDamageDistance} | Tiny FDmg Distance: {tinyPlayerFallDamageDistance} | Take Dmg: {shouldTakeFallDamage}");
 		}
@@ -54,6 +71,7 @@ public class FallDamage : MonoBehaviour
 		{
 			print($"Take fall damage at this distance ({fallDistance})");
 			shouldTakeFallDamage = false;
+			smallFall = false;
 			health.TakeDamage(fallDamage);
 		}
 	}

@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f07e6d257b0b6245a4ce4065206a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDamageDistance: 4
+  tinyPlayerFallDamageDistance: 6.8
+  bigPlayerFallDamageDistance: 7.8
   raycastRange: 2
   fallDamage: 50
