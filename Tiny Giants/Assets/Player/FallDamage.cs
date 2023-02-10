@@ -17,10 +17,13 @@ public class FallDamage : MonoBehaviour
 
 	private bool smallFall;
 
+	private TinyBig tinyBig;
+
 	private void Awake()
 	{
 		playerMovement = GetComponent<PlayerMovement>();
 		health = GetComponent<Health>();
+		tinyBig = GetComponent<TinyBig>();
 	}
 	private void Update()
 	{
@@ -41,7 +44,7 @@ public class FallDamage : MonoBehaviour
 		RaycastHit2D raycastHitBox = Physics2D.BoxCast(origin, size, 0, Vector2.down);
 		if (raycastHitBox && !isGrounded)
 		{
-			if (!TinyBig.sizeBig)
+			if (!tinyBig.sizeBig)
 			{
 				smallFall = true;
 				print(tinyPlayerFallDamageDistance - size.y);
@@ -90,13 +93,13 @@ public class FallDamage : MonoBehaviour
 		//Gizmos.DrawWireCube(origin, new Vector2(localScale.x, localScale.y + raycastRange));
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireCube(gizmosOrigin, gizmosSize);
-		if (TinyBig.sizeBig)
+		if (tinyBig.sizeBig)
 		{
 			Gizmos.color = Color.green;
 			var bigOrigin = new Vector2(origin.x, position.y - localScale.y);
 			Gizmos.DrawRay(bigOrigin, rayDirection * bigPlayerFallDamageDistance);
 		}
-		else if (!TinyBig.sizeBig)
+		else if (!tinyBig.sizeBig)
 		{
 			Gizmos.color = Color.yellow;
 			var tinyOrigin = new Vector2(origin.x, position.y - localScale.y);

@@ -8,9 +8,11 @@ public class PullPlatform : MonoBehaviour
     GameObject player;
     Vector2 speed;
     public int moveSpeed;
+    private TinyBig tinyBig;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        tinyBig = player.GetComponent<TinyBig>();
         
     }
     void Update()
@@ -44,7 +46,7 @@ public class PullPlatform : MonoBehaviour
         }
         if (isGrabbed)
         {
-            if (!TinyBig.sizeBig)
+            if (!tinyBig.sizeBig)
             {
                 speed = new Vector2(0, -1);
                 speed *= moveSpeed;
