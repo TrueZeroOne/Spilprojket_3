@@ -30,6 +30,10 @@ public class TinyBig : MonoBehaviour
     //Bool
     public bool sizeBig = false;
 
+    //RayCastHit2D
+    RaycastHit2D fitsUp;
+    RaycastHit2D fitsDown;
+
     void Start()
     {
         pTF = gameObject.transform;
@@ -40,8 +44,8 @@ public class TinyBig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up) ;
-        RaycastHit2D fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down);
+        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up);
+        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         
@@ -51,7 +55,7 @@ public class TinyBig : MonoBehaviour
             {
                 if (!isGrabbing)
                 {
-                    if (fitsUp.distance > pBigY * 2 - pTF.lossyScale.y * 3 || fitsUp.distance == 0 && fitsUp.collider == null )
+                    if (fitsUp.distance > pBigY * 2 - pTF.lossyScale.y * 5 || fitsUp.distance == 0 && fitsUp.collider == null )
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
@@ -59,7 +63,7 @@ public class TinyBig : MonoBehaviour
                 }
                 else if (isGrabbing)
                 {
-                    if (fitsDown.distance > pBigY * 2 - pTF.lossyScale.y * 3 || fitsDown.distance == 0 && fitsDown.collider == null)
+                    if (fitsDown.distance > pBigY * 2 - pTF.lossyScale.y * 5 || fitsDown.distance == 0 && fitsDown.collider == null)
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
@@ -124,11 +128,32 @@ public class TinyBig : MonoBehaviour
         {
             if (sizeBig)
             {
-                pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pBigY - pTF.localScale.y), pTF.position.z);
+                if (!GetComponent<PlayerMovement>().grounded)
+                {
+                    return;
+                }
+                else
+                {
+                    pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pBigY - pTF.localScale.y), pTF.position.z);
+                }
             }
             else if (!sizeBig)
             {
-                pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+                if (!GetComponent<PlayerMovement>().grounded)
+                {
+                    if (fitsDown.distance > pBigY - pTF.lossyScale.y && fitsUp.distance > pBigY - pTF.lossyScale.y)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+                    }
+                }
+                else
+                {
+                    pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+                }
             }
         }
     }
