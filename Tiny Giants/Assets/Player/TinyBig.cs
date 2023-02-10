@@ -44,8 +44,8 @@ public class TinyBig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up);
-        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down);
+        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
+        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         
@@ -141,7 +141,7 @@ public class TinyBig : MonoBehaviour
             {
                 if (!GetComponent<PlayerMovement>().grounded)
                 {
-                    if (fitsDown.distance > pBigY - pTF.lossyScale.y || fitsUp.distance == 0 && fitsDown.collider == null && fitsUp.distance > pBigY - pTF.lossyScale.y || fitsUp.distance == 0 && fitsUp.collider == null)
+                    if (fitsDown.distance > pBigY - pTF.lossyScale.y || (fitsUp.distance == 0 && fitsDown.collider == null) && fitsUp.distance > pBigY - pTF.lossyScale.y || (fitsUp.distance == 0 && fitsUp.collider == null))
                     {
                         return;
                     }
