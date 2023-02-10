@@ -21,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public KeyCode jumpKey = KeyCode.Space;
-    public float jumpForce;
+    public float jumpForceBig;
+    public float jumpForceSmall;
     public float jumpCooldown;
     public float airMultiplier;
 
@@ -30,12 +31,14 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     public bool grabbingPlatform = false;
+    private TinyBig tinyBig;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
         playerHeight = transform.lossyScale.y;
+        tinyBig = GetComponent<TinyBig>();
 
     }
     public void Update()
@@ -108,11 +111,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (tinyBig.sizeBig)
+        {
+            // reset y velocity
+            rb.velocity = new Vector3(rb.velocity.x, jumpForceBig);
 
-        // reset y velocity
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce);
+            rb.AddForce(transform.up * jumpForceBig, ForceMode2D.Impulse);
+        }
+        else if (!tinyBig.sizeBig)
+        {
+            // reset y velocity
+            rb.velocity = new Vector3(rb.velocity.x, jumpForceSmall);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(transform.up * jumpForceSmall, ForceMode2D.Impulse);
+        } 
     }
     private void ResetJump()
     {

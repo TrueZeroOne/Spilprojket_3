@@ -165,7 +165,8 @@ MonoBehaviour:
   playerHeight: 1
   grounded: 0
   jumpKey: 32
-  jumpForce: 4
+  jumpForceBig: 3.4
+  jumpForceSmall: 4.5
   jumpCooldown: 0.25
   airMultiplier: 0.4
   grabbingPlatform: 0
@@ -238,6 +239,7 @@ MonoBehaviour:
   spBig: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   isGrabbing: 0
   keySize: 107
+  sizeBig: 0
 --- !u!114 &7074397791546094759
 MonoBehaviour:
   m_ObjectHideFlags: 0
