@@ -40,7 +40,7 @@ public class TinyBig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x,transform.position.y+transform.lossyScale.y*2), new Vector2(pBigX,0.001f), 0f,Vector2.up);
+        RaycastHit2D fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up) ;
         RaycastHit2D fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
