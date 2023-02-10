@@ -1,0 +1,26 @@
+Font: Segoe UI Symbol  Style: Regular
+Point Size: 158   SP/PD Ratio: 5.7%
+
+Characters included: 56/69
+Missing characters: 13
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+ID: 127897	Hex: 1F399	Char []
+ID: 127898	Hex: 1F39A	Char []
+ID: 127899	Hex: 1F39B	Char []
+ID: 128477	Hex: 1F5DD	Char []
+ID: 128736	Hex: 1F6E0	Char []
+ID: 129521	Hex: 1F9F1	Char [隣]
+ID: 128476	Hex: 1F5DC	Char []
+ID: 128738	Hex: 1F6E2	Char []
+ID: 128433	Hex: 1F5B1	Char []
+ID: 128434	Hex: 1F5B2	Char []
+ID: 128424	Hex: 1F5A8	Char []
+ID: 128421	Hex: 1F5A5	Char []
+ID: 10	Hex: A	Char [
+]
+
+Characters excluded from packing:
+----------------------------------------
