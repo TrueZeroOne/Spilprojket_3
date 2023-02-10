@@ -141,7 +141,7 @@ public class TinyBig : MonoBehaviour
             {
                 if (!GetComponent<PlayerMovement>().grounded)
                 {
-                    if (fitsDown.distance > pBigY - pTF.lossyScale.y && fitsUp.distance > pBigY - pTF.lossyScale.y)
+                    if (fitsDown.distance > pBigY - pTF.lossyScale.y || fitsUp.distance == 0 && fitsDown.collider == null && fitsUp.distance > pBigY - pTF.lossyScale.y || fitsUp.distance == 0 && fitsUp.collider == null)
                     {
                         return;
                     }
