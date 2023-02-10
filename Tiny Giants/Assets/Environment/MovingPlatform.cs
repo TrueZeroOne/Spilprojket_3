@@ -18,7 +18,7 @@ public class MovingPlatform : MonoBehaviour
 		rb.constraints = RigidbodyConstraints2D.FreezeAll;
 	}
 
-	private void OnTriggerStay2D(Collider2D col) => DetectPlayer(col);
+	
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
@@ -28,9 +28,14 @@ public class MovingPlatform : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D col)
 	{
-		movePlatform = false;
-		DetectPlayer(col);
+		if(col.tag == "Player")
+        {
+			movePlatform = false;
+			DetectPlayer(col);
+        }
+		
 	}
+	private void OnTriggerStay2D(Collider2D col) => DetectPlayer(col);
 
 	private void DetectPlayer(Collider2D other)
 	{
