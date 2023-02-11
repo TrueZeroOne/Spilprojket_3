@@ -28,7 +28,7 @@ public class MovingPlatform : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D col)
 	{
-		if(col.tag == "Player")
+		if (col.CompareTag("Player"))
         {
 			movePlatform = false;
 			DetectPlayer(col);

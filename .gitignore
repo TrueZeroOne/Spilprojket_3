@@ -93,3 +93,77 @@ Tiny Giants/Assets/Plugins/Background Recompiler/Scripts/BackgroundRecompiler.cs
 Tiny Giants/Assets/Plugins/Background Recompiler/Scripts/BackgroundRecompiler.cs.meta
 Tiny Giants/Assets/Plugins/Background Recompiler/Scripts/Plugins.BackgroundRecompiler.Editor.asmdef
 Tiny Giants/Assets/Plugins/Background Recompiler/Scripts/Plugins.BackgroundRecompiler.Editor.asmdef.meta
+Tiny Giants/Assets/PlayerPrefsEditor.meta
+Tiny Giants/Assets/PlayerPrefsEditor/CHANGELOG.md
+Tiny Giants/Assets/PlayerPrefsEditor/CHANGELOG.md.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/Images.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/Images/bgtools_ppe_manual_filterModes.png
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/Images/bgtools_ppe_manual_filterModes.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/Images/bgtools_ppe_manual_layout.png
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/Images/bgtools_ppe_manual_layout.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/MANUAL.html
+Tiny Giants/Assets/PlayerPrefsEditor/Documentation/MANUAL.html.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/exclamation.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/exclamation.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/ImageManager.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/ImageManager.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/info.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/info.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/not_watching.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/not_watching.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/os_linux_icon.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/os_linux_icon.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/os_mac_icon.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/os_mac_icon.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/os_win_icon.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/os_win_icon.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/refresh.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/refresh.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/sort.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/sort.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/sort_asc.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/sort_asc.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/sort_desc.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/sort_desc.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/trash.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/trash.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/Unity.PlayerPrefsEditor.EditorResources.asmdef
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/Unity.PlayerPrefsEditor.EditorResources.asmdef.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/watching.png
+Tiny Giants/Assets/PlayerPrefsEditor/Editor Resources/watching.png.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Dialogs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Dialogs/TextFieldDialog.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Dialogs/TextFieldDialog.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Dialogs/TextValidator.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Dialogs/TextValidator.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Extensions.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Extensions/CenterOnWindow.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceEntry.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceEntry.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceEntryHolder.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceEntryHolder.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferencesEditorWindow.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/PreferenceStorageAccessor.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/PreferencesEditor/RegistryMonitor.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Styles.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Styles.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Unity.PlayerPrefsEditor.Editor.asmdef
+Tiny Giants/Assets/PlayerPrefsEditor/Editor/Unity.PlayerPrefsEditor.Editor.asmdef.meta
+Tiny Giants/Assets/PlayerPrefsEditor/README.md
+Tiny Giants/Assets/PlayerPrefsEditor/README.md.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Samples.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene/PlayerPrefsController.cs
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene/PlayerPrefsController.cs.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene/SampleScene.unity
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene/SampleScene.unity.meta
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene/Unity.PlayerPrefsEditor.Samples.SampleScene.asmdef
+Tiny Giants/Assets/PlayerPrefsEditor/Samples/SampleScene/Unity.PlayerPrefsEditor.Samples.SampleScene.asmdef.meta
