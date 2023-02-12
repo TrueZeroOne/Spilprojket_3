@@ -269,3 +269,4 @@ MonoBehaviour:
   bigPlayerFallDamageDistance: 7.8
   raycastRange: 2
   fallDamage: 50
+  tinyBig: {fileID: 5902683083011812005}

@@ -17,13 +17,13 @@ public class FallDamage : MonoBehaviour
 
 	private bool smallFall;
 
-	private TinyBig tinyBig;
+	[SerializeField] private TinyBig tinyBig;
 
 	private void Awake()
 	{
 		playerMovement = GetComponent<PlayerMovement>();
 		health = GetComponent<Health>();
-		tinyBig = GetComponent<TinyBig>();
+		if (tinyBig == null) tinyBig = GetComponent<TinyBig>();
 	}
 	private void Update()
 	{
