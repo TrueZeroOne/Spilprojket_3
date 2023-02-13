@@ -16,6 +16,11 @@ public class TinyBig : MonoBehaviour
     [SerializeField]
     private float pSmallX = 1.0f;
 
+
+    [SerializeField] private Vector3 v3Big;
+    [SerializeField] private Vector3 v3Small;
+    [SerializeField] private Vector3 currentSize;
+
     //Game Object
     private Transform pTF;
     private SpriteRenderer pSR;
@@ -38,8 +43,15 @@ public class TinyBig : MonoBehaviour
     //New Input System
     private PlayerInput playerInput;
 
+    [SerializeField] private PolygonCollider2D bigPC;
+    [SerializeField] private PolygonCollider2D smallPC;
+
     void Start()
     {
+        v3Big = spBig.bounds.extents;
+        v3Small = spSmall.bounds.extents;
+        currentSize = v3Small;
+
         pTF = gameObject.transform;
         pSR = GetComponent<SpriteRenderer>();
         //sizeBig = false;
@@ -51,8 +63,8 @@ public class TinyBig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
-        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - transform.lossyScale.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
+        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
+        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         
@@ -62,7 +74,7 @@ public class TinyBig : MonoBehaviour
             {
                 if (!isGrabbing)
                 {
-                    if (fitsUp.distance > pBigY * 2 - pTF.lossyScale.y * 5 || fitsUp.distance == 0 && fitsUp.collider == null )
+                    if (fitsUp.distance > v3Big.y * 2 - currentSize.y * 5 || fitsUp.distance == 0 && fitsUp.collider == null )
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
@@ -70,7 +82,7 @@ public class TinyBig : MonoBehaviour
                 }
                 else if (isGrabbing)
                 {
-                    if (fitsDown.distance > pBigY * 2 - pTF.lossyScale.y * 5 || fitsDown.distance == 0 && fitsDown.collider == null)
+                    if (fitsDown.distance > v3Big.y * 2 - currentSize.y * 5 || fitsDown.distance == 0 && fitsDown.collider == null)
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
@@ -107,15 +119,21 @@ public class TinyBig : MonoBehaviour
         {
             pSR.sprite = spBig;
             PositionAfterSizeChange();
-            pTF.localScale = new Vector3(pBigX,pBigY,1);
-            pSR.color = cBig;
+            //pTF.localScale = new Vector3(pBigX,pBigY,1);
+            bigPC.enabled = true;
+            smallPC.enabled = false;
+            //pSR.color = cBig;
+            currentSize = v3Big;
         }
         else if (sizeBig == false)
         {
             pSR.sprite = spSmall;
             PositionAfterSizeChange();
-            pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
-            pSR.color = cSmall;
+            //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
+            smallPC.enabled = true;
+            bigPC.enabled = false;
+            //pSR.color = cSmall;
+            currentSize = v3Small;
         }
     }
     private void PositionAfterSizeChange()
@@ -124,11 +142,11 @@ public class TinyBig : MonoBehaviour
         {
             if (sizeBig)
             {
-                pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pBigY - pTF.localScale.y), pTF.position.z);
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y - (v3Big.y - currentSize.y), pTF.position.z);
             }
             else if (!sizeBig)
             {
-                pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pTF.localScale.y - pSmallY), pTF.position.z);
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y + (currentSize.y - v3Small.y), pTF.position.z);
             }
         }
         else if (!isGrabbing)
@@ -141,25 +159,25 @@ public class TinyBig : MonoBehaviour
                 }
                 else
                 {
-                    pTF.position = new Vector3(pTF.position.x, pTF.position.y + (pBigY - pTF.localScale.y), pTF.position.z);
+                    pTF.position = new Vector3(pTF.position.x, pTF.position.y + (v3Big.y - currentSize.y), pTF.position.z);
                 }
             }
             else if (!sizeBig)
             {
                 if (!GetComponent<PlayerMovement>().grounded)
                 {
-                    if (fitsDown.distance > pBigY - pTF.lossyScale.y&& fitsUp.distance > pBigY - pTF.lossyScale.y)
+                    if (fitsDown.distance > v3Big.y - currentSize.y && fitsUp.distance > v3Big.y - currentSize.y)
                     {
                         return;
                     }
                     else
                     {
-                        pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+                        pTF.position = new Vector3(pTF.position.x, pTF.position.y - (currentSize.y - v3Small.y), pTF.position.z);
                     }
                 }
                 else
                 {
-                    pTF.position = new Vector3(pTF.position.x, pTF.position.y - (pTF.localScale.y - pSmallY), pTF.position.z);
+                    pTF.position = new Vector3(pTF.position.x, pTF.position.y - (currentSize.y - v3Small.y), pTF.position.z);
                 }
             }
         }
