@@ -1571,10 +1571,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4706652649157024872, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: hurtAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 9eaddaf2756f7104fa00c910a9b2806e, type: 3}
     - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: jumpAudio
       value: 
-      objectReference: {fileID: 8300000, guid: a9affac8b4d0aab489681730681291cc, type: 3}
+      objectReference: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
     - target: {fileID: 8813855101357193717, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_Name
       value: Player
