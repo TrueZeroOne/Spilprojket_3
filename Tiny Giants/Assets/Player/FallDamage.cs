@@ -6,6 +6,7 @@ public class FallDamage : MonoBehaviour
 	[SerializeField] private float bigPlayerFallDamageDistance = 7.8f;
 	[SerializeField] private float raycastRange = 2;
 	[SerializeField] private float fallDamage = 50;
+	[SerializeField] private AudioClip hurtAudio;
 	private PlayerMovement playerMovement;
 	private Health health;
 	private bool shouldTakeFallDamage;
@@ -72,6 +73,8 @@ public class FallDamage : MonoBehaviour
 		}
 		else if (raycastHitBox && isGrounded && raycastHitBox.distance <= 0.2 && shouldTakeFallDamage)
 		{
+			GetComponent<AudioSource>().clip = hurtAudio;
+			GetComponent<AudioSource>().Play();
 			//print($"Take fall damage at this distance ({fallDistance})");
 			shouldTakeFallDamage = false;
 			smallFall = false;
