@@ -6,6 +6,7 @@ public class Collectible : MonoBehaviour
 	{
 		if (col.CompareTag("Player"))
 		{
+			GameObject.Find("CollectibleManager").GetComponent<AudioSource>().Play();
 			Destroy(gameObject);
 			CollectibleManager.collected++;
 			print($"You collected: {CollectibleManager.collected}/{CollectibleManager.collectiblesTotal} ({CollectibleManager.GetCollectiblesLeft()} Left)");
