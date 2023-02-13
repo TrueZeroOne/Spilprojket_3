@@ -11,16 +11,19 @@ public class PullPlatform : MonoBehaviour
     public int moveSpeed;
     private TinyBig tinyBig;
     private PlayerInput playerInput;
+    private float playerHeight;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tinyBig = player.GetComponent<TinyBig>();
         playerInput = player.GetComponent<PlayerInput>();
+        playerHeight = player.GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
     }
 
     private void Update()
     {
-        Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + player.transform.lossyScale.y, player.transform.position.z);
+        playerHeight = player.GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
+        Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + playerHeight, player.transform.position.z);
         
         if (playerInput.actions["Pull"].triggered)
         {

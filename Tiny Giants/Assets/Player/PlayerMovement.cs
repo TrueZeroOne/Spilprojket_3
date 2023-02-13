@@ -56,14 +56,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
-        playerHeight = transform.lossyScale.y;
+        playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
         tinyBig = GetComponent<TinyBig>();
         if (playerInput == null) playerInput = GetComponent<PlayerInput>();
     }
     public void Update()
     {
         //Ground Check
-        playerHeight = transform.lossyScale.y;
+        playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.05f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 
@@ -103,6 +103,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
+        if (horizontalInput < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (horizontalInput > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
         if (!grabbingPlatform)
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
