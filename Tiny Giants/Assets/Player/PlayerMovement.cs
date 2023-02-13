@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool readyToJump;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip jumpAudio;
+
     float horizontalInput;
     float verticalInput;
     public bool grabbingPlatform = false;
@@ -131,6 +134,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        GetComponent<AudioSource>().clip = jumpAudio;
+        GetComponent<AudioSource>().Play();
         if (tinyBig.sizeBig)
         {
             // reset y velocity
