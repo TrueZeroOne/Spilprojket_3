@@ -18,7 +18,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "f9cceedc-2c78-4f4f-97c1-fd15505ec49b",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SizeChange",
+                    "name": "ChangeSize",
                     "type": "Button",
                     "id": "2e44b01d-86b5-41f6-bc9a-9dea8fdbdea7",
                     "expectedControlType": "Button",
@@ -55,72 +55,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Horizontal",
-                    "id": "033e8e00-03fe-4862-bea6-9afdb692e3b7",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "c68af901-6031-44a8-8bd8-1cdc05581240",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "5a495b37-a37d-4550-b5f0-934d4e9caf6a",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Vertical",
-                    "id": "2ec9a495-ea73-419e-bf5e-02b29ea7e71b",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "b70b37b3-a9c5-490a-860e-3f14638bd710",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "2898a792-c458-43f9-a232-66643f0e786d",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "36ff6d71-28ba-4493-b3ee-6f41d667d670",
                     "path": "<Keyboard>/space",
@@ -138,9 +72,64 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SizeChange",
+                    "action": "ChangeSize",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "MoveDirection",
+                    "id": "108de5b7-49eb-4367-84c8-bf4b0a9510bf",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "bacc2ac2-5c1f-4477-9fee-68fccf1948b1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9c725202-3e89-468b-85b5-bcdea1354d84",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "ae5a3df6-2ec9-4adb-bebb-76ad3abb58ff",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "d16eed3b-a413-46c4-9466-636201f78f95",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

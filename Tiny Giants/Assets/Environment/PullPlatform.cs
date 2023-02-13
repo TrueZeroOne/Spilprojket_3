@@ -6,34 +6,23 @@ using UnityEngine.InputSystem;
 public class PullPlatform : MonoBehaviour
 {
     public bool isGrabbed = false;
-    GameObject player;
-    Vector2 speed;
+    private GameObject player;
+    private Vector2 speed;
     public int moveSpeed;
     private TinyBig tinyBig;
-    [SerializeField] private InputActionReference pullInputActionRef;
-    void Start()
+    private PlayerInput playerInput;
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tinyBig = player.GetComponent<TinyBig>();
-
+        playerInput = player.GetComponent<PlayerInput>();
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        pullInputActionRef.action.Enable();
-    }
-    
-    private void OnDisable()
-    {
-        pullInputActionRef.action.Disable();
-    }
-
-    void Update()
-    {
-        bool test = pullInputActionRef.action.ReadValue<bool>();
         Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + player.transform.lossyScale.y, player.transform.position.z);
         
-        if (Input.GetKeyDown(KeyCode.T))
+        if (playerInput.actions["Pull"].triggered)
         {
             if (!isGrabbed)
             {

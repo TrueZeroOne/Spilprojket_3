@@ -2315,6 +2315,46 @@ PrefabInstance:
       propertyPath: jumpForceSmall
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Id
+      value: b5425768-9062-40ff-8f0e-9fd1085b5d46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Name
+      value: Player Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Actions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Bindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Actions.Array.data[0].m_Id
+      value: d064cef7-2b40-4ab2-9ced-645420efad62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Bindings.Array.data[0].m_Id
+      value: 013041dd-e074-4a9e-954e-48e48e85a382
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Actions.Array.data[0].m_Name
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Actions.Array.data[0].m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Bindings.Array.data[0].m_Action
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: playerInputActionMap.m_Actions.Array.data[0].m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
     - target: {fileID: 8813855101357193717, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_Name
       value: Player

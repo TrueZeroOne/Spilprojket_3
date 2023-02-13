@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TinyBig : MonoBehaviour
 {
@@ -34,11 +35,17 @@ public class TinyBig : MonoBehaviour
     RaycastHit2D fitsUp;
     RaycastHit2D fitsDown;
 
+    //New Input System
+    private PlayerInput playerInput;
+
     void Start()
     {
         pTF = gameObject.transform;
         pSR = GetComponent<SpriteRenderer>();
         //sizeBig = false;
+
+        //New Input System
+        playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
@@ -49,7 +56,7 @@ public class TinyBig : MonoBehaviour
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         
-        if (Input.GetKeyDown(keySize))//Key C
+        if (playerInput.actions["ChangeSize"].triggered)//Key C
         {
             if(sizeBig == false)
             {

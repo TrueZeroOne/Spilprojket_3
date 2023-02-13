@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,13 +35,27 @@ public class PlayerMovement : MonoBehaviour
     public bool grabbingPlatform = false;
     private TinyBig tinyBig;
 
+    [SerializeField] private PlayerInput playerInput;
+    private Vector2 moveDirectionInput;
+
+    private void OnEnable()
+    {
+        playerInput = GetComponent<PlayerInput>();
+        playerInput.actions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInput.actions.Disable();
+    }
+
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
         playerHeight = transform.lossyScale.y;
         tinyBig = GetComponent<TinyBig>();
-
+        if (playerInput == null) playerInput = GetComponent<PlayerInput>();
     }
     public void Update()
     {
@@ -64,11 +80,15 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        // horizontalInput = Input.GetAxisRaw("Horizontal");
+        // verticalInput = Input.GetAxisRaw("Vertical");
+        Vector2 moveDirectionInput = playerInput.actions["Move"].ReadValue<Vector2>();
+        
+        horizontalInput = moveDirectionInput.x;
+        verticalInput = moveDirectionInput.y;
 
         // when to jump
-        if (Input.GetKey(jumpKey)&& readyToJump && grounded)
+        if (playerInput.actions["Jump"].triggered && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -86,11 +106,11 @@ public class PlayerMovement : MonoBehaviour
 
             // on ground
             if (grounded)
-                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode2D.Force);
+                rb.AddForce(moveDirection.normalized * (moveSpeed * 10f), ForceMode2D.Force);
 
             // in air
             else if (!grounded)
-                rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode2D.Force);
+                rb.AddForce(moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode2D.Force);
         }
         else
         {
@@ -129,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
-
     }
 
 

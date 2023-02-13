@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 5902683083011812005}
   - component: {fileID: 7074397791546094759}
   - component: {fileID: 4706652649157024872}
+  - component: {fileID: 3730826043134825129}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -170,6 +171,7 @@ MonoBehaviour:
   jumpCooldown: 0.25
   airMultiplier: 0.4
   grabbingPlatform: 0
+  playerInput: {fileID: 3730826043134825129}
 --- !u!60 &3583311299801503160
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -270,3 +272,33 @@ MonoBehaviour:
   raycastRange: 2
   fallDamage: 50
   tinyBig: {fileID: 5902683083011812005}
+--- !u!114 &3730826043134825129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813855101357193717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9dffb0e41c7125a4aac52f8f04bd21a7, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Game
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
