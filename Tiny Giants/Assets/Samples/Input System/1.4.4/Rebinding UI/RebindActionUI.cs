@@ -194,7 +194,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             if (!ResolveActionAndBinding(out InputAction action, out int bindingIndex))
                 return;
             // Check for duplicate bindings before resetting to default, and if found, swap the two controls.
-            if (SwapResetBindings(action, bindingIndex)) {
+            if (SwapResetBindings(action, bindingIndex)) 
+            {
                 UpdateBindingDisplay();
                 return;
             }
@@ -225,7 +226,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     continue;
                 if (binding.effectivePath == newBinding.path) 
                 {
-                    Debug.Log($"Duplicate binding found for reset to default: {newBinding.effectivePath}");
+                    //Debug.Log($"Duplicate binding found for reset to default: {newBinding.effectivePath}");
                     // Swap the two actions.
                     action.actionMap.FindAction(binding.action).ApplyBindingOverride(i, newBinding.overridePath);
                     action.RemoveBindingOverride(bindingIndex);
@@ -292,9 +293,9 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                         m_RebindStopEvent?.Invoke(this, operation);
                         if (CheckDuplicateBindings(action, bindingIndex, allCompositeParts))
                         {
-                            action.RemoveBindingOverride(bindingIndex);
+                            m_RebindOverlay?.SetActive(false);
+                            m_RebindStopEvent?.Invoke(this, operation);
                             CleanUp();
-                            PerformInteractiveRebind(action, bindingIndex, allCompositeParts);
                         }
                         UpdateBindingDisplay();
                         CleanUp();
@@ -344,7 +345,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     continue;
                 if (binding.effectivePath == newBinding.effectivePath)
                 {
-                    Debug.Log($"Duplicate binding found: {newBinding.effectivePath}");
+                    //Debug.Log($"Duplicate binding found: {newBinding.effectivePath}");
                     return true;
                 }
             }
@@ -352,7 +353,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 for (int i = 1; i < bindingIndex; ++i)
                     if (action.bindings[i].effectivePath == newBinding.overridePath)
                     {
-                        Debug.Log($"Duplicate binding found: {newBinding.effectivePath}");
+                        //Debug.Log($"Duplicate binding found: {newBinding.effectivePath}");
                         return true;
                     }
             return false;
