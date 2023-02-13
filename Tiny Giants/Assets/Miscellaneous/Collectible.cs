@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+	[SerializeField] private GameObject head;
+	[SerializeField] private SpriteRenderer body;
+	[SerializeField] private Sprite aliveBodySprite;
+	[SerializeField] private Sprite deadBodySprite;
+	private void Start() => body.sprite = aliveBodySprite;
 	private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.CompareTag("Player"))
 		{
 			GameObject.Find("CollectibleManager").GetComponent<AudioSource>().Play();
-			Destroy(gameObject);
+			Destroy(head);
+			body.sprite = deadBodySprite;
 			CollectibleManager.collected++;
 			print($"You collected: {CollectibleManager.collected}/{CollectibleManager.collectiblesTotal} ({CollectibleManager.GetCollectiblesLeft()} Left)");
 		}
