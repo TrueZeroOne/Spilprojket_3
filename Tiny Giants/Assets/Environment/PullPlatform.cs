@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PullPlatform : MonoBehaviour
 {
@@ -9,14 +10,27 @@ public class PullPlatform : MonoBehaviour
     Vector2 speed;
     public int moveSpeed;
     private TinyBig tinyBig;
+    [SerializeField] private InputActionReference pullInputActionRef;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tinyBig = player.GetComponent<TinyBig>();
-        
+
     }
+
+    private void OnEnable()
+    {
+        pullInputActionRef.action.Enable();
+    }
+    
+    private void OnDisable()
+    {
+        pullInputActionRef.action.Disable();
+    }
+
     void Update()
     {
+        bool test = pullInputActionRef.action.ReadValue<bool>();
         Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + player.transform.lossyScale.y, player.transform.position.z);
         
         if (Input.GetKeyDown(KeyCode.T))

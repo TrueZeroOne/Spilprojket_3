@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1299291419}
     m_Modifications:
+    - target: {fileID: 178777741870499590, guid: b588c32e50ddfcc47b6acb81e2d2d822, type: 3}
+      propertyPath: inputAction.m_Id
+      value: a07e0abb-9151-474d-a018-dd2edb5f0b64
+      objectReference: {fileID: 0}
+    - target: {fileID: 178777741870499590, guid: b588c32e50ddfcc47b6acb81e2d2d822, type: 3}
+      propertyPath: inputAction.m_Name
+      value: Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 178777741870499590, guid: b588c32e50ddfcc47b6acb81e2d2d822, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178777741870499590, guid: b588c32e50ddfcc47b6acb81e2d2d822, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: ed5b380c-1c2b-42f9-ba00-99f3d3f6783f
+      objectReference: {fileID: 0}
+    - target: {fileID: 178777741870499590, guid: b588c32e50ddfcc47b6acb81e2d2d822, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Input
+      objectReference: {fileID: 0}
     - target: {fileID: 178777741870499594, guid: b588c32e50ddfcc47b6acb81e2d2d822, type: 3}
       propertyPath: m_Name
       value: Pull Handle
@@ -263,7 +283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &667941166
 BoxCollider2D:
@@ -401,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7205677917040166396, guid: 1509b2dcd1bb09f409e99208ebee2034, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7205677917040166396, guid: 1509b2dcd1bb09f409e99208ebee2034, type: 3}
       propertyPath: m_LocalPosition.x
