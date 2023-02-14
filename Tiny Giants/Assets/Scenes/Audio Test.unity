@@ -4118,7 +4118,7 @@ PrefabInstance:
     - target: {fileID: 5902683083011812005, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: bigPC
       value: 
-      objectReference: {fileID: 1562588013}
+      objectReference: {fileID: 0}
     - target: {fileID: 5902683083011812005, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: pBigX
       value: 1
@@ -4134,7 +4134,7 @@ PrefabInstance:
     - target: {fileID: 5902683083011812005, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: smallPC
       value: 
-      objectReference: {fileID: 1562588007}
+      objectReference: {fileID: 0}
     - target: {fileID: 6970901011943597882, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -4142,26 +4142,18 @@ PrefabInstance:
     - target: {fileID: 6970901011943597882, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2081859789, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
+      objectReference: {fileID: 358547817, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
     - target: {fileID: 8813855101357193717, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2385413168761394814, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+    - {fileID: 3583311299801503160, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
 --- !u!1 &1562587991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8813855101357193717, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
-  m_PrefabInstance: {fileID: 1561476036}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &1562588007 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3583311299801503160, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
-  m_PrefabInstance: {fileID: 1561476036}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &1562588013 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2385413168761394814, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
   m_PrefabInstance: {fileID: 1561476036}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1562588023
@@ -4184,6 +4176,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!70 &1562588025
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562587991}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.4966667, y: 1.88}
+  m_Direction: 0
 --- !u!1001 &1575177007
 PrefabInstance:
   m_ObjectHideFlags: 0

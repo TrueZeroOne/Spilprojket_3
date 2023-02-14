@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations;
+using System;
 
 public class TinyBig : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class TinyBig : MonoBehaviour
     Vector3 sizeDiffrence;
     Animator playerAni;
 
+    private Sprite currentSprite;
+
     void Start()
     {
         playerAni = GetComponent<Animator>();
@@ -63,11 +66,15 @@ public class TinyBig : MonoBehaviour
 
         //New Input System
         playerInput = GetComponent<PlayerInput>();
+
+        currentSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ChangeCollider();
+
         fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y+0.05f), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
         fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
@@ -119,26 +126,42 @@ public class TinyBig : MonoBehaviour
             }
         }
     }
+
+    private void ChangeCollider()
+    {
+        if(currentSprite != GetComponent<SpriteRenderer>().sprite)
+        {
+            Destroy(GetComponent<CapsuleCollider2D>());
+            gameObject.AddComponent<CapsuleCollider2D>();
+            if(currentSprite.bounds.extents.y > GetComponent<SpriteRenderer>().sprite.bounds.extents.y) sizeDiffrence = currentSprite.bounds.extents - GetComponent<SpriteRenderer>().bounds.extents; 
+            else if (currentSprite.bounds.extents.y < GetComponent<SpriteRenderer>().sprite.bounds.extents.y) sizeDiffrence = GetComponent<SpriteRenderer>().bounds.extents - currentSprite.bounds.extents;
+
+            PositionAfterSizeChange();
+
+            currentSprite = GetComponent<SpriteRenderer>().sprite;
+        }
+    }
+
     void SizeChange()
     {
         
         if (sizeBig==true)
         {
             playerAni.Play("SizeUpGround");
-            PositionAfterSizeChange();
+            //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pBigX,pBigY,1);
-            bigPC.enabled = true;
-            smallPC.enabled = false;
+            //bigPC.enabled = true;
+            //smallPC.enabled = false;
             //pSR.color = cBig;
             currentSize = v3Big;
         }
         else if (sizeBig == false)
         {
             playerAni.Play("SizeDownGround");
-            PositionAfterSizeChange();
+            //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
-            smallPC.enabled = true;
-            bigPC.enabled = false;
+            //smallPC.enabled = true;
+            //bigPC.enabled = false;
             //pSR.color = cSmall;
             currentSize = v3Small;
         }
