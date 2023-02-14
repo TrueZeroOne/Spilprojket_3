@@ -27803,6 +27803,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433745647166199492, guid: a290a17ef9811524bb943564ce2b62b1, type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1433745647166199495, guid: a290a17ef9811524bb943564ce2b62b1, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -28514,6 +28518,10 @@ PrefabInstance:
     - target: {fileID: 7328507810827348348, guid: 270db922062780942af866ba6c301d56, type: 3}
       propertyPath: m_Name
       value: Cinemachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7328507810827348349, guid: 270db922062780942af866ba6c301d56, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 270db922062780942af866ba6c301d56, type: 3}
