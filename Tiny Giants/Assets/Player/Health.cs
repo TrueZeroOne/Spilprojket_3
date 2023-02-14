@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 
 	public static float GetHealth() => health;
 
-	private void UpdateHealthUI() => healthText.text = $"{GetHealth()}/{maxHealth}";
+	private void UpdateHealthUI() => healthText.text = $"{GetHealth()}/{maxHealth} HP";
 
 	public static void SetHealth(float value) => health = value;
 

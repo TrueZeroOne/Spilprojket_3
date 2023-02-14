@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,10 +15,16 @@ public class CollectibleManager : MonoBehaviour
 
 	private void Awake() => FindAllCollectibles();
 
+	private void Start() => FindAllCollectibles();
+
+	private void OnEnable() => FindAllCollectibles();
+
 	private void FindAllCollectibles()
 	{
-		Collectible[] collectibles = FindObjectsOfType<Collectible>();
-		collectiblesTotalPrivate = collectibles.Length;
+		List<Collectible> collectibles = new List<Collectible>(FindObjectsOfType<Collectible>());
+		collectibles.Clear();
+		collectibles = new List<Collectible>(FindObjectsOfType<Collectible>());
+		collectiblesTotalPrivate = collectibles.Count;
 		UpdateCollectibleUI();
 	}
 
