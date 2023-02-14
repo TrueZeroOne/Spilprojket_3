@@ -80,11 +80,6 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         SpeedControl();
 
-        if (!tinyBig.sizeBig)
-        {
-            smallWalk.Play();
-        }
-
         // handle drag
         if (grounded)
             rb.drag = groundDrag;

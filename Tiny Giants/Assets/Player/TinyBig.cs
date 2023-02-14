@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 
 public class TinyBig : MonoBehaviour
 {
@@ -46,9 +47,11 @@ public class TinyBig : MonoBehaviour
     [SerializeField] private PolygonCollider2D bigPC;
     [SerializeField] private PolygonCollider2D smallPC;
     Vector3 sizeDiffrence;
+    Animator playerAni;
 
     void Start()
     {
+        playerAni = GetComponent<Animator>();
         v3Big = spBig.bounds.extents;
         v3Small = spSmall.bounds.extents;
         currentSize = v3Small;
@@ -118,9 +121,10 @@ public class TinyBig : MonoBehaviour
     }
     void SizeChange()
     {
+        
         if (sizeBig==true)
         {
-            pSR.sprite = spBig;
+            playerAni.Play("SizeUpGround");
             PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pBigX,pBigY,1);
             bigPC.enabled = true;
@@ -130,7 +134,7 @@ public class TinyBig : MonoBehaviour
         }
         else if (sizeBig == false)
         {
-            pSR.sprite = spSmall;
+            playerAni.Play("SizeDownGround");
             PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             smallPC.enabled = true;
