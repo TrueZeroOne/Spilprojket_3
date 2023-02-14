@@ -45,12 +45,14 @@ public class TinyBig : MonoBehaviour
 
     [SerializeField] private PolygonCollider2D bigPC;
     [SerializeField] private PolygonCollider2D smallPC;
+    Vector3 sizeDiffrence;
 
     void Start()
     {
         v3Big = spBig.bounds.extents;
         v3Small = spSmall.bounds.extents;
         currentSize = v3Small;
+        sizeDiffrence = v3Big - v3Small;
 
         pTF = gameObject.transform;
         pSR = GetComponent<SpriteRenderer>();
@@ -63,18 +65,19 @@ public class TinyBig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
-        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y * 2), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
+        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y+0.05f), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
+        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
-        //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + transform.lossyScale.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
-        
+        //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y +currentSize.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
+        //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - currentSize.y), new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z));
+
         if (playerInput.actions["ChangeSize"].triggered)//Key C
         {
             if(sizeBig == false)
             {
                 if (!isGrabbing)
                 {
-                    if (fitsUp.distance > v3Big.y * 2 - currentSize.y * 5 || fitsUp.distance == 0 && fitsUp.collider == null )
+                    if (fitsUp.distance > sizeDiffrence.y +0.05f || fitsUp.distance == 0 && fitsUp.collider == null )
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
@@ -82,7 +85,7 @@ public class TinyBig : MonoBehaviour
                 }
                 else if (isGrabbing)
                 {
-                    if (fitsDown.distance > v3Big.y * 2 - currentSize.y * 5 || fitsDown.distance == 0 && fitsDown.collider == null)
+                    if (fitsDown.distance > sizeDiffrence.y  + 0.05f|| fitsDown.distance == 0 && fitsDown.collider == null)
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
@@ -142,11 +145,11 @@ public class TinyBig : MonoBehaviour
         {
             if (sizeBig)
             {
-                pTF.position = new Vector3(pTF.position.x, pTF.position.y - (v3Big.y - currentSize.y), pTF.position.z);
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y - sizeDiffrence.y, pTF.position.z);
             }
             else if (!sizeBig)
             {
-                pTF.position = new Vector3(pTF.position.x, pTF.position.y + (currentSize.y - v3Small.y), pTF.position.z);
+                pTF.position = new Vector3(pTF.position.x, pTF.position.y + sizeDiffrence.y, pTF.position.z);
             }
         }
         else if (!isGrabbing)
@@ -159,25 +162,25 @@ public class TinyBig : MonoBehaviour
                 }
                 else
                 {
-                    pTF.position = new Vector3(pTF.position.x, pTF.position.y + (v3Big.y - currentSize.y), pTF.position.z);
+                    pTF.position = new Vector3(pTF.position.x, pTF.position.y + sizeDiffrence.y, pTF.position.z);
                 }
             }
             else if (!sizeBig)
             {
                 if (!GetComponent<PlayerMovement>().grounded)
                 {
-                    if (fitsDown.distance > v3Big.y - currentSize.y && fitsUp.distance > v3Big.y - currentSize.y)
+                    if (fitsDown.distance > v3Big.y - v3Small.y && fitsUp.distance > sizeDiffrence.y)
                     {
                         return;
                     }
                     else
                     {
-                        pTF.position = new Vector3(pTF.position.x, pTF.position.y - (currentSize.y - v3Small.y), pTF.position.z);
+                        pTF.position = new Vector3(pTF.position.x, pTF.position.y - sizeDiffrence.y, pTF.position.z);
                     }
                 }
                 else
                 {
-                    pTF.position = new Vector3(pTF.position.x, pTF.position.y - (currentSize.y - v3Small.y), pTF.position.z);
+                    pTF.position = new Vector3(pTF.position.x, pTF.position.y - sizeDiffrence.y, pTF.position.z);
                 }
             }
         }
