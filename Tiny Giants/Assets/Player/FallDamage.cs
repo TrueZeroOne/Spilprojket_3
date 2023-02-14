@@ -78,7 +78,7 @@ public class FallDamage : MonoBehaviour
 			//print($"Take fall damage at this distance ({fallDistance})");
 			shouldTakeFallDamage = false;
 			smallFall = false;
-			health.TakeDamage(fallDamage);
+			Health.TakeDamage(fallDamage);
 		}
 	}
 

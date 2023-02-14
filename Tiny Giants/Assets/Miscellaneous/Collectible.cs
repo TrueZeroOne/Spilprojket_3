@@ -11,11 +11,13 @@ public class Collectible : MonoBehaviour
 	{
 		if (col.CompareTag("Player"))
 		{
-			GameObject.Find("CollectibleManager").GetComponent<AudioSource>().Play();
+			GameObject collectibleManager = GameObject.Find("CollectibleManager");
+			collectibleManager.GetComponent<AudioSource>().Play();
 			Destroy(head);
 			body.sprite = deadBodySprite;
 			CollectibleManager.collected++;
 			print($"You collected: {CollectibleManager.collected}/{CollectibleManager.collectiblesTotal} ({CollectibleManager.GetCollectiblesLeft()} Left)");
+			collectibleManager.GetComponent<CollectibleManager>().UpdateCollectibleUI();
 		}
 	}
 }

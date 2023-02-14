@@ -1,26 +1,29 @@
-using System;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-	[SerializeField] private float health = 100;
+	[SerializeField] private TMP_Text healthText;
+	private const float maxHealth = 100;
+	private static float health = maxHealth;
 
-	public float GetHealth => health;
+	public static float GetHealth() => health;
 
-	public void SetHealth(float value) => health = value;
+	private void UpdateHealthUI() => healthText.text = $"{GetHealth()}/{maxHealth}";
 
-	public void TakeDamage(float value) => health -= value;
+	public static void SetHealth(float value) => health = value;
 
-	public void Heal(float value) => health += value;
+	public static void TakeDamage(float value) => health -= value;
+
+	public static void Heal(float value) => health += value;
 
 	private void Update()
 	{
-		if (GetHealth <= 0) Die();
+		UpdateHealthUI();
+		if (GetHealth() <= 0) Die();
 	}
 	
-	private void Die()
-	{
+	private static void Die() =>
 		//Destroy(gameObject);
 		print("Player Died");
-	}
 }
