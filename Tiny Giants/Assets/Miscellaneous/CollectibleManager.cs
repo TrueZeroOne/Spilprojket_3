@@ -5,13 +5,13 @@ using UnityEngine;
 public class CollectibleManager : MonoBehaviour
 {
 	[SerializeField] private TMP_Text collectedText;
-	private static int collectiblesTotalPrivate;
+	private int collectiblesTotalPrivate;
 
 	public void UpdateCollectibleUI() => collectedText.text = $"{collected}/{collectiblesTotal}";
 
-	public static int collectiblesTotal => collectiblesTotalPrivate;
+	public int collectiblesTotal => collectiblesTotalPrivate;
 
-	public static int collected;
+	public int collected;
 
 	private void Start() => FindAllCollectibles();
 
@@ -25,5 +25,5 @@ public class CollectibleManager : MonoBehaviour
 		UpdateCollectibleUI();
 	}
 
-	public static float GetCollectiblesLeft() => collectiblesTotalPrivate - collected;
+	public float GetCollectiblesLeft() => collectiblesTotalPrivate - collected;
 }
