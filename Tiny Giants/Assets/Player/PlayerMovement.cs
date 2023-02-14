@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform orientation;
     public Rigidbody2D rb;
     Vector2 moveDirection;
+    public TinyBig tb;
 
     [Header ("Ground")]
     public float groundDrag;
@@ -29,6 +30,13 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
 
     bool readyToJump;
+
+    [Header("Animations")]
+    public Animator anim;
+    public Animation smallWalk;
+    public Animation bigWalk;
+    public Animation smallJumping;
+    public Animation bigJumping;
 
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudio;
@@ -54,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Start()
     {
+        tb = GetComponent<TinyBig>();
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
         playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
@@ -70,6 +80,10 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         SpeedControl();
 
+        if (!tinyBig.sizeBig)
+        {
+            smallWalk.Play();
+        }
 
         // handle drag
         if (grounded)
@@ -103,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
+        
         if (horizontalInput < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
@@ -118,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             // on ground
             if (grounded)
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 10f), ForceMode2D.Force);
-
+                                           
             // in air
             else if (!grounded)
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode2D.Force);
