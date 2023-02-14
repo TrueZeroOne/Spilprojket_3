@@ -883,6 +883,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SCollect
       objectReference: {fileID: 0}
+    - target: {fileID: 8662917036279406629, guid: 6a654848084109f4f86e40a178efd883, type: 3}
+      propertyPath: buildIndex
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a654848084109f4f86e40a178efd883, type: 3}
 --- !u!1 &1678997175
@@ -9113,10 +9117,10 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 3
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
+      m_TileObjectToInstantiateIndex: 0
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 18, y: 17, z: 0}
@@ -11058,9 +11062,9 @@ Tilemap:
   - m_RefCount: 870
     m_Data: {fileID: 11400000, guid: d3b2ad434db15cc48ab28e3061bd9fe1, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 12
+  - m_RefCount: 13
     m_Data: {fileID: 21300000, guid: 0d779362d329bcb4fac5fa19c5660d33, type: 3}
-  - m_RefCount: 20
+  - m_RefCount: 19
     m_Data: {fileID: 21300000, guid: 101bb0dae01d3994c897dcc8cc3b7799, type: 3}
   - m_RefCount: 133
     m_Data: {fileID: 21300000, guid: 4d3324ade497e3249aae10ae20c78fdf, type: 3}
@@ -11081,7 +11085,7 @@ Tilemap:
   - m_RefCount: 70
     m_Data: {fileID: 21300000, guid: 2e1b0dc5ad6dc7743a815bb02eaac19e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 819
+  - m_RefCount: 820
     m_Data:
       e00: 1
       e01: 0
@@ -11135,24 +11139,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 1
+  - m_RefCount: 0
     m_Data:
-      e00: 0.000000059604645
-      e01: -0.99999994
-      e02: -0
-      e03: 0
-      e10: 0.99999994
-      e11: 0.000000059604645
+      e00: 0
+      e01: 0
+      e02: 0
+      e03: 9.199951e-37
+      e10: 0
+      e11: 0
       e12: 0
-      e13: 0
+      e13: 1.67e-43
       e20: 0
-      e21: -0
-      e22: 1
+      e21: 0
+      e22: -3.79721e+19
       e23: 0
       e30: 0
       e31: 0
-      e32: 0
-      e33: 1
+      e32: 6.35e-43
+      e33: 0
   - m_RefCount: 19
     m_Data:
       e00: 1
@@ -11193,7 +11197,7 @@ Tilemap:
   - m_RefCount: 980
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray:
-  - m_RefCount: 12
+  - m_RefCount: 13
     m_Data: {fileID: 5508893288202167318, guid: bcbdccf738813fe46ad956ab5e3190e0, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}

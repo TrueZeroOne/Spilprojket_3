@@ -604,7 +604,7 @@ MonoBehaviour:
   bigPlayerFallDamageDistance: 7.8
   raycastRange: 2
   fallDamage: 50
-  hurtAudio: {fileID: 0}
+  hurtAudio: {fileID: 8300000, guid: 9eaddaf2756f7104fa00c910a9b2806e, type: 3}
   tinyBig: {fileID: 5902683083011812005}
 --- !u!114 &3730826043134825129
 MonoBehaviour:
