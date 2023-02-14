@@ -13,16 +13,13 @@ public class CollectibleManager : MonoBehaviour
 
 	public static int collected;
 
-	private void Awake() => FindAllCollectibles();
-
 	private void Start() => FindAllCollectibles();
-
-	private void OnEnable() => FindAllCollectibles();
 
 	private void FindAllCollectibles()
 	{
 		List<Collectible> collectibles = new List<Collectible>(FindObjectsOfType<Collectible>());
 		collectibles.Clear();
+		collectiblesTotalPrivate = 0;
 		collectibles = new List<Collectible>(FindObjectsOfType<Collectible>());
 		collectiblesTotalPrivate = collectibles.Count;
 		UpdateCollectibleUI();
