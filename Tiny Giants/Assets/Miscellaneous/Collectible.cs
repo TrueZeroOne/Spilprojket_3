@@ -11,6 +11,7 @@ public class Collectible : MonoBehaviour
 	{
 		if (col.CompareTag("Player"))
 		{
+			GetComponent<Collider2D>().enabled = false;
 			GameObject collectibleManager = GameObject.Find("CollectibleManager");
 			collectibleManager.GetComponent<AudioSource>().Play();
 			Destroy(head);

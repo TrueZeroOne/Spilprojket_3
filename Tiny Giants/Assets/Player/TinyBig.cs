@@ -75,8 +75,8 @@ public class TinyBig : MonoBehaviour
     {
         ChangeCollider();
 
-        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y+0.05f), new Vector2(pBigX, 0.001f), 0f, Vector2.up,10);
-        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(pBigX, 0.001f), 0f, Vector2.down,10);
+        fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y+0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.up,10);
+        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.down,10);
         //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y +currentSize.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - currentSize.y), new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z));

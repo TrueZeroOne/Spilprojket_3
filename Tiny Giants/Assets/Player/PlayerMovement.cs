@@ -112,15 +112,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
+        if (!grabbingPlatform)
+        {
+            if (horizontalInput < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (horizontalInput > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
         
-        if (horizontalInput < 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else if (horizontalInput > 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
         if (!grabbingPlatform)
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
