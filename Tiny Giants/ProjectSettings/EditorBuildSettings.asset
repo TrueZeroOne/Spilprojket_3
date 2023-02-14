@@ -26,14 +26,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SilentCreditsMenu.unity
     guid: e09e963096b0b6f4191be8276169fdd5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test Levels/TestLVL1.unity
     guid: dd45199a353e91742894ce2c4423bf81
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test Levels/TestLVL2.unity
     guid: 8c6acb424cda5d742a19d5b1d4205bfc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test Levels/TestLVL3.unity
     guid: 25633b4d1a17a944d88adbb3be85f3ac
+  - enabled: 1
+    path: Assets/Scenes/Tile_Levels/Level1_Tile.unity
+    guid: 04d47d74403d1124488f26636751965e
+  - enabled: 1
+    path: Assets/Scenes/Tile_Levels/Level2_Tile.unity
+    guid: 89a982c26a230594cb80f86e1409ad29
+  - enabled: 1
+    path: Assets/Scenes/Tile_Levels/Level3_Tile.unity
+    guid: 56bf0b443ea11514d984cc86cb99d4a8
+  - enabled: 1
+    path: Assets/Scenes/Tile_Levels/Level4_Tile.unity
+    guid: 0825651a5cbc05e4c9a41df51f7a9e6f
+  - enabled: 1
+    path: Assets/Scenes/SilentEndScreen.unity
+    guid: 4354eec1a06d07e42956a16d93367cca
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c52ef29937d2c494cbd55266fa91edca, type: 2}
