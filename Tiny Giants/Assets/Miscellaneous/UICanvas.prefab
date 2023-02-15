@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 8025693672877168388}
   - component: {fileID: 8025693672877168411}
   - component: {fileID: 8025693672877168410}
+  - component: {fileID: 941768636201416066}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -606,6 +607,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!210 &941768636201416066
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025693672877168409}
+  m_Enabled: 1
+  m_SortingLayerID: 820865461
+  m_SortingLayer: -1
+  m_SortingOrder: 0
 --- !u!1 &8025693672940373870
 GameObject:
   m_ObjectHideFlags: 0

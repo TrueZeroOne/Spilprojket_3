@@ -38,6 +38,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Overlay
+    uniqueID: 820865461
+    locked: 0
+  - name: Foreground
+    uniqueID: 4146463009
+    locked: 0
+  - name: HelpText
+    uniqueID: 2810701987
+    locked: 0
+  - name: Cloud
+    uniqueID: 3538972291
+    locked: 0
+  - name: Collectibles
+    uniqueID: 1332973919
+    locked: 0
+  - name: Player
+    uniqueID: 1990946799
+    locked: 0
+  - name: Ground
+    uniqueID: 2702980357
+    locked: 0
+  - name: Background
+    uniqueID: 1194324287
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
