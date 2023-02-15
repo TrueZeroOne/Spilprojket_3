@@ -189,14 +189,11 @@ MonoBehaviour:
   jumpForceBig: 3.4
   jumpForceSmall: 4.5
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 0.2
   anim: {fileID: 0}
-  smallWalk: {fileID: 0}
-  bigWalk: {fileID: 0}
-  smallJumping: {fileID: 0}
-  bigJumping: {fileID: 0}
   jumpAudio: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
   grabbingPlatform: 0
+  currentAnimState: 0
   playerInput: {fileID: 3730826043134825129}
 --- !u!114 &5902683083011812005
 MonoBehaviour:
