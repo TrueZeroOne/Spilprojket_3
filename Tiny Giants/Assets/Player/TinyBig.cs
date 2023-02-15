@@ -129,6 +129,7 @@ public class TinyBig : MonoBehaviour
 
     private void ChangeCollider()
     {
+        if(playerAni.)
         if(currentSprite != GetComponent<SpriteRenderer>().sprite)
         {
             Destroy(GetComponent<CapsuleCollider2D>());
