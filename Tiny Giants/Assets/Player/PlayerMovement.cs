@@ -33,10 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animations")]
     public Animator anim;
-    public Animation smallWalk;
-    public Animation bigWalk;
-    public Animation smallJumping;
-    public Animation bigJumping;
+    
 
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudio;
@@ -131,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             // on ground
             if (grounded)
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 10f), ForceMode2D.Force);
+                
                                            
             // in air
             else if (!grounded)
