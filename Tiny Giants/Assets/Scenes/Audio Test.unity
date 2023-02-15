@@ -4119,6 +4119,10 @@ PrefabInstance:
       propertyPath: jumpAudio
       value: 
       objectReference: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: groundDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5902683083011812005, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: bigPC
       value: 
