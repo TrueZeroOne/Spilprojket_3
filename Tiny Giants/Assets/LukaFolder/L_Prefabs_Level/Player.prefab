@@ -179,15 +179,15 @@ MonoBehaviour:
   orientation: {fileID: 701262717813734266}
   rb: {fileID: 918256207413953822}
   tb: {fileID: 0}
-  groundDrag: 5
+  groundDrag: 7.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   playerHeight: 1
   grounded: 0
   jumpKey: 32
-  jumpForceBig: 3.4
-  jumpForceSmall: 4.5
+  jumpForceBig: 3.5
+  jumpForceSmall: 4.6
   jumpCooldown: 0.25
   airMultiplier: 0.2
   anim: {fileID: 0}
