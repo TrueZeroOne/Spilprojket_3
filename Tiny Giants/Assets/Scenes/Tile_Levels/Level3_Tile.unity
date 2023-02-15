@@ -8399,7 +8399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7205677917040166396, guid: 1509b2dcd1bb09f409e99208ebee2034, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 7205677917040166396, guid: 1509b2dcd1bb09f409e99208ebee2034, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19387,6 +19387,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221544131183795366, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 27.26123
+      objectReference: {fileID: 0}
+    - target: {fileID: 221544131183795366, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8025693672737760125, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -18.599976
@@ -19620,6 +19628,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2034729552}
     m_Modifications:
+    - target: {fileID: 7205677917040166392, guid: 1509b2dcd1bb09f409e99208ebee2034, type: 3}
+      propertyPath: movingSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7205677917040166392, guid: 1509b2dcd1bb09f409e99208ebee2034, type: 3}
       propertyPath: maxPosition.y
       value: 19

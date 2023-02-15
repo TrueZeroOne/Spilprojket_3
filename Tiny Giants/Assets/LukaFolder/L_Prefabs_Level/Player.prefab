@@ -113,7 +113,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1990946799
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 358547817, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ MonoBehaviour:
   moveSpeed: 8
   orientation: {fileID: 701262717813734266}
   rb: {fileID: 918256207413953822}
-  tb: {fileID: 0}
+  tb: {fileID: 5902683083011812005}
   groundDrag: 7.5
   whatIsGround:
     serializedVersion: 2
@@ -191,6 +191,8 @@ MonoBehaviour:
   jumpCooldown: 0.25
   airMultiplier: 0.2
   anim: {fileID: 0}
+  rbMassBig: 1.4
+  rbMassSmall: 1.2
   jumpAudio: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
   grabbingPlatform: 0
   currentAnimState: 0
