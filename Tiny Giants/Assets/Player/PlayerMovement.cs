@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
@@ -10,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     public TinyBig tb;
 
-    [Header ("Ground")]
+    [Header("Ground")]
     public float groundDrag;
     public LayerMask whatIsGround;
 
@@ -44,8 +45,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveDirectionInput;
-    private static readonly int Size = Animator.StringToHash("Size");
-    private static readonly int Idle = Animator.StringToHash("Idle");
+    private static readonly int SizeAnimID = Animator.StringToHash("Size");
+    private static readonly int IdleAnimID = Animator.StringToHash("Idle");
+    private static readonly int JumpAnimID = Animator.StringToHash("Jump");
 
     private void OnEnable()
     {
@@ -70,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Update()
     {
-        //UpdateAnimVariables();
+        AnimStateMachine();
+        UpdateAnimVariables();
 
         //Ground Check
         playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
@@ -105,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         // horizontalInput = Input.GetAxisRaw("Horizontal");
         // verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 moveDirectionInput = playerInput.actions["Move"].ReadValue<Vector2>();
-        
+
         horizontalInput = moveDirectionInput.x;
         verticalInput = moveDirectionInput.y;
 
@@ -129,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
             else if (horizontalInput > 0)
                 GetComponent<SpriteRenderer>().flipX = false;
         }
-        
+
         if (!grabbingPlatform)
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
@@ -137,21 +140,21 @@ public class PlayerMovement : MonoBehaviour
             // on ground
             if (grounded)
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 10f), ForceMode2D.Force);
-                
-                                           
+
+
             // in air
             else if (!grounded)
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode2D.Force);
         }
         else
-            rb.velocity = new Vector2(0,rb.velocity.y);
+            rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f);
 
-        if(flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
@@ -166,16 +169,18 @@ public class PlayerMovement : MonoBehaviour
         {
             // reset y velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpForceBig);
-            //anim.Play("JumpBig");
+            anim.Play("JumpBig");
+            currentAnimState = AnimStates.bigJump;
             rb.AddForce(transform.up * jumpForceBig, ForceMode2D.Impulse);
         }
         else if (!tinyBig.sizeBig)
         {
             // reset y velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpForceSmall);
-            //anim.Play("JumpSmall");
+            anim.Play("JumpSmall");
+            currentAnimState = AnimStates.smallJump;
             rb.AddForce(transform.up * jumpForceSmall, ForceMode2D.Impulse);
-        } 
+        }
     }
     private void ResetJump()
     {
@@ -186,54 +191,75 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimStateMachine()
     {
+        if (horizontalInput == 0 && grounded)
+        {
+            if (!tinyBig.sizeBig)
+            {
+                currentAnimState = AnimStates.smallIdle;
+                return;
+            }
+            else
+            {
+                currentAnimState = AnimStates.bigIdle;
+                return;
+            }
+        }
         if (!tinyBig.sizeBig)
-            if (horizontalInput != 0)
-                if (!grabbingPlatform)
+            if (!grabbingPlatform)
                     if (!grounded)
                         currentAnimState = AnimStates.smallJump;
                     else
                         currentAnimState = AnimStates.smallRunning;
+            else
+                currentAnimState = AnimStates.smallGrabbed;
+        else if (tinyBig.sizeBig)
+            if (!grabbingPlatform)
+                if (!grounded)
+                    currentAnimState = AnimStates.bigJump;
                 else
-                    currentAnimState = AnimStates.smallGrabbed;
-            else if (horizontalInput != 0 && grounded) currentAnimState = AnimStates.smallIdle;
-        else if (tinyBig.sizeBig) 
-            if (horizontalInput != 0)
-                if (!grabbingPlatform)
-                    if (!grounded)
-                        currentAnimState = AnimStates.bigJump;
-                    else
-                        currentAnimState = AnimStates.bigRunning;
-                else
-                    currentAnimState = AnimStates.bigGrabbed;
-            else if (horizontalInput != 0 && grounded)
-                currentAnimState = AnimStates.bigIdle;
+                    currentAnimState = AnimStates.bigRunning;
+            else
+                currentAnimState = AnimStates.bigGrabbed;
     }
     private void UpdateAnimVariables()
     {
 
         if (currentAnimState == AnimStates.bigIdle)
         {
-            anim.SetFloat(Size, 1);
-            anim.SetBool(Idle, true);
+            anim.SetFloat(SizeAnimID, 1);
+            anim.SetBool(IdleAnimID, true);
+            anim.SetBool(JumpAnimID, false);
         }
         else if (currentAnimState == AnimStates.smallIdle)
         {
-            anim.SetFloat(Size, 0);
-            anim.SetBool(Idle, true);
+            anim.SetFloat(SizeAnimID, 0);
+            anim.SetBool(IdleAnimID, true);
+            anim.SetBool(JumpAnimID, false);
         }
-        else if (currentAnimState is AnimStates.smallJump or AnimStates.smallGrabbed or AnimStates.smallRunning)
+        else if (currentAnimState is AnimStates.smallGrabbed or AnimStates.smallRunning)
         {
-            anim.SetFloat(Size, 0);
-            anim.SetBool(Idle, false);
+            anim.SetFloat(SizeAnimID, 0);
+            anim.SetBool(IdleAnimID, false);
         }
-        else if (currentAnimState is AnimStates.bigJump or AnimStates.bigGrabbed or AnimStates.bigRunning)
+        else if (currentAnimState is AnimStates.bigGrabbed or AnimStates.bigRunning)
         {
-            anim.SetFloat(Size, 1);
-            anim.SetBool(Idle, false);
+            anim.SetFloat(SizeAnimID, 1);
+            anim.SetBool(IdleAnimID, false);
+        }
+        else if (currentAnimState is AnimStates.smallJump)
+        {
+            anim.SetFloat(SizeAnimID, 0);
+            anim.SetBool(IdleAnimID, false);
+            anim.SetBool(JumpAnimID, true);
+        }
+        else if (currentAnimState is AnimStates.bigJump)
+        {
+            anim.SetFloat(SizeAnimID, 0);
+            anim.SetBool(IdleAnimID, false);
+            anim.SetBool(JumpAnimID, true);
         }
     }
 }
-
 public enum AnimStates
 {
     smallIdle,
