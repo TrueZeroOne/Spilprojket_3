@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: JUMP-Shrink Flemming_0
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 122
+        width: 618
+        height: 1013
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e651125e2e3f7844bb4bc696a210385e
+      internalID: -628836487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JUMP-Shrink Flemming_3
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 170
+        width: 548
+        height: 839
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d7f49a7ba99a84da931b07d9d0bc6a
+      internalID: -924997118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +168,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      JUMP-Shrink Flemming_3: -924997118
+      JUMP-Shrink Flemming_2: -1944973580
+      JUMP-Shrink Flemming_1: -1572379193
+      JUMP-Shrink Flemming_4: -1502875837
+      JUMP-Shrink Flemming_5: -1035282512
+      JUMP-Shrink Flemming_0: -628836487
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
