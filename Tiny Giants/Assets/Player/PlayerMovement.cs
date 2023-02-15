@@ -1,18 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
-
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
     public Transform orientation;
     public Rigidbody2D rb;
-    Vector2 moveDirection;
+    private Vector2 moveDirection;
     public TinyBig tb;
 
     [Header ("Ground")]
@@ -29,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
 
-    bool readyToJump;
+    private bool readyToJump;
 
     [Header("Animations")]
     public Animator anim;
@@ -38,10 +33,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudio;
 
-    float horizontalInput;
-    float verticalInput;
-    public bool grabbingPlatform = false;
+    private float horizontalInput;
+    private float verticalInput;
+    public bool grabbingPlatform;
     private TinyBig tinyBig;
+    public AnimStates currentAnimState;
 
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveDirectionInput;
@@ -74,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.05f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 
+        AnimStateMachine();
         PlayerInput();
         SpeedControl();
 
@@ -112,13 +109,9 @@ public class PlayerMovement : MonoBehaviour
         if (!grabbingPlatform)
         {
             if (horizontalInput < 0)
-            {
                 GetComponent<SpriteRenderer>().flipX = true;
-            }
             else if (horizontalInput > 0)
-            {
                 GetComponent<SpriteRenderer>().flipX = false;
-            }
         }
         
         if (!grabbingPlatform)
@@ -135,9 +128,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode2D.Force);
         }
         else
-        {
             rb.velocity = new Vector2(0,rb.velocity.y);
-        }
     }
 
     private void SpeedControl()
@@ -175,5 +166,42 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
+    public AnimStates GetAnimationState() => currentAnimState;
 
+    private void AnimStateMachine()
+    {
+        if (!tinyBig.sizeBig)
+            if (horizontalInput != 0)
+                if (!grabbingPlatform)
+                    if (!grounded)
+                        currentAnimState = AnimStates.smallJump;
+                    else
+                        currentAnimState = AnimStates.smallRunning;
+                else
+                    currentAnimState = AnimStates.smallGrabbed;
+            else
+                currentAnimState = AnimStates.smallIdle;
+        else if (horizontalInput != 0)
+            if (!grabbingPlatform)
+                if (!grounded)
+                    currentAnimState = AnimStates.bigJump;
+                else
+                    currentAnimState = AnimStates.bigRunning;
+            else
+                currentAnimState = AnimStates.bigGrabbed;
+        else
+            currentAnimState = AnimStates.bigIdle;
+    }
+}
+
+public enum AnimStates
+{
+    smallIdle,
+    bigIdle,
+    smallRunning,
+    bigRunning,
+    smallGrabbed,
+    bigGrabbed,
+    smallJump,
+    bigJump
 }
