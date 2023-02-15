@@ -5,17 +5,17 @@ public class Health : MonoBehaviour
 {
 	[SerializeField] private TMP_Text healthText;
 	private const float maxHealth = 100;
-	private static float health = maxHealth;
+	private float health = maxHealth;
 
-	public static float GetHealth() => health;
+	public float GetHealth() => health;
 
 	private void UpdateHealthUI() => healthText.text = $"{GetHealth()}/{maxHealth} HP";
 
-	public static void SetHealth(float value) => health = value;
+	public void SetHealth(float value) => health = value;
 
-	public static void TakeDamage(float value) => health -= value;
+	public void TakeDamage(float value) => health -= value;
 
-	public static void Heal(float value) => health += value;
+	public void Heal(float value) => health += value;
 
 	private void Update()
 	{
