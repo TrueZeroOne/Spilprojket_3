@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveDirectionInput;
+    private static readonly int Size = Animator.StringToHash("Size");
+    private static readonly int Idle = Animator.StringToHash("Idle");
 
     private void OnEnable()
     {
@@ -65,12 +67,14 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Update()
     {
+        //UpdateAnimVariables();
+
         //Ground Check
         playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.05f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 
-        AnimStateMachine();
+        //AnimStateMachine();
         PlayerInput();
         SpeedControl();
 
@@ -150,14 +154,14 @@ public class PlayerMovement : MonoBehaviour
         {
             // reset y velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpForceBig);
-
+            //anim.Play("JumpBig");
             rb.AddForce(transform.up * jumpForceBig, ForceMode2D.Impulse);
         }
         else if (!tinyBig.sizeBig)
         {
             // reset y velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpForceSmall);
-
+            //anim.Play("JumpSmall");
             rb.AddForce(transform.up * jumpForceSmall, ForceMode2D.Impulse);
         } 
     }
@@ -179,18 +183,42 @@ public class PlayerMovement : MonoBehaviour
                         currentAnimState = AnimStates.smallRunning;
                 else
                     currentAnimState = AnimStates.smallGrabbed;
-            else
-                currentAnimState = AnimStates.smallIdle;
-        else if (horizontalInput != 0)
-            if (!grabbingPlatform)
-                if (!grounded)
-                    currentAnimState = AnimStates.bigJump;
+            else if (horizontalInput != 0 && grounded) currentAnimState = AnimStates.smallIdle;
+        else if (tinyBig.sizeBig) 
+            if (horizontalInput != 0)
+                if (!grabbingPlatform)
+                    if (!grounded)
+                        currentAnimState = AnimStates.bigJump;
+                    else
+                        currentAnimState = AnimStates.bigRunning;
                 else
-                    currentAnimState = AnimStates.bigRunning;
-            else
-                currentAnimState = AnimStates.bigGrabbed;
-        else
-            currentAnimState = AnimStates.bigIdle;
+                    currentAnimState = AnimStates.bigGrabbed;
+            else if (horizontalInput != 0 && grounded)
+                currentAnimState = AnimStates.bigIdle;
+    }
+    private void UpdateAnimVariables()
+    {
+
+        if (currentAnimState == AnimStates.bigIdle)
+        {
+            anim.SetFloat(Size, 1);
+            anim.SetBool(Idle, true);
+        }
+        else if (currentAnimState == AnimStates.smallIdle)
+        {
+            anim.SetFloat(Size, 0);
+            anim.SetBool(Idle, true);
+        }
+        else if (currentAnimState is AnimStates.smallJump or AnimStates.smallGrabbed or AnimStates.smallRunning)
+        {
+            anim.SetFloat(Size, 0);
+            anim.SetBool(Idle, false);
+        }
+        else if (currentAnimState is AnimStates.bigJump or AnimStates.bigGrabbed or AnimStates.bigRunning)
+        {
+            anim.SetFloat(Size, 1);
+            anim.SetBool(Idle, false);
+        }
     }
 }
 

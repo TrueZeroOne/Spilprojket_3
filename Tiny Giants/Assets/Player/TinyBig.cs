@@ -26,10 +26,10 @@ public class TinyBig : MonoBehaviour
     //Game Object
     private Transform pTF;
     private SpriteRenderer pSR;
-    [SerializeField] Color cBig;
-    [SerializeField] Color cSmall;
-    [SerializeField] Sprite spSmall;
-    [SerializeField] Sprite spBig;
+    [SerializeField] private Color cBig;
+    [SerializeField] private Color cSmall;
+    [SerializeField] private Sprite spSmall;
+    [SerializeField] private Sprite spBig;
     public bool isGrabbing = false;
 
     //KeyCode
@@ -39,20 +39,21 @@ public class TinyBig : MonoBehaviour
     public bool sizeBig = false;
 
     //RayCastHit2D
-    RaycastHit2D fitsUp;
-    RaycastHit2D fitsDown;
+    private RaycastHit2D fitsUp;
+    private RaycastHit2D fitsDown;
 
     //New Input System
     private PlayerInput playerInput;
 
     [SerializeField] private PolygonCollider2D bigPC;
     [SerializeField] private PolygonCollider2D smallPC;
-    Vector3 sizeDiffrence;
-    Animator playerAni;
+    private Vector3 sizeDiffrence;
+    private Animator playerAni;
 
     private Sprite currentSprite;
+    private static readonly int SizeAnimID = Animator.StringToHash("Size");
 
-    void Start()
+    private void Start()
     {
         playerAni = GetComponent<Animator>();
         v3Big = spBig.bounds.extents;
@@ -71,7 +72,7 @@ public class TinyBig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         ChangeCollider();
 
@@ -85,6 +86,7 @@ public class TinyBig : MonoBehaviour
         {
             if(sizeBig == false)
             {
+                playerAni.SetFloat(SizeAnimID, 0);
                 if (!isGrabbing)
                 {
                     if (fitsUp.distance > sizeDiffrence.y +0.05f || fitsUp.distance == 0 && fitsUp.collider == null )
@@ -116,6 +118,7 @@ public class TinyBig : MonoBehaviour
             else if(sizeBig == true)
             {
                 sizeBig = false;// Spilleren er LILLE
+                playerAni.SetFloat("Size", 1);
                 SizeChange();
                 /*if (sizeBig == false)
                 {
@@ -129,8 +132,7 @@ public class TinyBig : MonoBehaviour
 
     private void ChangeCollider()
     {
-        if(playerAni.GetCurrentAnimatorStateInfo(0).IsName("SizeUpGround")|| playerAni.GetCurrentAnimatorStateInfo(0).IsName("SizeDownGround"))
-        {
+        if(playerAni.GetCurrentAnimatorStateInfo(0).IsName("SizeUpGround") || playerAni.GetCurrentAnimatorStateInfo(0).IsName("SizeDownGround"))
             if (currentSprite != GetComponent<SpriteRenderer>().sprite)
             {
                 Destroy(GetComponent<CapsuleCollider2D>());
@@ -142,12 +144,9 @@ public class TinyBig : MonoBehaviour
 
                 currentSprite = GetComponent<SpriteRenderer>().sprite;
             }
-
-        }
-
     }
 
-    void SizeChange()
+    private void SizeChange()
     {
         
         if (sizeBig==true)
