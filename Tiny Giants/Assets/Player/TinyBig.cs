@@ -129,18 +129,22 @@ public class TinyBig : MonoBehaviour
 
     private void ChangeCollider()
     {
-        if(playerAni.)
-        if(currentSprite != GetComponent<SpriteRenderer>().sprite)
+        if(playerAni.GetCurrentAnimatorStateInfo(0).IsName("SizeUpGround")|| playerAni.GetCurrentAnimatorStateInfo(0).IsName("SizeDownGround"))
         {
-            Destroy(GetComponent<CapsuleCollider2D>());
-            gameObject.AddComponent<CapsuleCollider2D>();
-            if(currentSprite.bounds.extents.y > GetComponent<SpriteRenderer>().sprite.bounds.extents.y) sizeDiffrence = currentSprite.bounds.extents - GetComponent<SpriteRenderer>().bounds.extents; 
-            else if (currentSprite.bounds.extents.y < GetComponent<SpriteRenderer>().sprite.bounds.extents.y) sizeDiffrence = GetComponent<SpriteRenderer>().bounds.extents - currentSprite.bounds.extents;
+            if (currentSprite != GetComponent<SpriteRenderer>().sprite)
+            {
+                Destroy(GetComponent<CapsuleCollider2D>());
+                gameObject.AddComponent<CapsuleCollider2D>();
+                if (currentSprite.bounds.extents.y > GetComponent<SpriteRenderer>().sprite.bounds.extents.y) sizeDiffrence = currentSprite.bounds.extents - GetComponent<SpriteRenderer>().bounds.extents;
+                else if (currentSprite.bounds.extents.y < GetComponent<SpriteRenderer>().sprite.bounds.extents.y) sizeDiffrence = GetComponent<SpriteRenderer>().bounds.extents - currentSprite.bounds.extents;
 
-            PositionAfterSizeChange();
+                PositionAfterSizeChange();
 
-            currentSprite = GetComponent<SpriteRenderer>().sprite;
+                currentSprite = GetComponent<SpriteRenderer>().sprite;
+            }
+
         }
+
     }
 
     void SizeChange()
