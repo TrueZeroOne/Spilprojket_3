@@ -19120,6 +19120,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: tb
+      value: 
+      objectReference: {fileID: 604331086}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: rbMassBig
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: rbMassSmall
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7074397791546094759, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: healthText
       value: 
@@ -19135,6 +19147,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 895843419913068670, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
   m_PrefabInstance: {fileID: 604331084}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &604331086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5902683083011812005, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+  m_PrefabInstance: {fileID: 604331084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c3a6279bf12ea44be7ccc22e6559dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &785166430
 GameObject:
   m_ObjectHideFlags: 0
@@ -20051,6 +20074,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221544131183795366, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 27.26123
+      objectReference: {fileID: 0}
+    - target: {fileID: 221544131183795366, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8025693672737760125, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -18.599976

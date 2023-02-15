@@ -28,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animations")]
     public Animator anim;
-    
+
+    [Header("Size Change")]
+    public float rbMassBig;
+    public float rbMassSmall;
 
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudio;
@@ -83,6 +86,15 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (tinyBig.sizeBig)
+        {
+            rb.mass = rbMassBig;
+        }
+        else
+        {
+            rb.mass = rbMassSmall;
+        }
     }
     private void FixedUpdate()
     {
