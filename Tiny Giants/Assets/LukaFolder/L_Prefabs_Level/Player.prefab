@@ -209,22 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c3a6279bf12ea44be7ccc22e6559dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pBigY: 1
-  pBigX: 1
-  pSmallY: 1
-  pSmallX: 1
   v3Big: {x: 0, y: 0, z: 0}
   v3Small: {x: 0, y: 0, z: 0}
   currentSize: {x: 0, y: 0, z: 0}
-  cBig: {r: 0.9433962, g: 0.48415804, b: 0.48415804, a: 1}
-  cSmall: {r: 0.32766104, g: 0.77515656, b: 0.9811321, a: 1}
-  spSmall: {fileID: 358547817, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
-  spBig: {fileID: -2081859789, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
   isGrabbing: 0
-  keySize: 107
   sizeBig: 0
-  bigPC: {fileID: 0}
-  smallPC: {fileID: 0}
+  cantSize: {fileID: 8300000, guid: 7983752110c696e4ea003c9ef01a1b5d, type: 3}
+  changeSize: {fileID: 8300000, guid: 5d66f54bc0911e844ac62c347d338c71, type: 3}
 --- !u!114 &7074397791546094759
 MonoBehaviour:
   m_ObjectHideFlags: 0

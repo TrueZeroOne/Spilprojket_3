@@ -9,14 +9,14 @@ public class TinyBig : MonoBehaviour
 {
     // Start is called before the first frame update
     //Size
-    [SerializeField]
+    /*[SerializeField]
     private float pBigY = 3.5f;
     [SerializeField]
     private float pBigX = 1.5f;
     [SerializeField]
     private float pSmallY = 0.5f;
     [SerializeField]
-    private float pSmallX = 1.0f;
+    private float pSmallX = 1.0f;*/
 
 
     [SerializeField] private Vector3 v3Big;
@@ -26,14 +26,14 @@ public class TinyBig : MonoBehaviour
     //Game Object
     private Transform pTF;
     private SpriteRenderer pSR;
-    [SerializeField] private Color cBig;
+    /*[SerializeField] private Color cBig;
     [SerializeField] private Color cSmall;
     [SerializeField] private Sprite spSmall;
-    [SerializeField] private Sprite spBig;
+    [SerializeField] private Sprite spBig;*/
     public bool isGrabbing = false;
 
     //KeyCode
-    public KeyCode keySize = KeyCode.C;
+    //public KeyCode keySize = KeyCode.C;
 
     //Bool
     public bool sizeBig = false;
@@ -45,10 +45,14 @@ public class TinyBig : MonoBehaviour
     //New Input System
     private PlayerInput playerInput;
 
-    [SerializeField] private PolygonCollider2D bigPC;
-    [SerializeField] private PolygonCollider2D smallPC;
+    private PolygonCollider2D bigPC;
+    private PolygonCollider2D smallPC;
     private Vector3 sizeDiffrence;
     private Animator playerAni;
+
+    [SerializeField] AudioClip cantSize;
+    [SerializeField] AudioClip changeSize;
+    [SerializeField] AudioClip rChangeSize;
 
     private Sprite currentSprite;
     private static readonly int SizeAnimID = Animator.StringToHash("Size");
@@ -56,8 +60,8 @@ public class TinyBig : MonoBehaviour
     private void Start()
     {
         playerAni = GetComponent<Animator>();
-        v3Big = spBig.bounds.extents;
-        v3Small = spSmall.bounds.extents;
+        //v3Big = spBig.bounds.extents;
+        //v3Small = spSmall.bounds.extents;
         currentSize = v3Small;
         sizeDiffrence = v3Big - v3Small;
 
@@ -93,6 +97,11 @@ public class TinyBig : MonoBehaviour
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
                     }
+                    else
+                    {
+                        GetComponent<AudioSource>().clip = cantSize;
+                        GetComponent<AudioSource>().Play();
+                    }
                 }
                 else if (isGrabbing)
                 {
@@ -100,6 +109,11 @@ public class TinyBig : MonoBehaviour
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
+                    }
+                    else
+                    {
+                        GetComponent<AudioSource>().clip = cantSize;
+                        GetComponent<AudioSource>().Play();
                     }
                 }
 
@@ -146,9 +160,11 @@ public class TinyBig : MonoBehaviour
 
     private void SizeChange()
     {
-        
+
         if (sizeBig==true)
         {
+            GetComponent<AudioSource>().clip = changeSize;
+            GetComponent<AudioSource>().Play();
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pBigX,pBigY,1);
             //bigPC.enabled = true;
@@ -159,6 +175,8 @@ public class TinyBig : MonoBehaviour
         }
         else if (sizeBig == false)
         {
+            GetComponent<AudioSource>().clip = rChangeSize;
+            GetComponent<AudioSource>().Play();
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             //smallPC.enabled = true;
