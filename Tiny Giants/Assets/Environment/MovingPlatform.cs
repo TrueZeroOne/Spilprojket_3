@@ -59,13 +59,13 @@ public class MovingPlatform : MonoBehaviour
 		Vector3 position = transform.position;
 		float yPosition = position.y, xPosition = position.x;
 
-		if (tinyBig.sizeBig && (yPosition <= maxPosition.y && direction == Vector2.up))
+		if (tinyBig.sizeBig && yPosition <= maxPosition.y && direction == Vector2.up)
 		{
 			speed = direction * movingSpeed;
 			rb.velocity = speed;
 			rb.AddRelativeForce(speed);
 		}
-		else if (!tinyBig.sizeBig && (yPosition >= minPosition.y && oppositeDirection == Vector2.down))
+		else if (!tinyBig.sizeBig && yPosition >= minPosition.y && oppositeDirection == Vector2.down)
 		{
 			speed = oppositeDirection * movingSpeed;
 			rb.velocity = speed;
