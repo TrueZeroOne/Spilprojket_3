@@ -104,8 +104,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-        AnimStateMachine();
-        UpdateAnimVariables();
     }
     public void PlayerInput()
     {
@@ -198,13 +196,11 @@ public class PlayerMovement : MonoBehaviour
             if (!tinyBig.sizeBig)
             {
                 currentAnimState = AnimStates.smallIdle;
-                UpdateAnimVariables();
                 return;
             }
             else
             {
                 currentAnimState = AnimStates.bigIdle;
-                UpdateAnimVariables();
                 return;
             }
         }
@@ -216,13 +212,11 @@ public class PlayerMovement : MonoBehaviour
                 if (!grounded)
                 {
                     currentAnimState = AnimStates.smallJump;
-                    UpdateAnimVariables();
                     return;
                 }
                 else
                 {
                     currentAnimState = AnimStates.smallRunning;
-                    UpdateAnimVariables();
                     return;
                 }
                     
@@ -230,7 +224,6 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 currentAnimState = AnimStates.smallGrabbed;
-                UpdateAnimVariables();
                 return;
             }
         }
@@ -242,27 +235,46 @@ public class PlayerMovement : MonoBehaviour
                 if (!grounded)
                 {
                     currentAnimState = AnimStates.bigJump;
-                    UpdateAnimVariables();
                     return;
                 }
                 else
                 {
                     currentAnimState = AnimStates.bigRunning;
-                    UpdateAnimVariables();
                     return;
                 }
             }
             else
             {
                 currentAnimState = AnimStates.bigGrabbed;
-                UpdateAnimVariables();
                 return;
             }
         }
     }
     private void UpdateAnimVariables()
     {
-        anim.SetFloat(JumpSpeed, rb.velocity.y);
+        print($"{rb.velocity.y} | {grounded} | {tinyBig.sizeBig}");
+        if (tinyBig.sizeBig)
+        {
+            if (rb.velocity.y is >= -7.159f and <= 0.01f)
+            {
+                anim.SetFloat(JumpSpeed, 0);
+            }
+            else
+            {
+                anim.SetFloat(JumpSpeed, rb.velocity.y);
+            }
+        }
+        else
+        {
+            if (rb.velocity.y is >= -4.959f and <= 0.01f)
+            {
+                anim.SetFloat(JumpSpeed, 0);
+            }
+            else
+            {
+                anim.SetFloat(JumpSpeed, rb.velocity.y);
+            }
+        }
         anim.SetFloat(Speed, rb.velocity.x);
         anim.SetFloat(SizeAnimID, tinyBig.sizeBig ? 1 : 0);
         #region OldAnimationStuff
