@@ -6,6 +6,7 @@ public class MovingPlatform : MonoBehaviour
 	[SerializeField] private MovingDirection moveDirection = MovingDirection.up;
 	[SerializeField] private float movingSpeed = 1.11f;
 	[SerializeField] private Vector2 maxPosition, minPosition;
+	[SerializeField] private AudioClip leafNoise;
 
 	private Rigidbody2D rb;
 	private Vector2 direction;
@@ -24,6 +25,9 @@ public class MovingPlatform : MonoBehaviour
 	{
 		movePlatform = true;
 		DetectPlayer(col);
+		GetComponent<AudioSource>().clip = leafNoise;
+		if(!GetComponent<AudioSource>().isPlaying)
+			GetComponent<AudioSource>().Play();
 	}
 
 	private void OnTriggerExit2D(Collider2D col)
@@ -32,6 +36,7 @@ public class MovingPlatform : MonoBehaviour
         {
 			movePlatform = false;
 			DetectPlayer(col);
+			GetComponent<AudioSource>().Stop();
         }
 		
 	}
