@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Collectible : MonoBehaviour
@@ -6,11 +7,18 @@ public class Collectible : MonoBehaviour
 	[SerializeField] private SpriteRenderer body;
 	[SerializeField] private Sprite aliveBodySprite;
 	[SerializeField] private Sprite deadBodySprite;
-	private void Start() => body.sprite = aliveBodySprite;
+	private Animator anim;
+	private static readonly int Eat = Animator.StringToHash("eat");
+	private void Start()
+	{
+		body.sprite = aliveBodySprite;
+		anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+	}
 	private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.CompareTag("Player"))
 		{
+			//anim.SetBool(Eat, true);
 			GetComponent<Collider2D>().enabled = false;
 			GameObject collectibleManager = GameObject.Find("CollectibleManager");
 			collectibleManager.GetComponent<AudioSource>().Play();

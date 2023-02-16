@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int JumpAnimID = Animator.StringToHash("Jump");
     private static readonly int Speed = Animator.StringToHash("speed");
     private static readonly int JumpSpeed = Animator.StringToHash("jumpSpeed");
+    private static readonly int IsGrabbed = Animator.StringToHash("isGrabbed");
 
     private void OnEnable()
     {
@@ -252,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateAnimVariables()
     {
-        print($"{rb.velocity.y} | {grounded} | {tinyBig.sizeBig}");
+        //print($"{rb.velocity.y} | {grounded} | {tinyBig.sizeBig}");
         if (tinyBig.sizeBig)
         {
             if (rb.velocity.y is >= -7.159f and <= 0.01f)
@@ -275,6 +276,9 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetFloat(JumpSpeed, rb.velocity.y);
             }
         }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
+            print("Eat");
+        anim.SetBool(IsGrabbed, grabbingPlatform);
         anim.SetFloat(Speed, rb.velocity.x);
         anim.SetFloat(SizeAnimID, tinyBig.sizeBig ? 1 : 0);
         #region OldAnimationStuff
