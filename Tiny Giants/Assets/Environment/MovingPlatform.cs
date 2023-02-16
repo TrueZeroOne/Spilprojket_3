@@ -73,10 +73,10 @@ public class MovingPlatform : MonoBehaviour
 		else if (!tinyBig.sizeBig && yPosition >= minPosition.y && oppositeDirection == Vector2.down)
 		{
 			speed = oppositeDirection * movingSpeed;
-			rb.velocity = speed;
-			rb.AddRelativeForce(speed);
-			playerRB.velocity = new Vector2(playerRB.velocity.x, speed.y*2);
-			playerRB.AddRelativeForce(speed*2f);
+			//rb.velocity = speed;
+			//rb.AddRelativeForce(speed);
+			playerRB.velocity = new Vector2(playerRB.velocity.x, speed.y);
+			playerRB.AddRelativeForce(speed);
 		}
 		/*else if (TinyBig.sizeBig && (xPosition <= maxPosition.x && direction == Vector2.left))
 				{
