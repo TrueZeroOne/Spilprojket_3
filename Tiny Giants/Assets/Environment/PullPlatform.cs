@@ -27,7 +27,7 @@ public class PullPlatform : MonoBehaviour
         {
             if (!isGrabbed)
             {
-                if (Vector2.Distance(playerTop, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y)
+                if (Vector2.Distance(playerTop, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.25f)
                 {
                     Debug.Log("HOLD THE FUCK ON!!!");
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
