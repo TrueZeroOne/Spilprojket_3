@@ -102,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        AnimStateMachine();
+        UpdateAnimVariables();
     }
     public void PlayerInput()
     {
@@ -196,30 +198,67 @@ public class PlayerMovement : MonoBehaviour
             if (!tinyBig.sizeBig)
             {
                 currentAnimState = AnimStates.smallIdle;
+                UpdateAnimVariables();
                 return;
             }
             else
             {
                 currentAnimState = AnimStates.bigIdle;
+                UpdateAnimVariables();
                 return;
             }
         }
         if (!tinyBig.sizeBig)
+        {
             if (!grabbingPlatform)
-                    if (!grounded)
-                        currentAnimState = AnimStates.smallJump;
-                    else
-                        currentAnimState = AnimStates.smallRunning;
-            else
-                currentAnimState = AnimStates.smallGrabbed;
-        else if (tinyBig.sizeBig)
-            if (!grabbingPlatform)
+            {
+
                 if (!grounded)
-                    currentAnimState = AnimStates.bigJump;
+                {
+                    currentAnimState = AnimStates.smallJump;
+                    UpdateAnimVariables();
+                    return;
+                }
                 else
-                    currentAnimState = AnimStates.bigRunning;
+                {
+                    currentAnimState = AnimStates.smallRunning;
+                    UpdateAnimVariables();
+                    return;
+                }
+                    
+            }
             else
+            {
+                currentAnimState = AnimStates.smallGrabbed;
+                UpdateAnimVariables();
+                return;
+            }
+        }
+            
+        else if (tinyBig.sizeBig)
+        {
+            if (!grabbingPlatform)
+            {
+                if (!grounded)
+                {
+                    currentAnimState = AnimStates.bigJump;
+                    UpdateAnimVariables();
+                    return;
+                }
+                else
+                {
+                    currentAnimState = AnimStates.bigRunning;
+                    UpdateAnimVariables();
+                    return;
+                }
+            }
+            else
+            {
                 currentAnimState = AnimStates.bigGrabbed;
+                UpdateAnimVariables();
+                return;
+            }
+        }
     }
     private void UpdateAnimVariables()
     {
