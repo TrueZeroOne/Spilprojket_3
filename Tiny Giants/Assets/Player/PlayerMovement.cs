@@ -265,6 +265,8 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat(JumpSpeed, rb.velocity.y);
         anim.SetFloat(Speed, rb.velocity.x);
         anim.SetFloat(SizeAnimID, tinyBig.sizeBig ? 1 : 0);
+        #region OldAnimationStuff
+
         /*if (currentAnimState == AnimStates.bigIdle)
         {
             anim.SetFloat(SizeAnimID, 1);
@@ -299,6 +301,8 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool(IdleAnimID, false);
             anim.SetBool(JumpAnimID, true);
         }*/
+
+  #endregion
     }
 }
 public enum AnimStates
