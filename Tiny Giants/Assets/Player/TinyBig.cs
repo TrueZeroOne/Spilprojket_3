@@ -86,7 +86,6 @@ public class TinyBig : MonoBehaviour
         {
             if(sizeBig == false)
             {
-                playerAni.SetFloat(SizeAnimID, 0);
                 if (!isGrabbing)
                 {
                     if (fitsUp.distance > sizeDiffrence.y +0.05f || fitsUp.distance == 0 && fitsUp.collider == null )
@@ -103,7 +102,7 @@ public class TinyBig : MonoBehaviour
                         SizeChange();
                     }
                 }
-                
+
                 //sizeBig = true;// Spilleren er STOR
                 //SizeChange();
                 /*if (sizeBig == true)
@@ -118,7 +117,6 @@ public class TinyBig : MonoBehaviour
             else if(sizeBig == true)
             {
                 sizeBig = false;// Spilleren er LILLE
-                playerAni.SetFloat("Size", 1);
                 SizeChange();
                 /*if (sizeBig == false)
                 {
@@ -151,22 +149,22 @@ public class TinyBig : MonoBehaviour
         
         if (sizeBig==true)
         {
-            playerAni.Play("SizeUpGround");
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pBigX,pBigY,1);
             //bigPC.enabled = true;
             //smallPC.enabled = false;
             //pSR.color = cBig;
+            playerAni.Play("SizeUpGround");
             currentSize = v3Big;
         }
         else if (sizeBig == false)
         {
-            playerAni.Play("SizeDownGround");
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             //smallPC.enabled = true;
             //bigPC.enabled = false;
             //pSR.color = cSmall;
+            playerAni.Play("SizeDownGround");
             currentSize = v3Small;
         }
     }

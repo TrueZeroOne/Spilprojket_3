@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     private static readonly int SizeAnimID = Animator.StringToHash("Size");
     private static readonly int IdleAnimID = Animator.StringToHash("Idle");
     private static readonly int JumpAnimID = Animator.StringToHash("Jump");
+    private static readonly int Speed = Animator.StringToHash("speed");
+    private static readonly int JumpSpeed = Animator.StringToHash("jumpSpeed");
 
     private void OnEnable()
     {
@@ -171,7 +173,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // reset y velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpForceBig);
-            anim.Play("JumpBig");
             currentAnimState = AnimStates.bigJump;
             rb.AddForce(transform.up * jumpForceBig, ForceMode2D.Impulse);
         }
@@ -179,7 +180,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // reset y velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpForceSmall);
-            anim.Play("JumpSmall");
             currentAnimState = AnimStates.smallJump;
             rb.AddForce(transform.up * jumpForceSmall, ForceMode2D.Impulse);
         }
@@ -262,8 +262,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateAnimVariables()
     {
-
-        if (currentAnimState == AnimStates.bigIdle)
+        anim.SetFloat(JumpSpeed, rb.velocity.y);
+        anim.SetFloat(Speed, rb.velocity.x);
+        anim.SetFloat(SizeAnimID, tinyBig.sizeBig ? 1 : 0);
+        /*if (currentAnimState == AnimStates.bigIdle)
         {
             anim.SetFloat(SizeAnimID, 1);
             anim.SetBool(IdleAnimID, true);
@@ -296,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat(SizeAnimID, 0);
             anim.SetBool(IdleAnimID, false);
             anim.SetBool(JumpAnimID, true);
-        }
+        }*/
     }
 }
 public enum AnimStates
