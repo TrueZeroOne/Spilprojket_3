@@ -75,8 +75,8 @@ public class MovingPlatform : MonoBehaviour
 			speed = oppositeDirection * movingSpeed;
 			rb.velocity = speed;
 			rb.AddRelativeForce(speed);
-			playerRB.velocity = new Vector2(playerRB.velocity.x, speed.y);
-			playerRB.AddRelativeForce(speed);
+			playerRB.velocity = new Vector2(playerRB.velocity.x, speed.y*2);
+			playerRB.AddRelativeForce(speed*2f);
 		}
 		/*else if (TinyBig.sizeBig && (xPosition <= maxPosition.x && direction == Vector2.left))
 				{
