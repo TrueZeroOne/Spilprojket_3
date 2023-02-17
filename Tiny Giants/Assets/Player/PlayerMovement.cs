@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudio;
+    [SerializeField] private AudioClip walkAudio;
 
     private float horizontalInput;
     private float verticalInput;
@@ -128,6 +129,19 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+        AudioSource AS = GetComponent<AudioSource>();
+        if (horizontalInput < -0.05 || horizontalInput > 0.05)
+        {
+            AS.clip = walkAudio;
+            AS.volume = 0.2f;
+            if (!AS.isPlaying)
+                AS.Play();
+        }
+        else
+        {
+            AS.Stop();
+            AS.volume = 1;
         }
     }
 
