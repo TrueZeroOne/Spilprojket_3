@@ -13596,11 +13596,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3174912615774457193, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Offset.y
-      value: -0.3
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3174912615774457195, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 3174912615774457196, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Name

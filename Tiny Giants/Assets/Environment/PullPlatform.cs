@@ -21,16 +21,16 @@ public class PullPlatform : MonoBehaviour
     private void Update()
     {
         playerHeight = player.GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
-        Vector3 playerTop = new Vector3(player.transform.position.x, player.transform.position.y + playerHeight, player.transform.position.z);
+        Vector2 nearestToPoint = player.GetComponent<CapsuleCollider2D>().ClosestPoint(transform.position);
         
         if (playerInput.actions["Pull"].triggered)
         {
             if (!isGrabbed)
             {
-                if (Vector2.Distance(playerTop, new Vector2 (transform.position.x,transform.position.y+0.25f)) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.5f)
+                if (Vector2.Distance(nearestToPoint, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.5f)
                 {
-                    player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                    player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = true;
+                    player.GetComponent<Rigidbody2D>().gravityScale = 0;
+                    player.GetComponent<PlayerMovement>().grabbingPlatform = true;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     isGrabbed = !isGrabbed;
                     player.GetComponent<TinyBig>().isGrabbing = true;
@@ -75,6 +75,6 @@ public class PullPlatform : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + 0.25f), GetComponent<SpriteRenderer>().sprite.bounds.extents.y + 0.4f);
+        Gizmos.DrawWireSphere(transform.position, GetComponent<SpriteRenderer>().sprite.bounds.extents.y + 0.4f);
     }
 }

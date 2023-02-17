@@ -100,12 +100,14 @@ public class PlayerMovement : MonoBehaviour
         if (tinyBig.sizeBig)
         {
             rb.mass = rbMassBig;
-            rb.gravityScale = rbGSBig;
+            if(!grabbingPlatform)
+                rb.gravityScale = rbGSBig;
         }
         else
         {
             rb.mass = rbMassSmall;
-            rb.gravityScale = rbGSSmall;
+            if(!grabbingPlatform)
+                rb.gravityScale = rbGSSmall;
         }
     }
     private void FixedUpdate()
