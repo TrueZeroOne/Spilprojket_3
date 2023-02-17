@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 	public void KeybindsMenu() => SceneManager.LoadScene(keybindMenu);
 	public void CreditsMenu() => SceneManager.LoadScene(creditMenu);
 	public void StartMenu() => SceneManager.LoadScene(startMenu);
+	public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	public void QuitGame() => Application.Quit();
 	private void Update()
 	{
