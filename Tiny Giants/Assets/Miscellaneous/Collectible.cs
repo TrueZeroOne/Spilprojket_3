@@ -26,7 +26,7 @@ public class Collectible : MonoBehaviour
 			CollectibleManager cm = collectibleManager.GetComponent<CollectibleManager>();
 			body.sprite = deadBodySprite;
 			cm.collected++;
-			print($"You collected: {cm.collected}/{cm.collectiblesTotal} ({cm.GetCollectiblesLeft()} Left)");
+			//print($"You collected: {cm.collected}/{cm.collectiblesTotal} ({cm.GetCollectiblesLeft()} Left)");
 			collectibleManager.GetComponent<CollectibleManager>().UpdateCollectibleUI();
 		}
 	}

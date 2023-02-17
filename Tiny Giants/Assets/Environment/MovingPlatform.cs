@@ -12,6 +12,8 @@ public class MovingPlatform : MonoBehaviour
 	private Vector2 direction;
 	private Vector2 oppositeDirection;
 	private bool movePlatform;
+	private Animator anim;
+	private static readonly int OnPlatform = Animator.StringToHash("onPlatform");
 
 	private void Awake()
 	{
@@ -19,15 +21,22 @@ public class MovingPlatform : MonoBehaviour
 		rb.constraints = RigidbodyConstraints2D.FreezeAll;
 	}
 
-	
+	private void Start()
+	{
+		anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+	}
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
-		movePlatform = true;
-		DetectPlayer(col);
-		GetComponent<AudioSource>().clip = leafNoise;
-		if(!GetComponent<AudioSource>().isPlaying)
-			GetComponent<AudioSource>().Play();
+		if (col.CompareTag("Player"))
+		{
+			movePlatform = true;
+			anim.SetBool(OnPlatform, movePlatform);
+			DetectPlayer(col);
+			GetComponent<AudioSource>().clip = leafNoise;
+			if (!GetComponent<AudioSource>().isPlaying)
+				GetComponent<AudioSource>().Play();
+		}
 	}
 
 	private void OnTriggerExit2D(Collider2D col)
@@ -35,6 +44,7 @@ public class MovingPlatform : MonoBehaviour
 		if (col.CompareTag("Player"))
         {
 			movePlatform = false;
+			anim.SetBool(OnPlatform, movePlatform);
 			DetectPlayer(col);
 			GetComponent<AudioSource>().Stop();
         }
