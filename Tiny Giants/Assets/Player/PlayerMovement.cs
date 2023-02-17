@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     public float rbMassBig;
     public float rbMassSmall;
 
+    public float rbGSBig;
+    public float rbGSSmall;
+
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudio;
 
@@ -96,10 +99,12 @@ public class PlayerMovement : MonoBehaviour
         if (tinyBig.sizeBig)
         {
             rb.mass = rbMassBig;
+            rb.gravityScale = rbGSBig;
         }
         else
         {
             rb.mass = rbMassSmall;
+            rb.gravityScale = rbGSSmall;
         }
     }
     private void FixedUpdate()
