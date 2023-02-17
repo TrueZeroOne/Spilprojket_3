@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
         AudioSource AS = GetComponent<AudioSource>();
-        if (horizontalInput < -0.05 || horizontalInput > 0.05)
+        if (grounded &&horizontalInput < -0.05  || horizontalInput > 0.05 && grounded)
         {
             AS.clip = walkAudio;
             AS.volume = 0.2f;
