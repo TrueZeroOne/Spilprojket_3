@@ -27,9 +27,8 @@ public class PullPlatform : MonoBehaviour
         {
             if (!isGrabbed)
             {
-                if (Vector2.Distance(playerTop, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.25f)
+                if (Vector2.Distance(playerTop, new Vector2 (transform.position.x,transform.position.y+0.25f)) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.5f)
                 {
-                    Debug.Log("HOLD THE FUCK ON!!!");
                     player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = true;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -73,5 +72,9 @@ public class PullPlatform : MonoBehaviour
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + 0.25f), GetComponent<SpriteRenderer>().sprite.bounds.extents.y + 0.4f);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class MovingPlatform : MonoBehaviour
 	private bool movePlatform;
 	private Animator anim;
 	private static readonly int OnPlatform = Animator.StringToHash("onPlatform");
+	private DateTime lastTouch;
+	private TimeSpan ts;
 
 	private void Awake()
 	{
@@ -23,18 +26,20 @@ public class MovingPlatform : MonoBehaviour
 
 	private void Start()
 	{
+		lastTouch = DateTime.Now;
 		anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
+		ts = DateTime.Now - lastTouch;
 		if (col.CompareTag("Player"))
 		{
 			movePlatform = true;
 			anim.SetBool(OnPlatform, movePlatform);
 			DetectPlayer(col);
 			GetComponent<AudioSource>().clip = leafNoise;
-			if (!GetComponent<AudioSource>().isPlaying)
+			if (!GetComponent<AudioSource>().isPlaying && ts.TotalMilliseconds > 100)
 				GetComponent<AudioSource>().Play();
 		}
 	}
@@ -46,7 +51,7 @@ public class MovingPlatform : MonoBehaviour
 			movePlatform = false;
 			anim.SetBool(OnPlatform, movePlatform);
 			DetectPlayer(col);
-			GetComponent<AudioSource>().Stop();
+			lastTouch = DateTime.Now;
         }
 		
 	}
@@ -83,10 +88,8 @@ public class MovingPlatform : MonoBehaviour
 		else if (!tinyBig.sizeBig && yPosition >= minPosition.y && oppositeDirection == Vector2.down)
 		{
 			speed = oppositeDirection * movingSpeed;
-			//rb.velocity = speed;
-			//rb.AddRelativeForce(speed);
-			playerRB.velocity = new Vector2(playerRB.velocity.x, speed.y);
-			playerRB.AddRelativeForce(speed);
+			rb.velocity = speed;
+			rb.AddRelativeForce(speed);
 		}
 		/*else if (TinyBig.sizeBig && (xPosition <= maxPosition.x && direction == Vector2.left))
 				{
