@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tile_Levels/Level4_Tile.unity
     guid: 0825651a5cbc05e4c9a41df51f7a9e6f
   - enabled: 1
+    path: Assets/Scenes/Tile_Levels/Level5_Tile.unity
+    guid: afed0ac7921c8a948b8061d36fd938fe
+  - enabled: 1
     path: Assets/Scenes/SilentEndScreen.unity
     guid: 4354eec1a06d07e42956a16d93367cca
   m_configObjects:
