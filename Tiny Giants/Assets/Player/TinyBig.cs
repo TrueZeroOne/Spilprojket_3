@@ -19,17 +19,17 @@ public class TinyBig : MonoBehaviour
     private float pSmallX = 1.0f;*/
 
 
-    [SerializeField] private Vector3 v3Big;
-    [SerializeField] private Vector3 v3Small;
+    //private Vector3 v3Big;
+    //private Vector3 v3Small;
     [SerializeField] private Vector3 currentSize;
 
     //Game Object
     private Transform pTF;
     private SpriteRenderer pSR;
     /*[SerializeField] private Color cBig;
-    [SerializeField] private Color cSmall;
+    [SerializeField] private Color cSmall;*/
     [SerializeField] private Sprite spSmall;
-    [SerializeField] private Sprite spBig;*/
+    [SerializeField] private Sprite spBig;
     public bool isGrabbing = false;
 
     //KeyCode
@@ -62,9 +62,6 @@ public class TinyBig : MonoBehaviour
         playerAni = GetComponent<Animator>();
         //v3Big = spBig.bounds.extents;
         //v3Small = spSmall.bounds.extents;
-        currentSize = v3Small;
-        sizeDiffrence = v3Big - v3Small;
-
         pTF = gameObject.transform;
         pSR = GetComponent<SpriteRenderer>();
         //sizeBig = false;
@@ -73,6 +70,8 @@ public class TinyBig : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         currentSprite = GetComponent<SpriteRenderer>().sprite;
+        currentSize = currentSprite.bounds.extents;
+        sizeDiffrence = spBig.bounds.extents - spSmall.bounds.extents;
     }
 
     // Update is called once per frame
@@ -82,9 +81,9 @@ public class TinyBig : MonoBehaviour
 
         fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y+0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.up,10);
         fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.down,10);
-        //Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
-        //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y +currentSize.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
-        //Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - currentSize.y), new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z));
+        Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
+        Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + currentSize.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
+        Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - currentSize.y - 0.05f), new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z));
 
         if (playerInput.actions["ChangeSize"].triggered)//Key C
         {
@@ -155,6 +154,7 @@ public class TinyBig : MonoBehaviour
                 PositionAfterSizeChange();
 
                 currentSprite = GetComponent<SpriteRenderer>().sprite;
+                currentSize = currentSprite.bounds.extents;
             }
     }
 
@@ -171,7 +171,7 @@ public class TinyBig : MonoBehaviour
             //smallPC.enabled = false;
             //pSR.color = cBig;
             playerAni.Play("SizeUpGround");
-            currentSize = v3Big;
+            //currentSize = v3Big;
         }
         else if (sizeBig == false)
         {
@@ -183,7 +183,7 @@ public class TinyBig : MonoBehaviour
             //bigPC.enabled = false;
             //pSR.color = cSmall;
             playerAni.Play("SizeDownGround");
-            currentSize = v3Small;
+            //currentSize = v3Small;
         }
     }
     private void PositionAfterSizeChange()
@@ -216,7 +216,7 @@ public class TinyBig : MonoBehaviour
             {
                 if (!GetComponent<PlayerMovement>().grounded)
                 {
-                    if (fitsDown.distance > v3Big.y - v3Small.y && fitsUp.distance > sizeDiffrence.y)
+                    if (fitsDown.distance > sizeDiffrence.y && fitsUp.distance > sizeDiffrence.y)
                     {
                         return;
                     }
