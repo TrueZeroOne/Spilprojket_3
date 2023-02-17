@@ -187,14 +187,14 @@ MonoBehaviour:
   playerHeight: 1
   grounded: 0
   jumpKey: 32
-  jumpForceBig: 3.5
+  jumpForceBig: 3
   jumpForceSmall: 5.7
   jumpCooldown: 0.25
   airMultiplier: 0.2
   anim: {fileID: 0}
   rbMassBig: 1.2
   rbMassSmall: 1
-  rbGSBig: 1
+  rbGSBig: 0.8
   rbGSSmall: 2
   jumpAudio: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
   grabbingPlatform: 0
