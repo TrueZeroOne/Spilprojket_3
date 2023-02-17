@@ -197,6 +197,7 @@ MonoBehaviour:
   rbGSBig: 0.8
   rbGSSmall: 2
   jumpAudio: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
+  walkAudio: {fileID: 0}
   grabbingPlatform: 0
   currentAnimState: 0
   playerInput: {fileID: 3730826043134825129}
@@ -245,10 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f07e6d257b0b6245a4ce4065206a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinyPlayerFallDamageDistance: 6.8
-  bigPlayerFallDamageDistance: 7.8
-  raycastRange: 2
-  fallDamage: 50
+  tinyPlayerFallDamageDistance: 6.5
+  bigPlayerFallDamageDistance: 7.5
+  raycastRange: 8
+  fallDamage: 2
   hurtAudio: {fileID: 8300000, guid: 9eaddaf2756f7104fa00c910a9b2806e, type: 3}
   tinyBig: {fileID: 5902683083011812005}
 --- !u!114 &3730826043134825129
