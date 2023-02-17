@@ -27663,10 +27663,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5902683083011812005, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
-      propertyPath: rChangeSize
-      value: 
-      objectReference: {fileID: 8300000, guid: 8a08037f35bef4a48b17168f4b519de5, type: 3}
     - target: {fileID: 7074397791546094759, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: healthText
       value: 
@@ -61785,9 +61781,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1129107405, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1243324051, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8025693672877168389, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_Pivot.x

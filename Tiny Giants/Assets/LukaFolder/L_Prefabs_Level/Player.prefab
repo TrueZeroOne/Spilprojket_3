@@ -209,13 +209,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c3a6279bf12ea44be7ccc22e6559dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3Big: {x: 0, y: 0, z: 0}
-  v3Small: {x: 0, y: 0, z: 0}
   currentSize: {x: 0, y: 0, z: 0}
+  spSmall: {fileID: 358547817, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
+  spBig: {fileID: -2081859789, guid: 22a1b4b356b5f4147be5ece98d247369, type: 3}
   isGrabbing: 0
   sizeBig: 0
   cantSize: {fileID: 8300000, guid: 7983752110c696e4ea003c9ef01a1b5d, type: 3}
   changeSize: {fileID: 8300000, guid: 5d66f54bc0911e844ac62c347d338c71, type: 3}
+  rChangeSize: {fileID: 8300000, guid: 8a08037f35bef4a48b17168f4b519de5, type: 3}
 --- !u!114 &7074397791546094759
 MonoBehaviour:
   m_ObjectHideFlags: 0
