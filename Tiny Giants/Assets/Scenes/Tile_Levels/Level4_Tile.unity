@@ -61972,22 +61972,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 350273431, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -57.000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492971811, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 142.94998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995667551, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.0000153
-      objectReference: {fileID: 0}
-    - target: {fileID: 221544131183795366, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 8025693672877168389, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -62075,18 +62059,6 @@ PrefabInstance:
     - target: {fileID: 8025693672877168409, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_Name
       value: UICanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8025693673357149153, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8025693673632047798, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8746429924543468909, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 189.94998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
