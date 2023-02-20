@@ -187,8 +187,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        GetComponent<AudioSource>().clip = jumpAudio;
-        GetComponent<AudioSource>().Play();
+        
         if (tinyBig.sizeBig)
         {
             // reset y velocity
@@ -203,6 +202,8 @@ public class PlayerMovement : MonoBehaviour
             currentAnimState = AnimStates.smallJump;
             rb.AddForce(transform.up * jumpForceSmall, ForceMode2D.Impulse);
         }
+        GetComponent<AudioSource>().clip = jumpAudio;
+        GetComponent<AudioSource>().Play();
     }
     private void ResetJump()
     {

@@ -1911,6 +1911,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 397456960, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 397456960, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1687479060}
@@ -1924,11 +1928,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 895843419913068670, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.55
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 895843419913068670, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 895843419913068670, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1966,6 +1970,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4706652649157024872, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: walkAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: fc3fc94e246ea874bad7e595188bae29, type: 3}
+    - target: {fileID: 6746917071681402851, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746917071681402851, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7074397791546094759, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: healthText
       value: 
@@ -1973,6 +1993,10 @@ PrefabInstance:
     - target: {fileID: 8813855101357193717, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813855101357193717, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}

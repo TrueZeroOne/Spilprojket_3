@@ -54,11 +54,13 @@ public class TinyBig : MonoBehaviour
     [SerializeField] AudioClip changeSize;
     [SerializeField] AudioClip rChangeSize;
 
+    private AudioSource playerAudio;
     private Sprite currentSprite;
     private static readonly int SizeAnimID = Animator.StringToHash("Size");
 
     private void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
         playerAni = GetComponent<Animator>();
         //v3Big = spBig.bounds.extents;
         //v3Small = spSmall.bounds.extents;
@@ -85,34 +87,34 @@ public class TinyBig : MonoBehaviour
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + currentSize.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - currentSize.y - 0.05f), new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z));
 
+        Debug.Log(sizeDiffrence.y);
+
         if (playerInput.actions["ChangeSize"].triggered)//Key C
         {
             if(sizeBig == false)
             {
                 if (!isGrabbing)
                 {
-                    if (fitsUp.distance > sizeDiffrence.y +0.05f || fitsUp.distance == 0 && fitsUp.collider == null )
+                    if (fitsUp.distance > sizeDiffrence.y *2 +0.05f || fitsUp.distance == 0 && fitsUp.collider == null )
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
                     }
                     else
                     {
-                        GetComponent<AudioSource>().clip = cantSize;
-                        GetComponent<AudioSource>().Play();
+                        PlayAudio(cantSize);
                     }
                 }
                 else if (isGrabbing)
                 {
-                    if (fitsDown.distance > sizeDiffrence.y  + 0.05f|| fitsDown.distance == 0 && fitsDown.collider == null)
+                    if (fitsDown.distance > sizeDiffrence.y *2 + 0.05f|| fitsDown.distance == 0 && fitsDown.collider == null)
                     {
                         sizeBig = true;// Spilleren er STOR
                         SizeChange();
                     }
                     else
                     {
-                        GetComponent<AudioSource>().clip = cantSize;
-                        GetComponent<AudioSource>().Play();
+                        PlayAudio(cantSize);
                     }
                 }
 
@@ -162,8 +164,7 @@ public class TinyBig : MonoBehaviour
 
         if (sizeBig==true)
         {
-            GetComponent<AudioSource>().clip = changeSize;
-            GetComponent<AudioSource>().Play();
+            PlayAudio(changeSize);
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pBigX,pBigY,1);
             //bigPC.enabled = true;
@@ -174,8 +175,7 @@ public class TinyBig : MonoBehaviour
         }
         else if (sizeBig == false)
         {
-            GetComponent<AudioSource>().clip = rChangeSize;
-            GetComponent<AudioSource>().Play();
+            PlayAudio(rChangeSize);
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             //smallPC.enabled = true;
@@ -230,5 +230,10 @@ public class TinyBig : MonoBehaviour
                 }
             }
         }
+    }
+    private void PlayAudio(AudioClip clip)
+    {
+        Debug.Log(clip.name+ " Was PLAYED");
+        playerAudio.PlayOneShot(clip);
     }
 }
