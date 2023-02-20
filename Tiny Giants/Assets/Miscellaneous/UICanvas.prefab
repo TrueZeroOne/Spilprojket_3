@@ -709,8 +709,7 @@ MonoBehaviour:
   keybindHelpUI: {fileID: 1129107405}
   textMP: {fileID: 1395467072}
   input: Pull
-  actionNr: 0
-  IAR: {fileID: 0}
+  bindingIndex: 0
 --- !u!114 &1971255732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,8 +725,7 @@ MonoBehaviour:
   keybindHelpUI: {fileID: 1129107405}
   textMP: {fileID: 1596989981}
   input: ChangeSize
-  actionNr: 0
-  IAR: {fileID: 0}
+  bindingIndex: 0
 --- !u!114 &1971255733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,8 +741,7 @@ MonoBehaviour:
   keybindHelpUI: {fileID: 1129107405}
   textMP: {fileID: 422949263}
   input: Jump
-  actionNr: 0
-  IAR: {fileID: 0}
+  bindingIndex: 0
 --- !u!114 &7394011762406924166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,10 +755,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keybindHelpUI: {fileID: 1129107405}
-  textMP: {fileID: 422949263}
+  textMP: {fileID: 19911490177403700}
   input: Move
-  actionNr: 0
-  IAR: {fileID: -486766386587755787, guid: 9dffb0e41c7125a4aac52f8f04bd21a7, type: 3}
+  bindingIndex: 3
 --- !u!114 &4443936182535855243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,10 +771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keybindHelpUI: {fileID: 1129107405}
-  textMP: {fileID: 422949263}
+  textMP: {fileID: 7121829870217026947}
   input: Move
-  actionNr: 0
-  IAR: {fileID: -486766386587755787, guid: 9dffb0e41c7125a4aac52f8f04bd21a7, type: 3}
+  bindingIndex: 4
 --- !u!1 &1395467071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,7 +1671,7 @@ GameObject:
   - component: {fileID: 6658624897962254116}
   - component: {fileID: 19911490177403700}
   m_Layer: 5
-  m_Name: GrabKeybind
+  m_Name: LeftKeybind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3085,7 +3080,7 @@ GameObject:
   - component: {fileID: 1767958561858573667}
   - component: {fileID: 7121829870217026947}
   m_Layer: 5
-  m_Name: GrabKeybind
+  m_Name: RightKeybind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
