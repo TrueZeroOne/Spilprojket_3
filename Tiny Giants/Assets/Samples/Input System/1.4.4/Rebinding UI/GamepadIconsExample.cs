@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine.UI;
 
 ////TODO: have updateBindingUIEvent receive a control path string, too (in addition to the device layout name)
@@ -19,8 +20,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         protected void OnEnable()
         {
             // Hook into all updateBindingUIEvents on all RebindActionUI components in our hierarchy.
-            var rebindUIComponents = transform.GetComponentsInChildren<RebindActionUI>();
-            foreach (var component in rebindUIComponents)
+            RebindActionUI[] rebindUIComponents = transform.GetComponentsInChildren<RebindActionUI>();
+            foreach (RebindActionUI component in rebindUIComponents)
             {
                 component.updateBindingUIEvent.AddListener(OnUpdateBindingDisplay);
                 component.UpdateBindingDisplay();
@@ -32,17 +33,17 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             if (string.IsNullOrEmpty(deviceLayoutName) || string.IsNullOrEmpty(controlPath))
                 return;
 
-            var icon = default(Sprite);
+            Sprite icon = default(Sprite);
             if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "DualShockGamepad"))
                 icon = ps4.GetSprite(controlPath);
             else if (InputSystem.IsFirstLayoutBasedOnSecond(deviceLayoutName, "Gamepad"))
                 icon = xbox.GetSprite(controlPath);
 
-            var textComponent = component.bindingText;
+            TMP_Text textComponent = component.bindingText;
 
             // Grab Image component.
-            var imageGO = textComponent.transform.parent.Find("ActionBindingIcon");
-            var imageComponent = imageGO.GetComponent<Image>();
+            Transform imageGO = textComponent.transform.parent.Find("ActionBindingIcon");
+            Image imageComponent = imageGO.GetComponent<Image>();
 
             if (icon != null)
             {

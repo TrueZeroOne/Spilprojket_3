@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Old_TinyBig : MonoBehaviour
@@ -18,8 +16,8 @@ public class Old_TinyBig : MonoBehaviour
     //Game Object
     private Transform pTF;
     private SpriteRenderer pSR;
-    [SerializeField] Color cBig;
-    [SerializeField] Color cSmall;
+    [SerializeField] private Color cBig;
+    [SerializeField] private Color cSmall;
 
     //KeyCode
     public KeyCode keySize = KeyCode.C;
@@ -27,7 +25,7 @@ public class Old_TinyBig : MonoBehaviour
     //Bool
     public bool sizeBig = false;
 
-    void Start()
+    private void Start()
     {
         pTF = gameObject.transform;
         pSR = GetComponent<SpriteRenderer>();
@@ -35,7 +33,7 @@ public class Old_TinyBig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(keySize))//Key C
         {
@@ -62,7 +60,7 @@ public class Old_TinyBig : MonoBehaviour
             }
         }
     }
-    void SizeChange()
+    private void SizeChange()
     {
         if (sizeBig == true)
         {

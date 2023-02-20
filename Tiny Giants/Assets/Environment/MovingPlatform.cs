@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using System.Collections;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -67,13 +66,12 @@ public class MovingPlatform : MonoBehaviour
 				rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
 
 				ChangeDirection();
-				MoveDirectionStates(other,tinyBig);
+				MoveDirectionStates(tinyBig);
 			}
 	}
 
-	private void MoveDirectionStates(Collider2D other,TinyBig tinyBig)
+	private void MoveDirectionStates(TinyBig tinyBig)
 	{
-		Rigidbody2D playerRB = other.GetComponent<Rigidbody2D>();
 		Vector2 speed;
 
 		Vector3 position = transform.position;
@@ -91,18 +89,6 @@ public class MovingPlatform : MonoBehaviour
 			rb.velocity = speed;
 			rb.AddRelativeForce(speed);
 		}
-		/*else if (TinyBig.sizeBig && (xPosition <= maxPosition.x && direction == Vector2.left))
-				{
-					speed = direction * movingSpeed;
-					rb.velocity = speed;
-					rb.AddRelativeForce(speed);
-				}
-				else if (!TinyBig.sizeBig && (xPosition >= minPosition.x && oppositeDirection == Vector2.right))
-				{
-					speed = oppositeDirection * movingSpeed;
-					rb.velocity = speed;
-					rb.AddRelativeForce(speed);
-				}*/
 		else
 		{
 			speed = new Vector2(0, 0);

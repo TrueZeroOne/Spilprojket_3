@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Animations;
-using System;
 
 public class TinyBig : MonoBehaviour
 {
@@ -49,19 +45,17 @@ public class TinyBig : MonoBehaviour
     private PolygonCollider2D smallPC;
     private Vector3 sizeDiffrence;
     private Animator playerAni;
+    private AudioManager audioManager;
+    private AudioSource audioSource;
 
-    [SerializeField] AudioClip cantSize;
-    [SerializeField] AudioClip changeSize;
-    [SerializeField] AudioClip rChangeSize;
-
-    private AudioSource playerAudio;
     private Sprite currentSprite;
-    private static readonly int SizeAnimID = Animator.StringToHash("Size");
 
     private void Start()
     {
-        playerAudio = GetComponent<AudioSource>();
         playerAni = GetComponent<Animator>();
+        audioManager = GetComponent<AudioManager>();
+        audioSource = audioManager.playerAudio;
+
         //v3Big = spBig.bounds.extents;
         //v3Small = spSmall.bounds.extents;
         pTF = gameObject.transform;
@@ -76,18 +70,17 @@ public class TinyBig : MonoBehaviour
         sizeDiffrence = spBig.bounds.extents - spSmall.bounds.extents;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         ChangeCollider();
 
         fitsUp = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + currentSize.y+0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.up,10);
-        fitsDown= Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.down,10);
-        Debug.Log("Fits  Up = "+fitsUp.distance + "  Fits Down = "+fitsDown.distance);
+        fitsDown = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - currentSize.y-0.05f), new Vector2(currentSize.x, 0.001f), 0f, Vector2.down,10);
+        //Debug.Log($"Fits Up = {fitsUp.distance}  Fits Down = {fitsDown.distance}");
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + currentSize.y + 0.05f), new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z));
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - currentSize.y - 0.05f), new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z));
 
-        Debug.Log(sizeDiffrence.y);
+        //Debug.Log(sizeDiffrence.y);
 
         if (playerInput.actions["ChangeSize"].triggered)//Key C
         {
@@ -102,7 +95,7 @@ public class TinyBig : MonoBehaviour
                     }
                     else
                     {
-                        PlayAudio(cantSize);
+                        audioManager.PlayCannotGrow();
                     }
                 }
                 else if (isGrabbing)
@@ -114,7 +107,7 @@ public class TinyBig : MonoBehaviour
                     }
                     else
                     {
-                        PlayAudio(cantSize);
+                        audioManager.PlayCannotGrow();
                     }
                 }
 
@@ -151,9 +144,6 @@ public class TinyBig : MonoBehaviour
                 PositionAfterSizeChange();
                 Destroy(GetComponent<CapsuleCollider2D>());
                 gameObject.AddComponent<CapsuleCollider2D>();
-
-                
-
                 currentSprite = GetComponent<SpriteRenderer>().sprite;
                 currentSize = currentSprite.bounds.extents;
             }
@@ -164,25 +154,33 @@ public class TinyBig : MonoBehaviour
 
         if (sizeBig==true)
         {
-            PlayAudio(changeSize);
+            audioManager.PlayGrow();
+            #region OutCommentedCode
+
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pBigX,pBigY,1);
             //bigPC.enabled = true;
             //smallPC.enabled = false;
             //pSR.color = cBig;
-            playerAni.Play("SizeUpGround");
             //currentSize = v3Big;
+
+            #endregion
+            playerAni.Play("SizeUpGround");
         }
         else if (sizeBig == false)
         {
-            PlayAudio(rChangeSize);
+            audioManager.PlayShrink();
+            #region OutCommentedCode
+
             //PositionAfterSizeChange();
             //pTF.localScale = new Vector3(pSmallX, pSmallY, 1);
             //smallPC.enabled = true;
             //bigPC.enabled = false;
             //pSR.color = cSmall;
-            playerAni.Play("SizeDownGround");
             //currentSize = v3Small;
+
+            #endregion
+            playerAni.Play("SizeDownGround");
         }
     }
     private void PositionAfterSizeChange()
@@ -230,10 +228,5 @@ public class TinyBig : MonoBehaviour
                 }
             }
         }
-    }
-    private void PlayAudio(AudioClip clip)
-    {
-        Debug.Log(clip.name+ " Was PLAYED");
-        playerAudio.PlayOneShot(clip);
     }
 }

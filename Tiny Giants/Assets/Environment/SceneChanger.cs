@@ -1,16 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows;
 using UnityEngine.InputSystem;
-using System;
 
 public class SceneChanger : MonoBehaviour
 {
     public int buildIndex;
     public GameObject pressEUI;
-    PlayerInput playerInput;
+    private PlayerInput playerInput;
     [SerializeField] private string input;
-    InputAction action;
+    private InputAction action;
     public bool isActive;
     public void Start()
     {

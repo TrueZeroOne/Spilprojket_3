@@ -27852,10 +27852,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4857511204539846932, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
-      propertyPath: walkAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: fc3fc94e246ea874bad7e595188bae29, type: 3}
     - target: {fileID: 7074397791546094759, guid: 8dba0f850aedb0347814f65ac5068113, type: 3}
       propertyPath: healthText
       value: 
@@ -61976,6 +61972,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1995667551, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.0000153
+      objectReference: {fileID: 0}
     - target: {fileID: 8025693672877168389, guid: 3947ea324827c614e9fac6050730ef4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0

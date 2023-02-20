@@ -1,23 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
-using UnityEngine.Windows;
 using TMPro;
 
 public class KeybindsHelpText : MonoBehaviour
 {
-    PlayerInput playerInput;
+    private PlayerInput playerInput;
     public GameObject keybindHelpUI;
     [SerializeField] private TMP_Text textMP;
     [SerializeField] private string input;
+    private InputAction action;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         keybindHelpUI.SetActive(false);
         playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
@@ -26,7 +21,7 @@ public class KeybindsHelpText : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (playerInput.actions["keybindHelp"].ReadValue<float>() == 1)
         {

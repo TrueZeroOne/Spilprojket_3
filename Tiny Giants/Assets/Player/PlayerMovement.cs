@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
@@ -30,16 +28,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animations")]
     public Animator anim;
 
+    [SerializeField] private AudioClip walkAudio;
+
     [Header("Size Change")]
     public float rbMassBig;
     public float rbMassSmall;
 
     public float rbGSBig;
     public float rbGSSmall;
-
-    [Header("Audio")]
-    [SerializeField] private AudioClip jumpAudio;
-    [SerializeField] private AudioClip walkAudio;
 
     private float horizontalInput;
     private float verticalInput;
@@ -49,9 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveDirectionInput;
-    private static readonly int SizeAnimID = Animator.StringToHash("Size");
-    private static readonly int IdleAnimID = Animator.StringToHash("Idle");
-    private static readonly int JumpAnimID = Animator.StringToHash("Jump");
+    private static readonly int SizeAnimID = Animator.StringToHash("size");
     private static readonly int Speed = Animator.StringToHash("speed");
     private static readonly int JumpSpeed = Animator.StringToHash("jumpSpeed");
     private static readonly int IsGrabbed = Animator.StringToHash("isGrabbed");
@@ -132,19 +126,6 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        AudioSource AS = GetComponent<AudioSource>();
-        if (grounded &&horizontalInput < -0.05  || horizontalInput > 0.05 && grounded)
-        {
-            AS.clip = walkAudio;
-            AS.volume = 0.2f;
-            if (!AS.isPlaying)
-                AS.Play();
-        }
-        else
-        {
-            AS.Stop();
-            AS.volume = 1;
-        }
     }
 
     public void MovePlayer()
@@ -199,8 +180,6 @@ public class PlayerMovement : MonoBehaviour
             currentAnimState = AnimStates.smallJump;
             rb.AddForce(transform.up * jumpForceSmall, ForceMode2D.Impulse);
         }
-        GetComponent<AudioSource>().clip = jumpAudio;
-        GetComponent<AudioSource>().Play();
     }
     private void ResetJump()
     {
@@ -275,27 +254,15 @@ public class PlayerMovement : MonoBehaviour
         //print($"{rb.velocity.y} | {grounded} | {tinyBig.sizeBig}");
         if (tinyBig.sizeBig)
         {
-            if (rb.velocity.y is >= -7.159f and <= 0.01f)
-            {
-                anim.SetFloat(JumpSpeed, 0);
-            }
-            else
-            {
-                anim.SetFloat(JumpSpeed, rb.velocity.y);
-            }
+            if (rb.velocity.y is >= -7.159f and <= 0.01f) anim.SetFloat(JumpSpeed, 0);
+            else anim.SetFloat(JumpSpeed, rb.velocity.y);
         }
         else
         {
-            if (rb.velocity.y is >= -4.959f and <= 0.01f)
-            {
-                anim.SetFloat(JumpSpeed, 0);
-            }
-            else
-            {
-                anim.SetFloat(JumpSpeed, rb.velocity.y);
-            }
+            if (rb.velocity.y is >= -4.959f and <= 0.01f) anim.SetFloat(JumpSpeed, 0);
+            else anim.SetFloat(JumpSpeed, rb.velocity.y);
         }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Eat")) 
             print("Eat");
         anim.SetBool(IsGrabbed, grabbingPlatform);
         anim.SetFloat(Speed, rb.velocity.x);
@@ -337,7 +304,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool(JumpAnimID, true);
         }*/
 
-  #endregion
+        #endregion
     }
 }
 public enum AnimStates

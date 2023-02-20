@@ -1,34 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject gameCanvas;
     public GameObject pauseMenu;
 
-    PlayerInput playerInput;
-    [SerializeField] private TMP_Text textMP;
+    private PlayerInput playerInput;
     [SerializeField] private string input;
-    InputAction action;
+    private InputAction action;
     public bool isPaused;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         pauseMenu.SetActive(false);
-        playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
         action = playerInput.actions[input];
-        textMP.text = action.bindings[0].ToDisplayString();
     }
     public void Update()
     {
         if (action.triggered)
         {
             isPaused = !isPaused;
-            Debug.Log("Escape was pressed");
+            //Debug.Log("Escape was pressed");
         }
         if (!isPaused)
         {
