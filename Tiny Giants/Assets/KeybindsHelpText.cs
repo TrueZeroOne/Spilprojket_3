@@ -8,7 +8,7 @@ public class KeybindsHelpText : MonoBehaviour
     public GameObject keybindHelpUI;
     [SerializeField] private TMP_Text textMP;
     [SerializeField] private string input;
-    private InputAction action;
+    [SerializeField] private int actionNr;
 
 
     // Start is called before the first frame update
@@ -17,6 +17,10 @@ public class KeybindsHelpText : MonoBehaviour
         keybindHelpUI.SetActive(false);
         playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         InputAction action = playerInput.actions[input];
+        if (action.bindings[0].isComposite)
+        {
+            Debug.Log("Composite");
+        }
         textMP.text = action.bindings[0].ToDisplayString();
     }
 
