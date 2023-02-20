@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -28,7 +29,10 @@ public class AudioManager : MonoBehaviour
 			if (!playerWalkAudio.isPlaying) playerWalkAudio.Play();
 		}
 		else playerWalkAudio.Stop();
-		if (animator.GetFloat(JumpSpeedAnimID) > 0.01 && !animator.GetBool(OnPlatformAnimID)) PlayAudio(jumpAudio);
+		if (animator.GetFloat(JumpSpeedAnimID) > 0.01 && !animator.GetBool(OnPlatformAnimID))
+		{
+			PlayAudio(jumpAudio);
+		}
 	}
 	public void PlayCannotGrow() => PlayAudio(cantSize);
 	public void PlayGrow() => PlayAudio(changeSize);

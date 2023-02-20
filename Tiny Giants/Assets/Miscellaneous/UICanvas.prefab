@@ -670,6 +670,8 @@ GameObject:
   - component: {fileID: 1326963121}
   - component: {fileID: 1971255732}
   - component: {fileID: 1971255733}
+  - component: {fileID: 7394011762406924166}
+  - component: {fileID: 4443936182535855243}
   m_Layer: 0
   m_Name: Keybindhelper
   m_TagString: Untagged
@@ -708,6 +710,7 @@ MonoBehaviour:
   textMP: {fileID: 1395467072}
   input: Pull
   actionNr: 0
+  IAR: {fileID: 0}
 --- !u!114 &1971255732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,6 +727,7 @@ MonoBehaviour:
   textMP: {fileID: 1596989981}
   input: ChangeSize
   actionNr: 0
+  IAR: {fileID: 0}
 --- !u!114 &1971255733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,6 +744,41 @@ MonoBehaviour:
   textMP: {fileID: 422949263}
   input: Jump
   actionNr: 0
+  IAR: {fileID: 0}
+--- !u!114 &7394011762406924166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326963120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938020ddcb9d7da49b300b18e7eafb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keybindHelpUI: {fileID: 1129107405}
+  textMP: {fileID: 422949263}
+  input: Move
+  actionNr: 0
+  IAR: {fileID: -486766386587755787, guid: 9dffb0e41c7125a4aac52f8f04bd21a7, type: 3}
+--- !u!114 &4443936182535855243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326963120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938020ddcb9d7da49b300b18e7eafb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keybindHelpUI: {fileID: 1129107405}
+  textMP: {fileID: 422949263}
+  input: Move
+  actionNr: 0
+  IAR: {fileID: -486766386587755787, guid: 9dffb0e41c7125a4aac52f8f04bd21a7, type: 3}
 --- !u!1 &1395467071
 GameObject:
   m_ObjectHideFlags: 0

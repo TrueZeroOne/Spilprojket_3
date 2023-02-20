@@ -9,6 +9,7 @@ public class KeybindsHelpText : MonoBehaviour
     [SerializeField] private TMP_Text textMP;
     [SerializeField] private string input;
     [SerializeField] private int actionNr;
+    [SerializeField] private InputActionReference IAR;
 
 
     // Start is called before the first frame update
