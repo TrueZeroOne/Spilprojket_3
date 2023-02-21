@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 7336759664338596366}
   - component: {fileID: 7336759664338596365}
   - component: {fileID: 7336759664338596367}
+  - component: {fileID: 4592412886798974238}
   m_Layer: 5
   m_Name: QuitCloud
   m_TagString: Untagged
@@ -130,6 +131,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2.5}
   m_UseGraphicAlpha: 1
+--- !u!225 &4592412886798974238
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7336759664338596371}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &7336759662918309031
 PrefabInstance:
   m_ObjectHideFlags: 0
