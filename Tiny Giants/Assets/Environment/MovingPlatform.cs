@@ -7,6 +7,7 @@ public class MovingPlatform : MonoBehaviour
 	[SerializeField] private float movingSpeed = 1.11f;
 	[SerializeField] private Vector2 maxPosition, minPosition;
 	[SerializeField] private AudioClip leafNoise;
+	[SerializeField] private AnimationCurve animationSpeedCurve;
 
 	private Rigidbody2D rb;
 	private Vector2 direction;
@@ -79,13 +80,13 @@ public class MovingPlatform : MonoBehaviour
 
 		if (tinyBig.sizeBig && yPosition <= maxPosition.y && direction == Vector2.up)
 		{
-			speed = direction * movingSpeed;
+			speed = direction * (movingSpeed * animationSpeedCurve.Evaluate(rb.velocity.y));
 			rb.velocity = speed;
 			rb.AddRelativeForce(speed);
 		}
 		else if (!tinyBig.sizeBig && yPosition >= minPosition.y && oppositeDirection == Vector2.down)
 		{
-			speed = oppositeDirection * movingSpeed;
+			speed = oppositeDirection * (movingSpeed * animationSpeedCurve.Evaluate(+rb.velocity.y));
 			rb.velocity = speed;
 			rb.AddRelativeForce(speed);
 		}

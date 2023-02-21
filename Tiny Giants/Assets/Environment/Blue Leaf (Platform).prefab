@@ -154,6 +154,30 @@ MonoBehaviour:
   maxPosition: {x: 0, y: 100}
   minPosition: {x: 0, y: -100}
   leafNoise: {fileID: 8300000, guid: 4dc0f2f7b39b3c8468b1348bb4d4e1a9, type: 3}
+  animationSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0000034009572
+      value: 0.49981445
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!61 &2589739213585812299
 BoxCollider2D:
   m_ObjectHideFlags: 0
