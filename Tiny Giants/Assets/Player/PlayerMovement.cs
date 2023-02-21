@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundDrag;
     public LayerMask whatIsGround;
 
+    private Vector2 playerSize;
     public float playerHeight;
     public bool grounded;
 
@@ -71,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         readyToJump = true;
-        playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
+        playerSize = GetComponent<SpriteRenderer>().sprite.bounds.extents;
+        playerHeight = playerSize.y;
         tinyBig = GetComponent<TinyBig>();
         if (playerInput == null) playerInput = GetComponent<PlayerInput>();
     }
@@ -81,8 +83,9 @@ public class PlayerMovement : MonoBehaviour
         UpdateAnimVariables();
 
         //Ground Check
-        playerHeight = GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
-        grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight + 0.05f, whatIsGround);
+        playerSize = GetComponent<SpriteRenderer>().sprite.bounds.extents;
+        playerHeight = playerSize.y;
+        grounded = Physics2D.BoxCast(transform.position, new Vector2(playerSize.x, 0.05f),0, Vector2.down, playerHeight + 0.1f, whatIsGround);
         //Debug.Log("Eagle has Landed");
 
         //AnimStateMachine();
