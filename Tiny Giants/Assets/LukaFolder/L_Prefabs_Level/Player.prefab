@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 4857511204539846932}
   - component: {fileID: 5902683083011812005}
   - component: {fileID: 7074397791546094759}
-  - component: {fileID: 4706652649157024872}
   - component: {fileID: 3730826043134825129}
   - component: {fileID: 6746917071681402851}
   - component: {fileID: 6405029795684297948}
@@ -327,24 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
---- !u!114 &4706652649157024872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813855101357193717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f07e6d257b0b6245a4ce4065206a445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tinyPlayerFallDamageDistance: 6.5
-  bigPlayerFallDamageDistance: 7.5
-  raycastRange: 8
-  fallDamage: 2
-  hurtAudio: {fileID: 8300000, guid: 9eaddaf2756f7104fa00c910a9b2806e, type: 3}
-  tinyBig: {fileID: 5902683083011812005}
 --- !u!114 &3730826043134825129
 MonoBehaviour:
   m_ObjectHideFlags: 0
