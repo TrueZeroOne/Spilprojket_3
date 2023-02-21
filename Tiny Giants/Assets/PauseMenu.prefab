@@ -3369,7 +3369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &730296036277939197
 Transform:
   m_ObjectHideFlags: 0
@@ -4440,6 +4440,7 @@ GameObject:
   - component: {fileID: 5011200032642455118}
   - component: {fileID: 5011200032642455121}
   - component: {fileID: 5011200032642455120}
+  - component: {fileID: 2136156444}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -4535,6 +4536,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2136156444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011200032642455123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781884e4fbe296247983862a05b22719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: PauseGame
+  isPaused: 0
+  settingsCanvas: {fileID: 3985133356293090431}
+  keyBindsCanvas: {fileID: 3189847842799397855}
+  keyBindsManager: {fileID: 3307414782093410315}
+  pauseMenu: {fileID: 3367997679589892454}
+  gameCanvas: {fileID: 0}
 --- !u!1 &5011200033864277724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6430,7 +6450,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6620,8 +6640,8 @@ RectTransform:
   m_Father: {fileID: 6093045875598755314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8933,18 +8953,18 @@ PrefabInstance:
     - target: {fileID: 1514715200498146202, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2136156444}
     - target: {fileID: 1514715200498146202, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1514715200498146202, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: KeybindsMenu
+      value: Keybinds
       objectReference: {fileID: 0}
     - target: {fileID: 1514715200498146202, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
+      value: pauseMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1514715200498146202, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -9707,10 +9727,14 @@ PrefabInstance:
     - target: {fileID: 4478033782611636626, guid: 06688f0d6d4682841b0508891a745451, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3232528855390921096, guid: cca550f9388c8a44ab7c946899ea1073, type: 3}
+      objectReference: {fileID: 2136156444}
     - target: {fileID: 4478033782611636626, guid: 06688f0d6d4682841b0508891a745451, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SettingsMenu
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478033782611636626, guid: 06688f0d6d4682841b0508891a745451, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: pauseMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06688f0d6d4682841b0508891a745451, type: 3}
@@ -9942,7 +9966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514715200498146203, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.44342
+      value: -19.4434
       objectReference: {fileID: 0}
     - target: {fileID: 1514715200498146203, guid: 18f4bb7012bcc47448d001188f6cbcbb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
