@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerInput.actions["Jump"].triggered && readyToJump && grounded)
         {
             readyToJump = false;
-
+            audioManager.PlayJump();
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -172,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        audioManager.PlayJump();
         if (tinyBig.sizeBig)
         {
             // reset y velocity
