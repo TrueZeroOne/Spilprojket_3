@@ -748,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Somni-NOM
+  m_text: '
 
 
 
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tiny Giants
+  m_text: 'Wait For Credits - Tiny Giants
 
 
 
