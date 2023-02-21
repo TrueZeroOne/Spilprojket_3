@@ -595,7 +595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -381.51978}
+  m_AnchoredPosition: {x: -15, y: -26}
   m_SizeDelta: {x: 589.3154, y: 1010.823}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1343646097
@@ -635,8 +635,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -54.873974}
-  m_SizeDelta: {x: 0, y: -109.75}
+  m_AnchoredPosition: {x: 0, y: -68.706}
+  m_SizeDelta: {x: 0, y: -137.415}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343646099
 MonoBehaviour:
@@ -748,8 +748,82 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Anton\nMathias\nLuka\nLucas\n\nRaven\nClara\nFenris\n\nAnton\nLuka\n\nFenris\nLucas\n\nClara\nLuka\n\nLucas\nRaven\n\nLuka\n\nMathias\n\nFenris\n\nPeople
-    that \ngave feedback\n\nAll testers\n\nTeachers\n\n& more"
+  m_text: 'Somni-NOM
+
+
+
+
+
+
+
+
+
+    Anton
+
+    Mathias
+
+    Luka
+
+    Lucas
+
+
+    Raven
+
+    Clara
+
+    Fenris
+
+
+    Anton
+
+    Luka
+
+
+    Fenris
+
+    Lucas
+
+
+    Clara
+
+    Luka
+
+
+    Lucas
+
+    Raven
+
+
+    Luka
+
+
+    Mathias
+
+
+    Fenris
+
+
+    8B
+
+    NGI:
+    No Glue Interactive
+
+    The Lady''s Book Club
+
+    Cave Games
+
+    Beef Jerky
+    Bagels
+
+    Paladis Software
+
+
+    (Others)
+
+    All testers
+
+
+    & more'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1238,7 +1312,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmers
+  m_text: 'Tiny Giants
+
+
+
+
+
+
+
+
+
+    Programmers
 
 
 
@@ -1249,7 +1333,8 @@ MonoBehaviour:
 
 
 
-    Project Leader
+    Project
+    Leader
 
 
 
@@ -1257,8 +1342,7 @@ MonoBehaviour:
 
 
 
-    Audio
-    Designer
+    Audio Designer
 
 
 
@@ -1266,17 +1350,18 @@ MonoBehaviour:
 
 
 
-    The Connector
+    The
+    Connector
 
 
     Primary Programmer
 
 
-    Primary
-    Artist
+    Primary Artist
 
 
-    Special Thanks'
+    Special Thanks
+    To'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
