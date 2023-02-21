@@ -1,11 +1,10 @@
 using System.Collections;
-using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
 	[Header("Audio"), SerializeField] private AudioClip cantSize;
-	[SerializeField] private AudioClip changeSize, rChangeSize, jumpAudio, walkAudio;
+	[SerializeField] private AudioClip changeSize, rChangeSize, grab, jumpAudio, walkAudio;
 
 	public AudioSource playerAudio, playerWalkAudio;
 	private PlayerMovement playerMovement;
@@ -33,10 +32,12 @@ public class AudioManager : MonoBehaviour
 		{
 			PlayAudio(jumpAudio);
 		}
+		
 	}
 	public void PlayCannotGrow() => PlayAudio(cantSize);
 	public void PlayGrow() => PlayAudio(changeSize);
 	public void PlayShrink() => PlayAudio(rChangeSize);
+	public void PlayGrab() => PlayAudio(grab);
 	private void PlayAudio(AudioClip clip) => StartCoroutine(PlayAudioClipOnce(clip));
 	private IEnumerator PlayAudioClipOnce(AudioClip clip)
 	{

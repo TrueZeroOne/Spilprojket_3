@@ -535,6 +535,7 @@ MonoBehaviour:
   cantSize: {fileID: 8300000, guid: 7983752110c696e4ea003c9ef01a1b5d, type: 3}
   changeSize: {fileID: 8300000, guid: 5d66f54bc0911e844ac62c347d338c71, type: 3}
   rChangeSize: {fileID: 8300000, guid: 8a08037f35bef4a48b17168f4b519de5, type: 3}
+  grab: {fileID: 8300000, guid: ea04f18b2edd67b4e9ed6f16a9fa50df, type: 3}
   jumpAudio: {fileID: 8300000, guid: 9842a300e7522464a8fc3ce830c81164, type: 3}
   walkAudio: {fileID: 8300000, guid: fc3fc94e246ea874bad7e595188bae29, type: 3}
   playerAudio: {fileID: 5064264768817083770}

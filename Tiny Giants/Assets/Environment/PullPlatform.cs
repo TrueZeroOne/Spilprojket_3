@@ -10,12 +10,14 @@ public class PullPlatform : MonoBehaviour
     private TinyBig tinyBig;
     private PlayerInput playerInput;
     private float playerHeight;
+    private AudioManager audioManager;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tinyBig = player.GetComponent<TinyBig>();
         playerInput = player.GetComponent<PlayerInput>();
         playerHeight = player.GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
+        audioManager = player.GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -29,6 +31,7 @@ public class PullPlatform : MonoBehaviour
             {
                 if (Vector2.Distance(nearestToPoint, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.5f)
                 {
+                    audioManager.PlayGrab();
                     player.GetComponent<Rigidbody2D>().gravityScale = 0;
                     player.GetComponent<PlayerMovement>().grabbingPlatform = true;
                     gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
