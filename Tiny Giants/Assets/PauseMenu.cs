@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject gameCanvas;
     public GameObject pauseMenu;
+    public GameObject settingsMenu, keybindsMenu;
 
     private PlayerInput playerInput;
     [SerializeField] private string input;
