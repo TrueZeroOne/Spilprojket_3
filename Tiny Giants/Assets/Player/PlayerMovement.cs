@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = moveDirectionInput.y;
 
         // when to jump
-        if (playerInput.actions["Jump"].triggered && readyToJump && grounded)
+        if (playerInput.actions["Jump"].triggered && readyToJump && grounded && !grabbingPlatform)
         {
             readyToJump = false;
             audioManager.PlayJump();
