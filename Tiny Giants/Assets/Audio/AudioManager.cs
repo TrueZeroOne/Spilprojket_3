@@ -28,12 +28,8 @@ public class AudioManager : MonoBehaviour
 			if (!playerWalkAudio.isPlaying) playerWalkAudio.Play();
 		}
 		else playerWalkAudio.Stop();
-		if (animator.GetFloat(JumpSpeedAnimID) > 0.01 && !animator.GetBool(OnPlatformAnimID))
-		{
-			PlayAudio(jumpAudio);
-		}
-		
 	}
+	public void PlayJump() => PlayAudio(jumpAudio);
 	public void PlayCannotGrow() => PlayAudio(cantSize);
 	public void PlayGrow() => PlayAudio(changeSize);
 	public void PlayShrink() => PlayAudio(rChangeSize);

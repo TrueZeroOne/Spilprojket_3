@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
@@ -42,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     public bool grabbingPlatform;
     private TinyBig tinyBig;
     public AnimStates currentAnimState;
+    
+    private AudioManager audioManager;
 
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveDirectionInput;
@@ -63,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Start()
     {
+        audioManager = GetComponent<AudioManager>();
         tb = GetComponent<TinyBig>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -165,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        
+        audioManager.PlayJump();
         if (tinyBig.sizeBig)
         {
             // reset y velocity
