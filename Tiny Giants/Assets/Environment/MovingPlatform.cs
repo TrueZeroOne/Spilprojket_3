@@ -86,7 +86,7 @@ public class MovingPlatform : MonoBehaviour
 		}
 		else if (!tinyBig.sizeBig && yPosition >= minPosition.y && oppositeDirection == Vector2.down)
 		{
-			actualSpeed = oppositeDirection * ((movingSpeed * animationSpeedCurve.Evaluate(+rb.velocity.y)) * 2);
+			actualSpeed = oppositeDirection * (movingSpeed * animationSpeedCurve.Evaluate(+rb.velocity.y) * 4);
 			rb.velocity = actualSpeed;
 			rb.AddRelativeForce(actualSpeed);
 		}
