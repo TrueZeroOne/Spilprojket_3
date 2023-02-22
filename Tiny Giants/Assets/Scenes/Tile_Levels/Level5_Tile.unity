@@ -15310,7 +15310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689509440721376076, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
@@ -15326,6 +15326,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2034729552}
     m_Modifications:
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577676, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_Name
       value: Long Leaf (Platform)
@@ -15380,6 +15400,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577679, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641753918236978183, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15599,7 +15623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689509440721376076, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
@@ -15622,6 +15646,26 @@ PrefabInstance:
     - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.876
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577676, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_Name
@@ -15673,6 +15717,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577678, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641753918236978183, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -60143,6 +60143,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577676, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_Name
       value: Long Leaf (Platform)
@@ -60189,6 +60209,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577678, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641753918236978183, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
