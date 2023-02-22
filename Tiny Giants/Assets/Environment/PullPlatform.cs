@@ -35,6 +35,7 @@ public class PullPlatform : MonoBehaviour
                 gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 isGrabbed = true;
                 player.GetComponent<TinyBig>().isGrabbing = true;
+                transform.Find("HandleBase").GetComponent<SpriteRenderer>().color = Color.green;
             }
         }
         else if (playerInput.actions["Pull"].ReadValue<float>() < 0.5f&&isGrabbed)
@@ -43,8 +44,9 @@ public class PullPlatform : MonoBehaviour
             player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
             player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = false;
             gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            isGrabbed = !isGrabbed;
+            isGrabbed = false;
             player.GetComponent<TinyBig>().isGrabbing = false;
+            transform.Find("HandleBase").GetComponent<SpriteRenderer>().color = Color.red;
         }
             
         if (isGrabbed)

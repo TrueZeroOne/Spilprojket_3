@@ -178,6 +178,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  actualSpeed: {x: 0, y: 0}
 --- !u!61 &2589739213585812299
 BoxCollider2D:
   m_ObjectHideFlags: 0
