@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Pull",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "0cf52540-538b-4cfc-b1e4-a0c2bdc669e1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Move",

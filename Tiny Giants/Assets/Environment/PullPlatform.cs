@@ -24,32 +24,29 @@ public class PullPlatform : MonoBehaviour
     {
         playerHeight = player.GetComponent<SpriteRenderer>().sprite.bounds.extents.y;
         Vector2 nearestToPoint = player.GetComponent<CapsuleCollider2D>().ClosestPoint(transform.position);
-        
-        if (playerInput.actions["Pull"].triggered)
+
+        if (playerInput.actions["Pull"].ReadValue<float>() > 0.5f)
         {
-            if (!isGrabbed)
+            if (Vector2.Distance(nearestToPoint, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y + 0.5f)
             {
-                if (Vector2.Distance(nearestToPoint, transform.position) <= GetComponent<SpriteRenderer>().sprite.bounds.extents.y+0.5f)
-                {
-                    audioManager.PlayGrab();
-                    player.GetComponent<Rigidbody2D>().gravityScale = 0;
-                    player.GetComponent<PlayerMovement>().grabbingPlatform = true;
-                    gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-                    isGrabbed = !isGrabbed;
-                    player.GetComponent<TinyBig>().isGrabbing = true;
-                }
+                audioManager.PlayGrab();
+                player.GetComponent<Rigidbody2D>().gravityScale = 0;
+                player.GetComponent<PlayerMovement>().grabbingPlatform = true;
+                gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                isGrabbed = true;
+                player.GetComponent<TinyBig>().isGrabbing = true;
             }
-            else if (isGrabbed)
-            {
-                Debug.Log("LET IT GO!!!");
-                player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = false;
-                gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-                isGrabbed = !isGrabbed;
-                player.GetComponent<TinyBig>().isGrabbing = false;
-            }
-            
         }
+        else if (playerInput.actions["Pull"].ReadValue<float>() < 0.5f&&isGrabbed)
+        {
+            Debug.Log("LET IT GO!!!");
+            player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+            player.gameObject.GetComponent<PlayerMovement>().grabbingPlatform = false;
+            gameObject.GetComponentInParent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            isGrabbed = !isGrabbed;
+            player.GetComponent<TinyBig>().isGrabbing = false;
+        }
+            
         if (isGrabbed)
         {
             if (!tinyBig.sizeBig)
