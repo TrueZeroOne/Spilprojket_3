@@ -59490,6 +59490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3174912615774457194, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
+      propertyPath: movingSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3174912615774457196, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Name
       value: Big Leaf (Platform) (1)
@@ -59547,6 +59551,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2589739213585812298, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
+      propertyPath: movingSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2589739213585812300, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
       propertyPath: m_Name
       value: Blue Leaf (Platform) (1)
@@ -60029,6 +60037,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2589739213585812298, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
+      propertyPath: movingSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2589739213585812300, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
       propertyPath: m_Name
       value: Blue Leaf (Platform)
@@ -60086,6 +60098,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3174912615774457194, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
+      propertyPath: movingSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3174912615774457196, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Name
       value: Big Leaf (Platform)
@@ -60162,6 +60178,10 @@ PrefabInstance:
     - target: {fileID: 463846363191214965, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171804776754577674, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
+      propertyPath: movingSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4171804776754577676, guid: 79ab1f7679104924fa435171860dd01e, type: 3}
       propertyPath: m_Name

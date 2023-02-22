@@ -9,6 +9,8 @@ public class MovingPlatform : MonoBehaviour
 	[SerializeField] private AudioClip leafNoise;
 	[SerializeField] private AnimationCurve animationSpeedCurve;
 
+	[SerializeField] private Vector2 actualSpeed;
+
 	private Rigidbody2D rb;
 	private Vector2 direction;
 	private Vector2 oppositeDirection;
@@ -73,29 +75,27 @@ public class MovingPlatform : MonoBehaviour
 
 	private void MoveDirectionStates(TinyBig tinyBig)
 	{
-		Vector2 speed;
-
 		Vector3 position = transform.position;
 		float yPosition = position.y, xPosition = position.x;
 
 		if (tinyBig.sizeBig && yPosition <= maxPosition.y && direction == Vector2.up)
 		{
-			speed = direction * (movingSpeed * animationSpeedCurve.Evaluate(rb.velocity.y));
-			rb.velocity = speed;
-			rb.AddRelativeForce(speed);
+			actualSpeed = direction * (movingSpeed * animationSpeedCurve.Evaluate(rb.velocity.y));
+			rb.velocity = actualSpeed;
+			rb.AddRelativeForce(actualSpeed);
 		}
 		else if (!tinyBig.sizeBig && yPosition >= minPosition.y && oppositeDirection == Vector2.down)
 		{
-			speed = oppositeDirection * (movingSpeed * animationSpeedCurve.Evaluate(+rb.velocity.y));
-			rb.velocity = speed;
-			rb.AddRelativeForce(speed);
+			actualSpeed = oppositeDirection * ((movingSpeed * animationSpeedCurve.Evaluate(+rb.velocity.y)) * 2);
+			rb.velocity = actualSpeed;
+			rb.AddRelativeForce(actualSpeed);
 		}
 		else
 		{
-			speed = new Vector2(0, 0);
-			rb.velocity = speed;
+			actualSpeed = new Vector2(0, 0);
+			rb.velocity = actualSpeed;
 			rb.constraints = RigidbodyConstraints2D.FreezeAll;
-			rb.AddRelativeForce(speed);
+			rb.AddRelativeForce(actualSpeed);
 		}
 	}
 
