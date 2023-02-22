@@ -89,6 +89,9 @@ public class MovingPlatform : MonoBehaviour
 			actualSpeed = oppositeDirection * (movingSpeed * animationSpeedCurve.Evaluate(+rb.velocity.y) * 2);
 			rb.velocity = actualSpeed;
 			rb.AddRelativeForce(actualSpeed);
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			if (player.GetComponent<Rigidbody2D>().velocity.y < 0)
+				player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, rb.velocity.y) ;
 		}
 		else
 		{
