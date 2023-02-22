@@ -7763,7 +7763,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3174912615774457194, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: movingSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3174912615774457196, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Name
@@ -8371,6 +8371,10 @@ PrefabInstance:
     - target: {fileID: 340675749058110533, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
       propertyPath: MinDistance
       value: 0.80202675
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589739213585812298, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
+      propertyPath: movingSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2589739213585812300, guid: 9385ad6fa802d5e4fbb4c3c507927af8, type: 3}
       propertyPath: m_Name

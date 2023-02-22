@@ -22541,6 +22541,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3174912615774457194, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
+      propertyPath: movingSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3174912615774457196, guid: 4ebf52961e6e9b14789e3c967284cfcb, type: 3}
       propertyPath: m_Name
       value: Big Leaf (Platform)
