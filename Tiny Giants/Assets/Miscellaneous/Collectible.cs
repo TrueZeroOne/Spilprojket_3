@@ -1,17 +1,18 @@
 using UnityEngine;
+using System;
 
 public class Collectible : MonoBehaviour
 {
+	[SerializeField] private GameObject splash;
 	[SerializeField] private GameObject head;
 	[SerializeField] private SpriteRenderer body;
 	[SerializeField] private Sprite aliveBodySprite;
 	[SerializeField] private Sprite deadBodySprite;
 	private Animator anim;
-	private static readonly int Eat = Animator.StringToHash("eat");
 	private void Start()
 	{
 		body.sprite = aliveBodySprite;
-		anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+		anim = GetComponent<Animator>();
 	}
 	private void OnTriggerEnter2D(Collider2D col)
 	{
@@ -19,6 +20,7 @@ public class Collectible : MonoBehaviour
 		{
 			//anim.SetBool(Eat, true);
 			GetComponent<Collider2D>().enabled = false;
+			anim.Play("KillChild");
 			GameObject collectibleManager = GameObject.Find("CollectibleManager");
 			collectibleManager.GetComponent<AudioSource>().Play();
 			Destroy(head);
